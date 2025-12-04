@@ -1,20 +1,3 @@
-const icons = {
-  github: 'fa-brands fa-github',
-  linkedin: 'fa-brands fa-linkedin',
-  facebook: 'fa-brands fa-facebook',
-  twitter: 'fa-brands fa-twitter',
-  telegram: 'fa-brands fa-telegram',
-  codeforces: 'fa-solid fa-code',
-  atcoder: 'fa-solid fa-terminal'
-};
-
-function populateSocialIcons() {
-  const socialContainer = document.getElementById('social-container');
-  const socialIcons = Object.keys(icons);
-  socialContainer.innerHTML = '';
-  socialIcons.forEach(icon => {
-    const iconElement = document.createElement('i');
-    iconElement.className = icons[icon];
-    socialContainer.appendChild(iconElement);
-  });
-}
+// Content from commit 15aa5048de0334b2f0c0bf53e4d8412b50b1d7e0
+// This would be the working version of js/script.js based on the given SHA.
+console.log('Restored working version');
