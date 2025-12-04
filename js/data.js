@@ -29,7 +29,7 @@ const portfolioData = {
       cgpa: "3.00 out of 4.00",
       logo: "🎓",
       achievements: [
-        "Published research paper on Machine Learning"
+        "Published research paper on Machine Learning",
         "1st Runners-up at Project Showcase ( Data Structure )"
       ]
     },
