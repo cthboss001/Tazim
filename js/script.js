@@ -152,7 +152,7 @@ function populatePersonalInfo() {
   const profileImage = document.getElementById('profile-image');
   profileImage.src = data.profileImage;
   profileImage.onerror = function() {
-    this.src = 'https://via.placeholder.com/400x400/1e1e2e/00D9FF?text=' + encodeURIComponent(data.name);
+    this.src = `https://via.placeholder.com/400x400/1e1e2e/00D9FF?text=${encodeURIComponent(data.name)}`;
   };
   
   // Social icons
@@ -337,7 +337,7 @@ function populateProjects() {
     card.innerHTML = `
       <div class="project-image">
         <img src="${project.image}" alt="${project.title}" loading="lazy" 
-             onerror="this.src='https://via.placeholder.com/400x300/1e1e2e/00D9FF?text=${encodeURIComponent(project.title)}'">
+             onerror="this.src='https://via.placeholder.com/400x300/1e1e2e/00D9FF?text=' + encodeURIComponent('${project.title}')">
         <div class="project-overlay">
           <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
             <i class="fab fa-github"></i>
@@ -555,7 +555,7 @@ function initContactForm() {
       form.reset();
       
       // In a real application, you would send the data to a server here
-      console.log('Form submitted:', { name, email, subject, message });
+      // Form data validation passed - ready for server submission
     } else {
       formStatus.textContent = 'Please fix the errors above.';
       formStatus.className = 'form-status error';
@@ -627,9 +627,7 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ========================================
-// Console Easter Egg
+// Console Message (optional - remove in production)
 // ========================================
-console.log('%c👋 Hello, Developer!', 'font-size: 20px; font-weight: bold; color: #00D9FF;');
-console.log('%cLike what you see? Let\'s connect!', 'font-size: 14px; color: #10B981;');
-console.log(`%cEmail: ${portfolioData.personal.email}`, 'font-size: 12px; color: #b9bbbe;');
-console.log(`%cGitHub: ${portfolioData.personal.social.github}`, 'font-size: 12px; color: #b9bbbe;');
+// console.log('%c👋 Hello, Developer!', 'font-size: 20px; font-weight: bold; color: #00D9FF;');
+// console.log('%cLike what you see? Let\'s connect!', 'font-size: 14px; color: #10B981;');

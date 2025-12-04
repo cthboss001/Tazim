@@ -65,7 +65,7 @@ const portfolioData = {
 
   skills: {
     programming: [
-      { name: "C", icon: "fa-solid fa-c", level: 85 },
+      { name: "C", icon: "fa-solid fa-code", level: 85 },
       { name: "C++", icon: "fa-solid fa-code", level: 90 },
       { name: "Java", icon: "fa-brands fa-java", level: 80 },
       { name: "Python", icon: "fa-brands fa-python", level: 85 },
