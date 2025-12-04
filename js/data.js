@@ -4,13 +4,13 @@ const portfolioData = {
     name: "Tazim Hossen",
     title: "Undergraduate Student, Department of Computer Science and Engineering, Daffodil International University",
     tagline: ["Software Engineer", "Problem Solver"],
-    bio: "I’m Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills.",
+    bio: "I'm Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills.",
     objective: "Seeking a challenging Junior Software Engineer position where I can apply my technical skills and creativity to develop innovative solutions while contributing to team success and professional growth.",
     email: "tazimhossen001@gmail.com",
     phone: "+880 1744782478",
     location: "Dhaka, Bangladesh",
     dob: "January 1, 2000",
-    profileImage: "https://lh3.googleusercontent.com/sitesv/AAzXCkexd8lk8RG3fDvAC50UOkfrnTk30aIfxg5LqaaRxgSpgFzJ4cfEp2eQIdm9KF63Xz5nR3kqYrLads-ObNMj9tXcNgFRUEIHkUnESr7mP1T2b6uCe_WHbE-hZR4uIoHNF0vDuWHsmbPe7ZioQxEVmBBht0yUa5bLN6dO5KUqwGAtsuhiYu_LNa6AzuCOi8LGO37UZyI0NzkQO6R1cX17J3zrX3k8qDOkjroKOLU=w1280",
+    profileImage: "https://lh3.googleusercontent.com/sitesv/AAzXCkexd8lk8RG3fDvAC50UOkfrnTk30aIfxg5LqaaRxgSpgFzJ4cfEp2eQIdm9KF63Xz5nR3kqYrLads-ObNMj9tXcNgFRUEIHkUnESr7mP1T2b6uCe_WHbE-hZR4uIoHNF0vD",
     resumeLink: "#",
     social: {
       github: "https://github.com/cthboss001",
@@ -30,7 +30,7 @@ const portfolioData = {
       logo: "🎓",
       achievements: [
         "Published research paper on Machine Learning",
-        "1st Runners-up at Project Showcase ( Data Structure )"
+        "1st Runners-up at Project Showcase ( Data Structure )"
       ]
     },
     {
@@ -42,9 +42,8 @@ const portfolioData = {
       gpa: "4.92 out of 5.00",
       board: "Dhaka Board",
       logo: "📚",
-      
-    },
-  
+      achievements: []
+    }
   ],
 
   skills: {
@@ -73,7 +72,7 @@ const portfolioData = {
     database: [
       { name: "MySQL", icon: "fa-solid fa-database", level: 80 },
       { name: "PostgreSQL", icon: "fa-solid fa-database", level: 75 },
-      { name: "MongoDB", icon: "fa-solid fa-leaf", level: 85 }
+      { name: "MongoDB", icon: "fa-leaf", level: 85 }
     ],
     tools: [
       { name: "Git", icon: "fa-brands fa-git-alt", level: 90 },
