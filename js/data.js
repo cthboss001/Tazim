@@ -10,7 +10,7 @@ const portfolioData = {
     phone: "+880 1744782478",
     location: "Dhaka, Bangladesh",
     dob: "January 1, 2000",
-    profileImage: "https://lh3.googleusercontent.com/sitesv/AAzXCkeDUftb_KZYZOBcZ1JDmDHXHy9OVkuq7rdMsPQNaXn0JJcc80pLihzFSfTTevyoMdHdXc4Ymq8O4ZpA5tUXYu1riEOw95BbeF1DGBEW1-8gHbrSoG7FiNLAXUGP3_fimkHVRPr8haE1c2cXKIg6DvPdfZwQJAVfakT1exo8Xg6g8KRrW0ZkNoyKXs8MdNIAzo0ZXpCdBpredUpk6yBxrCM8fN-DuWWg52u8uxo=w1280",
+    profileImage: "https://github.com/cthboss001/Tazim/blob/main/assets/images/unnamed.png",
     resumeLink: "#",
     social: {
       github: "https://github.com/cthboss001",
