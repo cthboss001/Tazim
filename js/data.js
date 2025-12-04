@@ -1,76 +1,60 @@
 // Portfolio Data - Customize this file to personalize your portfolio
 const portfolioData = {
   personal: {
-    name: "Your Name",
-    title: "Junior Software Engineer",
-    tagline: ["Software Engineer", "Web Developer", "Problem Solver"],
-    bio: "Passionate Junior Software Engineer with a strong foundation in full-stack development and problem-solving. Eager to contribute to innovative projects and grow in a dynamic team environment. Committed to writing clean, efficient code and continuously learning new technologies.",
+    name: "Tazim Hossen",
+    title: "Undergraduate Student, Department of Computer Science and Engineering, Daffodil International University",
+    tagline: ["Software Engineer", "Problem Solver"],
+    bio: "I’m Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills.",
     objective: "Seeking a challenging Junior Software Engineer position where I can apply my technical skills and creativity to develop innovative solutions while contributing to team success and professional growth.",
-    email: "your.email@example.com",
-    phone: "+880 1XXX-XXXXXX",
+    email: "tazimhossen001@gmail.com",
+    phone: "+880 1744782478",
     location: "Dhaka, Bangladesh",
     dob: "January 1, 2000",
-    profileImage: "assets/images/profile.jpg",
+    profileImage: "https://lh3.googleusercontent.com/sitesv/AAzXCkexd8lk8RG3fDvAC50UOkfrnTk30aIfxg5LqaaRxgSpgFzJ4cfEp2eQIdm9KF63Xz5nR3kqYrLads-ObNMj9tXcNgFRUEIHkUnESr7mP1T2b6uCe_WHbE-hZR4uIoHNF0vDuWHsmbPe7ZioQxEVmBBht0yUa5bLN6dO5KUqwGAtsuhiYu_LNa6AzuCOi8LGO37UZyI0NzkQO6R1cX17J3zrX3k8qDOkjroKOLU=w1280",
     resumeLink: "#",
     social: {
-      github: "https://github.com/yourusername",
-      linkedin: "https://linkedin.com/in/yourusername",
-      facebook: "https://facebook.com/yourusername",
-      twitter: "https://twitter.com/yourusername"
+      github: "https://github.com/cthboss001",
+      linkedin: "https://www.linkedin.com/in/tazim-hossen-857661216/",
+      facebook: "https://facebook.com/tazim.hossen.001",
+      twitter: "https://x.com/tazim_hossen"
     }
   },
 
   education: [
     {
       degree: "Bachelor of Science in Computer Science & Engineering",
-      institution: "University Name",
+      institution: "Daffodil International University",
       location: "Dhaka, Bangladesh",
-      duration: "2018 - 2022",
-      cgpa: "3.75 out of 4.00",
+      duration: "2023 - 2027",
+      cgpa: "3.00 out of 4.00",
       logo: "🎓",
       achievements: [
-        "Dean's List for 3 consecutive semesters",
         "Published research paper on Machine Learning"
+        "1st Runners-up at Project Showcase ( Data Structure )"
       ]
     },
     {
       degree: "Higher Secondary Certificate (HSC)",
-      institution: "College Name",
+      institution: "Savar Model College",
       location: "Dhaka, Bangladesh",
-      duration: "2016 - 2018",
+      duration: "2019 - 2021",
       group: "Science",
-      gpa: "5.00 out of 5.00",
+      gpa: "4.92 out of 5.00",
       board: "Dhaka Board",
       logo: "📚",
-      achievements: [
-        "Board scholarship recipient",
-        "100% attendance"
-      ]
+      
     },
-    {
-      degree: "Secondary School Certificate (SSC)",
-      institution: "School Name",
-      location: "Dhaka, Bangladesh",
-      duration: "2014 - 2016",
-      group: "Science",
-      gpa: "5.00 out of 5.00",
-      board: "Dhaka Board",
-      logo: "📖",
-      achievements: [
-        "School topper",
-        "Science fair winner"
-      ]
-    }
+  
   ],
 
   skills: {
     programming: [
-      { name: "C", icon: "fa-solid fa-code", level: 85 },
-      { name: "C++", icon: "fa-solid fa-code", level: 90 },
-      { name: "Java", icon: "fa-brands fa-java", level: 80 },
-      { name: "Python", icon: "fa-brands fa-python", level: 85 },
-      { name: "JavaScript", icon: "fa-brands fa-js", level: 90 },
-      { name: "TypeScript", icon: "fa-solid fa-code", level: 75 }
+      { name: "C", icon: "fa-solid fa-code", level: 60 },
+      { name: "C++", icon: "fa-solid fa-code", level: 70 },
+      { name: "Java", icon: "fa-brands fa-java", level: 40 },
+      { name: "Python", icon: "fa-brands fa-python", level: 45 },
+      { name: "JavaScript", icon: "fa-brands fa-js", level: 60 },
+      { name: "TypeScript", icon: "fa-solid fa-code", level: 65 }
     ],
     frontend: [
       { name: "HTML5", icon: "fa-brands fa-html5", level: 95 },
