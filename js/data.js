@@ -3,7 +3,7 @@ const portfolioData = {
   personal: {
     name: "Tazim Hossen",
     title: "Undergraduate Student, Department of Computer Science and Engineering, Daffodil International University",
-    tagline: ["Software Engineer", "Problem Solver"],
+    tagline: ["Software Engineer", "Problem Solver", "Competitive Programmer"],
     bio: "I'm Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills.",
     objective: "Seeking a challenging Junior Software Engineer position where I can apply my technical skills and creativity to develop innovative solutions while contributing to team success and professional growth.",
     email: "tazimhossen001@gmail.com",
@@ -16,7 +16,10 @@ const portfolioData = {
       github: "https://github.com/cthboss001",
       linkedin: "https://www.linkedin.com/in/tazim-hossen-857661216/",
       facebook: "https://facebook.com/tazim.hossen.001",
-      twitter: "https://x.com/tazim_hossen"
+      twitter: "https://x.com/tazim_hossen",
+      telegram: "https://t.me/tazimhossen001",
+      codeforces: "https://codeforces.com/profile/Tazim001",
+      atcoder: "https://atcoder.jp/users/Tazim001"
     }
   },
 
@@ -72,7 +75,7 @@ const portfolioData = {
     database: [
       { name: "MySQL", icon: "fa-solid fa-database", level: 80 },
       { name: "PostgreSQL", icon: "fa-solid fa-database", level: 75 },
-      { name: "MongoDB", icon: "fa-solid fa-leaf", level: 85 }
+      { name: "MongoDB", icon: "fa-leaf", level: 85 }
     ],
     tools: [
       { name: "Git", icon: "fa-brands fa-git-alt", level: 90 },
@@ -211,37 +214,40 @@ const portfolioData = {
       title: "Codeforces Rating",
       description: "Pupil rank with 1200+ rating",
       icon: "fa-solid fa-trophy",
-      color: "cyan"
+      color: "cyan",
+      link: "https://codeforces.com/profile/Tazim001"
+    },
+    {
+      title: "AtCoder Rating",
+      description: "Active competitive programmer on AtCoder",
+      icon: "fa-solid fa-code",
+      color: "green",
+      link: "https://atcoder.jp/users/Tazim001"
     },
     {
       title: "LeetCode Problems",
       description: "Solved 200+ algorithmic problems",
       icon: "fa-solid fa-code",
-      color: "green"
+      color: "cyan"
     },
     {
       title: "Hackathon Winner",
       description: "1st place in University Hackathon 2023",
       icon: "fa-solid fa-medal",
-      color: "cyan"
+      color: "green"
     },
     {
       title: "Dean's List",
       description: "Academic excellence for 3 semesters",
       icon: "fa-solid fa-star",
-      color: "green"
+      color: "cyan"
     },
     {
       title: "Open Source",
       description: "10+ contributions to open source projects",
       icon: "fa-brands fa-github",
-      color: "cyan"
-    },
-    {
-      title: "University Programming Contest",
-      description: "Top 10 finish in inter-university contest",
-      icon: "fa-solid fa-trophy",
       color: "green"
     }
   ]
 };
+
