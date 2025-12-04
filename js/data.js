@@ -10,7 +10,7 @@ const portfolioData = {
     phone: "+880 1744782478",
     location: "Dhaka, Bangladesh",
     dob: "January 1, 2000",
-    profileImage: "https://github.com/cthboss001/Tazim/blob/main/assets/images/unnamed.png",
+    profileImage: "assets/images/unnamed.png",
     resumeLink: "#",
     social: {
       github: "https://github.com/cthboss001",
