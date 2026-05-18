@@ -6,7 +6,7 @@ const portfolioData = {
     tagline: ["Software Engineer", "Problem Solver"],
     bio: "I'm Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills.",
     objective: "Seeking a challenging Junior Software Engineer position where I can apply my technical skills and creativity to develop innovative solutions while contributing to team success and professional growth.",
-    email: "tazimhossen001@gmail.com",
+    email: "contact@tazim.dev",
     phone: "+880 1744782478",
     location: "Dhaka, Bangladesh",
     profileImage: "assets/images/unnamed.png",
