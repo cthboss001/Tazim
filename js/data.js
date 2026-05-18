@@ -9,7 +9,6 @@ const portfolioData = {
     email: "tazimhossen001@gmail.com",
     phone: "+880 1744782478",
     location: "Dhaka, Bangladesh",
-    dob: "January 1, 2000",
     profileImage: "assets/images/unnamed.png",
     resumeLink: "#",
     social: {
@@ -26,24 +25,14 @@ const portfolioData = {
       institution: "Daffodil International University",
       location: "Dhaka, Bangladesh",
       duration: "2023 - 2027",
-      cgpa: "3.00 out of 4.00",
+      cgpa: "3.00 (approximately) out of 4.00",
       logo: "🎓",
       achievements: [
         "Published research paper on Machine Learning",
         "1st Runners-up at Project Showcase ( Data Structure )"
       ]
     },
-    {
-      degree: "Higher Secondary Certificate (HSC)",
-      institution: "Savar Model College",
-      location: "Dhaka, Bangladesh",
-      duration: "2019 - 2021",
-      group: "Science",
-      gpa: "4.92 out of 5.00",
-      board: "Dhaka Board",
-      logo: "📚",
-      achievements: []
-    }
+
   ],
 
   skills: {
@@ -225,23 +214,5 @@ const portfolioData = {
       icon: "fa-solid fa-medal",
       color: "cyan"
     },
-    {
-      title: "Dean's List",
-      description: "Academic excellence for 3 semesters",
-      icon: "fa-solid fa-star",
-      color: "green"
-    },
-    {
-      title: "Open Source",
-      description: "10+ contributions to open source projects",
-      icon: "fa-brands fa-github",
-      color: "cyan"
-    },
-    {
-      title: "University Programming Contest",
-      description: "Top 10 finish in inter-university contest",
-      icon: "fa-solid fa-trophy",
-      color: "green"
-    }
   ]
 };
