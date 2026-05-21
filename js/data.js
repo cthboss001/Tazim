@@ -15,7 +15,9 @@ const portfolioData = {
       github: "https://github.com/cthboss001",
       linkedin: "https://www.linkedin.com/in/tazim-hossen-857661216/",
       facebook: "https://facebook.com/tazim.hossen.001",
-      twitter: "https://x.com/tazim_hossen"
+      twitter: "https://x.com/tazim_hossen",
+      telegram: "https://t.me/tazimhossen001",
+      codeforces: "https://codeforces.com/profile/unbowed_t"
     }
   },
 
@@ -28,85 +30,65 @@ const portfolioData = {
       cgpa: "3.00 (approximately) out of 4.00",
       logo: "🎓",
       achievements: [
-        "Published research paper on Machine Learning",
         "1st Runners-up at Project Showcase ( Data Structure )"
       ]
     },
-
   ],
 
   skills: {
     programming: [
-      { name: "C", icon: "fa-solid fa-code", level: 60 },
-      { name: "C++", icon: "fa-solid fa-code", level: 70 },
-      { name: "Java", icon: "fa-brands fa-java", level: 40 },
-      { name: "Python", icon: "fa-brands fa-python", level: 45 },
-      { name: "JavaScript", icon: "fa-brands fa-js", level: 60 },
-      { name: "TypeScript", icon: "fa-solid fa-code", level: 65 }
+      { name: "C", icon: "fa-solid fa-code", level: "Comfortable" },
+      { name: "C++", icon: "fa-solid fa-code", level: "Comfortable" },
+      { name: "Python", icon: "fa-brands fa-python", level: "Learning" },
+      { name: "JavaScript", icon: "fa-brands fa-js", level: "Intermediate" }
     ],
     frontend: [
-      { name: "HTML5", icon: "fa-brands fa-html5", level: 95 },
-      { name: "CSS3", icon: "fa-brands fa-css3-alt", level: 90 },
-      { name: "Bootstrap", icon: "fa-brands fa-bootstrap", level: 85 },
-      { name: "Tailwind CSS", icon: "fa-solid fa-wind", level: 80 },
-      { name: "React", icon: "fa-brands fa-react", level: 85 },
-      { name: "Next.js", icon: "fa-solid fa-forward", level: 75 }
+      { name: "HTML5", icon: "fa-brands fa-html5", level: "Comfortable" },
+      { name: "CSS3", icon: "fa-brands fa-css3-alt", level: "Comfortable" },
+      { name: "Bootstrap", icon: "fa-brands fa-bootstrap", level: "Intermediate" }
     ],
     backend: [
-      { name: "Node.js", icon: "fa-brands fa-node-js", level: 85 },
-      { name: "Express.js", icon: "fa-solid fa-server", level: 80 },
-      { name: "Django", icon: "fa-solid fa-server", level: 70 },
-      { name: "Spring Boot", icon: "fa-brands fa-java", level: 65 }
+      { name: "Node.js", icon: "fa-brands fa-node-js", level: "Learning" },
+      { name: "Express.js", icon: "fa-solid fa-server", level: "Learning" }
     ],
     database: [
-      { name: "MySQL", icon: "fa-solid fa-database", level: 80 },
-      { name: "PostgreSQL", icon: "fa-solid fa-database", level: 75 },
-      { name: "MongoDB", icon: "fa-solid fa-leaf", level: 85 }
+      { name: "MySQL", icon: "fa-solid fa-database", level: "Intermediate" },
+      { name: "MongoDB", icon: "fa-solid fa-leaf", level: "Learning" }
     ],
     tools: [
-      { name: "Git", icon: "fa-brands fa-git-alt", level: 90 },
-      { name: "GitHub", icon: "fa-brands fa-github", level: 90 },
-      { name: "VS Code", icon: "fa-solid fa-code", level: 95 },
-      { name: "Postman", icon: "fa-solid fa-paper-plane", level: 85 },
-      { name: "Docker", icon: "fa-brands fa-docker", level: 70 },
-      { name: "Linux", icon: "fa-brands fa-linux", level: 80 }
+      { name: "Git", icon: "fa-brands fa-git-alt", level: "Comfortable" },
+      { name: "GitHub", icon: "fa-brands fa-github", level: "Comfortable" },
+      { name: "VS Code", icon: "fa-solid fa-code", level: "Comfortable" },
+      { name: "Linux", icon: "fa-brands fa-linux", level: "Intermediate" },
+      { name: "Postman", icon: "fa-solid fa-paper-plane", level: "Intermediate" }
     ],
     soft: [
-      { name: "Communication", icon: "fa-solid fa-comments", level: 85 },
-      { name: "Teamwork", icon: "fa-solid fa-users", level: 90 },
-      { name: "Problem Solving", icon: "fa-solid fa-brain", level: 88 },
-      { name: "Time Management", icon: "fa-solid fa-clock", level: 85 },
-      { name: "Adaptability", icon: "fa-solid fa-sync", level: 90 }
+      { name: "Communication", icon: "fa-solid fa-comments" },
+      { name: "Teamwork", icon: "fa-solid fa-users" },
+      { name: "Problem Solving", icon: "fa-solid fa-brain" },
+      { name: "Time Management", icon: "fa-solid fa-clock" },
+      { name: "Adaptability", icon: "fa-solid fa-sync" }
     ]
   },
 
   projects: [
     {
-      title: "E-commerce Platform",
-      description: "A full-featured e-commerce platform with user authentication, product management, shopping cart, and payment integration.",
+      title: "AgroMotion",
+      description: "Agriculture-focused project developed around data structure concepts. Designed to help farmers manage activities and modernize agricultural workflow. Achieved 1st Runner-up at Project Showcase.",
       image: "assets/images/project1.jpg",
-      technologies: ["React", "Node.js", "MongoDB", "Express.js", "Stripe"],
-      github: "https://github.com/cthboss001/ecommerce",
+      technologies: ["C++", "Data Structures"],
+      github: "#",
       live: "#",
-      category: ["frontend", "backend", "fullstack"]
+      category: ["fullstack"]
     },
     {
-      title: "Chat Application",
-      description: "Real-time chat application inspired by Discord with channels, direct messaging, file sharing, and user presence indicators.",
+      title: "Big Brothers",
+      description: "Hybrid e-commerce platform concept developed as a team initiative. Focused on concept development and exploration of modern web technologies.",
       image: "assets/images/project2.jpg",
-      technologies: ["React", "Socket.io", "Node.js", "PostgreSQL", "Redis"],
-      github: "https://github.com/cthboss001/chat-app",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      github: "#",
       live: "#",
-      category: ["frontend", "backend", "fullstack"]
-    },
-    {
-      title: "Task Management System",
-      description: "Collaborative task management tool with drag-and-drop interface, team collaboration features, and project tracking.",
-      image: "assets/images/project3.jpg",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL"],
-      github: "https://github.com/cthboss001/task-manager",
-      live: "#",
-      category: ["frontend", "fullstack"]
+      category: ["fullstack"]
     },
     {
       title: "Portfolio Website",
@@ -114,105 +96,94 @@ const portfolioData = {
       image: "assets/images/project4.jpg",
       technologies: ["HTML5", "CSS3", "JavaScript", "Font Awesome"],
       github: "https://github.com/cthboss001/Tazim",
-      live: "https://cthboss001.github.io/Tazim/",
+      live: "https://tazim.dev",
       category: ["frontend"]
     }
   ],
 
   experience: [
     {
-      role: "Software Engineering Intern",
-      company: "Tech Company XYZ",
-      duration: "Jun 2023 - Aug 2023",
+      role: "Project Showcase — AgroMotion",
+      company: "Daffodil International University",
+      duration: "2024",
       location: "Dhaka, Bangladesh",
-      type: "Internship",
+      type: "Participation",
       responsibilities: [
-        "Developed and maintained web applications using React and Node.js",
-        "Collaborated with senior developers on feature implementation",
-        "Participated in code reviews and agile ceremonies",
-        "Fixed bugs and improved application performance"
+        "Developed AgroMotion — an agriculture-focused project built around data structure concepts",
+        "Aimed to help farmers manage activities and modernize agricultural workflow",
+        "Achieved 1st Runner-up in Project Showcase"
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Git"]
+      technologies: ["C++", "Data Structures"]
     },
     {
-      role: "Freelance Web Developer",
-      company: "Self-Employed",
-      duration: "Jan 2023 - Present",
-      location: "Remote",
-      type: "Freelance",
+      role: "Competitive Programming",
+      company: "Codeforces / Online Judges",
+      duration: "2023 - Present",
+      location: "Online",
+      type: "Competitive Programming",
       responsibilities: [
-        "Built custom websites for small businesses and startups",
-        "Implemented responsive designs and optimized for performance",
-        "Managed client communications and project timelines",
-        "Provided ongoing maintenance and support"
+        "Active on Codeforces with 247 problems solved across 16 contests",
+        "Participated as Finalist in TAKE OFF — Fall 2023",
+        "Participated as Finalist in UNLOCK THE ALGORITHM — Fall 2024"
       ],
-      technologies: ["HTML", "CSS", "JavaScript", "WordPress"]
+      technologies: ["C++", "Algorithms", "Problem Solving"]
     },
     {
-      role: "Student Web Developer",
-      company: "University IT Department",
-      duration: "Sep 2021 - May 2022",
-      location: "Dhaka, Bangladesh",
-      type: "Part-time",
+      role: "Portfolio Development",
+      company: "Personal Project",
+      duration: "2024 - Present",
+      location: "Online",
+      type: "Personal Project",
       responsibilities: [
-        "Maintained university department websites",
-        "Created landing pages for university events",
-        "Assisted in database management tasks",
-        "Provided technical support to faculty"
+        "Designed and developed a personal portfolio website from scratch",
+        "Deployed on GitHub Pages with custom domain tazim.dev",
+        "Built with vanilla HTML, CSS, and JavaScript"
       ],
-      technologies: ["PHP", "MySQL", "Bootstrap", "jQuery"]
+      technologies: ["HTML", "CSS", "JavaScript", "GitHub Pages"]
     }
   ],
 
   certifications: [
     {
-      name: "Responsive Web Design",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      credentialUrl: "https://freecodecamp.org/certification",
-      icon: "fa-solid fa-certificate"
-    },
-    {
-      name: "JavaScript Algorithms and Data Structures",
-      issuer: "freeCodeCamp",
-      date: "2023",
-      credentialUrl: "https://freecodecamp.org/certification",
-      icon: "fa-solid fa-certificate"
-    },
-    {
-      name: "Complete Web Development Course",
-      issuer: "Udemy",
-      date: "2022",
-      credentialUrl: "https://udemy.com/certificate",
-      icon: "fa-solid fa-award"
-    },
-    {
-      name: "Git & GitHub Essentials",
-      issuer: "Coursera",
-      date: "2022",
-      credentialUrl: "https://coursera.org/verify",
-      icon: "fa-solid fa-certificate"
-    }
-  ],
-
-  achievements: [
-    {
-      title: "Codeforces Rating",
-      description: "Pupil rank with 1200+ rating",
+      name: "Project Showcase",
+      issuer: "Daffodil International University",
+      date: "2024",
       icon: "fa-solid fa-trophy",
-      color: "cyan"
+      credentialUrl: "#",
+      description: "AgroMotion earned 1st Runner-up for an agriculture-focused project built around data structure concepts"
     },
     {
-      title: "LeetCode Problems",
-      description: "Solved 200+ algorithmic problems",
+      name: "Competitive Programming",
+      issuer: "Codeforces",
+      date: "Active",
       icon: "fa-solid fa-code",
-      color: "green"
+      credentialUrl: "https://codeforces.com/profile/unbowed_t",
+      description: "Current Rating: 758 · Max Rating: 913 · Solved: 247 · Contests: 16"
     },
     {
-      title: "Hackathon Winner",
-      description: "1st place in University Hackathon 2023",
+      name: "Programming Contests",
+      issuer: "University Contests",
+      date: "2023 — 2024",
       icon: "fa-solid fa-medal",
-      color: "cyan"
+      credentialUrl: "#",
+      description: "Finalist in TAKE OFF (Fall 2023) and UNLOCK THE ALGORITHM (Fall 2024)",
+      links: [
+        { label: "TAKE OFF — Fall 2023 Standings", url: "https://toph.co/c/take-off-fall-23-final/standings" },
+        { label: "UNLOCK THE ALGORITHM — Fall 2024 Standings", url: "https://toph.co/c/diu-unlock-the-algorithm-fall-24-final/standings" }
+      ]
     },
+    {
+      name: "Public Presence",
+      issuer: "Online Platforms",
+      date: "",
+      icon: "fa-solid fa-globe",
+      credentialUrl: "#",
+      description: "Selected public profiles and competitive programming presence.",
+      links: [
+        { label: "YouTube", url: "https://www.youtube.com/@tazimhossen" },
+        { label: "Facebook", url: "https://fb.tazim.dev" },
+        { label: "ICPC Profile", url: "https://icpc.global/ICPCID/8SKJOAW5IRMQ" }
+      ]
+    }
   ]
 };
