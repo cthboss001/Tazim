@@ -121,10 +121,7 @@ function initializePortfolio() {
   populateCertifications();
 
 
-  populateAchievements();
 
-
-  
 
 
   // Initialize features
@@ -140,12 +137,6 @@ function initializePortfolio() {
 
 
   initScrollAnimations();
-
-
-  initProjectFilters();
-
-
-  initContactForm();
 
 
   initScrollTop();
@@ -508,9 +499,6 @@ function populatePersonalInfo() {
   document.querySelector('#info-phone .info-value').textContent = data.phone;
 
 
-  document.querySelector('#info-dob .info-value').textContent = data.dob;
-
-
   
 
 
@@ -521,12 +509,6 @@ function populatePersonalInfo() {
 
 
   document.querySelector('#contact-email .contact-value').href = `mailto:${data.email}`;
-
-
-  document.querySelector('#contact-phone .contact-value').textContent = data.phone;
-
-
-  document.querySelector('#contact-location .contact-value').textContent = data.location;
 
 
 }
@@ -553,7 +535,13 @@ function populateSocialIcons(containerId, social) {
     facebook: 'fa-brands fa-facebook',
 
 
-    twitter: 'fa-brands fa-twitter'
+    twitter: 'fa-brands fa-twitter',
+
+
+    telegram: 'fa-brands fa-telegram',
+
+
+    codeforces: 'fa-solid fa-code'
 
 
   };
@@ -904,7 +892,10 @@ function populateSkills() {
       card.className = 'skill-card hidden-anim';
 
 
-      card.innerHTML = `
+      if (skill.level) {
+
+
+        card.innerHTML = `
 
 
         <div class="skill-header">
@@ -922,22 +913,43 @@ function populateSkills() {
           </span>
 
 
-          <span class="skill-level">${skill.level}%</span>
-
-
-        </div>
-
-
-        <div class="skill-progress">
-
-
-          <div class="skill-progress-bar" style="--skill-width: ${skill.level}%"></div>
+          <span class="skill-level-label ${skill.level.toLowerCase()}">${skill.level}</span>
 
 
         </div>
 
 
       `;
+
+
+      } else {
+
+
+        card.innerHTML = `
+
+
+        <div class="skill-header">
+
+
+          <span class="skill-name">
+
+
+            <i class="${skill.icon}"></i>
+
+
+            ${skill.name}
+
+
+          </span>
+
+
+        </div>
+
+
+      `;
+
+
+      }
 
 
       container.appendChild(card);
@@ -1067,87 +1079,6 @@ function populateProjects() {
 
 
     grid.appendChild(card);
-
-
-  });
-
-
-}
-
-
-
-
-
-// ========================================
-
-
-// Project Filters
-
-
-// ========================================
-
-
-function initProjectFilters() {
-
-
-  const filterBtns = document.querySelectorAll('.filter-btn');
-
-
-  const projectCards = document.querySelectorAll('.project-card');
-
-
-  
-
-
-  filterBtns.forEach(btn => {
-
-
-    btn.addEventListener('click', () => {
-
-
-      // Update active button
-
-
-      filterBtns.forEach(b => b.classList.remove('active'));
-
-
-      btn.classList.add('active');
-
-
-      
-
-
-      const filter = btn.getAttribute('data-filter');
-
-
-      
-
-
-      projectCards.forEach(card => {
-
-
-        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
-
-
-          card.classList.remove('hidden');
-
-
-          setTimeout(() => card.classList.add('show-anim'), 10);
-
-
-        } else {
-
-
-          card.classList.add('hidden');
-
-
-        }
-
-
-      });
-
-
-    });
 
 
   });
@@ -1318,7 +1249,34 @@ function populateCertifications() {
     card.style.transitionDelay = `${index * 0.1}s`;
 
 
-    
+
+
+
+    let linksHtml = '';
+
+
+    if (cert.links && cert.links.length > 0) {
+
+
+      linksHtml = cert.links.map(link =>
+
+
+        `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="certification-link">${link.label} <i class="fas fa-arrow-right"></i></a>`
+
+
+      ).join('');
+
+
+    } else if (cert.credentialUrl && cert.credentialUrl !== '#') {
+
+
+      linksHtml = `<a href="${cert.credentialUrl}" target="_blank" rel="noopener noreferrer" class="certification-link">View Profile <i class="fas fa-arrow-right"></i></a>`;
+
+
+    }
+
+
+
 
 
     card.innerHTML = `
@@ -1339,94 +1297,19 @@ function populateCertifications() {
       <p class="certification-issuer">${cert.issuer}</p>
 
 
-      <p class="certification-date">${cert.date}</p>
+      ${cert.date ? `<p class="certification-date">${cert.date}</p>` : ''}
 
 
-      <a href="${cert.credentialUrl}" target="_blank" rel="noopener noreferrer" class="certification-link">
+      ${cert.description ? `<p class="certification-description">${cert.description}</p>` : ''}
 
 
-        View Credential <i class="fas fa-arrow-right"></i>
-
-
-      </a>
+      <div class="certification-links">${linksHtml}</div>
 
 
     `;
 
 
-    
 
-
-    grid.appendChild(card);
-
-
-  });
-
-
-}
-
-
-
-
-
-// ========================================
-
-
-// Populate Achievements
-
-
-// ========================================
-
-
-function populateAchievements() {
-
-
-  const grid = document.getElementById('achievements-grid');
-
-
-  grid.innerHTML = '';
-
-
-  
-
-
-  portfolioData.achievements.forEach((achievement, index) => {
-
-
-    const card = document.createElement('div');
-
-
-    card.className = 'achievement-card hidden-anim';
-
-
-    card.style.transitionDelay = `${index * 0.1}s`;
-
-
-    
-
-
-    card.innerHTML = `
-
-
-      <div class="achievement-icon ${achievement.color}">
-
-
-        <i class="${achievement.icon}"></i>
-
-
-      </div>
-
-
-      <h3 class="achievement-title">${achievement.title}</h3>
-
-
-      <p class="achievement-description">${achievement.description}</p>
-
-
-    `;
-
-
-    
 
 
     grid.appendChild(card);
