@@ -3,7 +3,7 @@ const portfolioData = {
   personal: {
     name: "Tazim Hossen",
     title: "Undergraduate Student, Department of Computer Science and Engineering, Daffodil International University",
-    tagline: ["Software Engineer", "Problem Solver"],
+    tagline: ["Software Engineer", "Full-Stack Developer", "Problem Solver"],
     bio: "I'm Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills.",
     objective: "Seeking a challenging Junior Software Engineer position where I can apply my technical skills and creativity to develop innovative solutions while contributing to team success and professional growth.",
     email: "contact@tazim.dev",
@@ -40,18 +40,24 @@ const portfolioData = {
       { name: "C", icon: "fa-solid fa-code", level: "Comfortable" },
       { name: "C++", icon: "fa-solid fa-code", level: "Comfortable" },
       { name: "Python", icon: "fa-brands fa-python", level: "Learning" },
-      { name: "JavaScript", icon: "fa-brands fa-js", level: "Intermediate" }
+      { name: "JavaScript", icon: "fa-brands fa-js", level: "Intermediate" },
+      { name: "TypeScript", icon: "fa-solid fa-code", level: "Intermediate" }
     ],
     frontend: [
       { name: "HTML5", icon: "fa-brands fa-html5", level: "Comfortable" },
       { name: "CSS3", icon: "fa-brands fa-css3-alt", level: "Comfortable" },
+      { name: "React", icon: "fa-brands fa-react", level: "Intermediate" },
+      { name: "Next.js", icon: "fa-brands fa-react", level: "Intermediate" },
+      { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt", level: "Intermediate" },
       { name: "Bootstrap", icon: "fa-brands fa-bootstrap", level: "Intermediate" }
     ],
     backend: [
-      { name: "Node.js", icon: "fa-brands fa-node-js", level: "Learning" },
-      { name: "Express.js", icon: "fa-solid fa-server", level: "Learning" }
+      { name: "Node.js", icon: "fa-brands fa-node-js", level: "Intermediate" },
+      { name: "Express.js", icon: "fa-solid fa-server", level: "Learning" },
+      { name: "Prisma ORM", icon: "fa-solid fa-database", level: "Intermediate" }
     ],
     database: [
+      { name: "PostgreSQL", icon: "fa-solid fa-database", level: "Intermediate" },
       { name: "MySQL", icon: "fa-solid fa-database", level: "Intermediate" },
       { name: "MongoDB", icon: "fa-solid fa-leaf", level: "Learning" }
     ],
@@ -60,7 +66,8 @@ const portfolioData = {
       { name: "GitHub", icon: "fa-brands fa-github", level: "Comfortable" },
       { name: "VS Code", icon: "fa-solid fa-code", level: "Comfortable" },
       { name: "Linux", icon: "fa-brands fa-linux", level: "Intermediate" },
-      { name: "Postman", icon: "fa-solid fa-paper-plane", level: "Intermediate" }
+      { name: "Postman", icon: "fa-solid fa-paper-plane", level: "Intermediate" },
+      { name: "Vercel", icon: "fa-solid fa-rocket", level: "Intermediate" }
     ],
     soft: [
       { name: "Communication", icon: "fa-solid fa-comments" },
@@ -72,6 +79,15 @@ const portfolioData = {
   },
 
   projects: [
+    {
+      title: "MovieVault 🎬",
+      description: "A high-performance, automated personal movie database and analytics dashboard. Features unified data ingestion from Letterboxd & IMDb with custom scrapers, smart deduplication, lightning-fast fuzzy search (Fuse.js), dual-role authentication, and a stunning glassmorphism UI with automated analytics.",
+      image: "assets/images/movievault.png",
+      technologies: ["Next.js 15", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Vercel"],
+      github: "https://github.com/cthboss001/MovieVault",
+      live: "https://movies.tazim.dev",
+      category: ["fullstack"]
+    },
     {
       title: "AgroMotion",
       description: "Agriculture-focused project developed around data structure concepts. Designed to help farmers manage activities and modernize agricultural workflow. Achieved 1st Runner-up at Project Showcase.",
@@ -127,6 +143,21 @@ const portfolioData = {
         "Participated as Finalist in UNLOCK THE ALGORITHM — Fall 2024"
       ],
       technologies: ["C++", "Algorithms", "Problem Solving"]
+    },
+    {
+      role: "MovieVault — Full-Stack Development",
+      company: "Personal Project",
+      duration: "2025",
+      location: "Online",
+      type: "Personal Project",
+      responsibilities: [
+        "Engineered a custom-built movie database and analytics dashboard with Next.js 15 (App Router) and TypeScript",
+        "Built custom scraper providers that bypass bot-detection to sync data from Letterboxd and IMDb into a unified PostgreSQL database",
+        "Implemented a robust data normalization pipeline with smart deduplication for multi-source imports",
+        "Designed a dual-role authentication system with cookie-based security for admin routes while keeping the vault public",
+        "Created a stunning glassmorphism UI with backdrop blurs, animated cyan glows, and a dedicated stats engine"
+      ],
+      technologies: ["Next.js 15", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Vercel"]
     },
     {
       role: "Portfolio Development",
