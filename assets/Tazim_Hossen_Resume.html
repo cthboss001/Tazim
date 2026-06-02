@@ -235,6 +235,33 @@
             .tech-tag {
                 border: 1px solid #ccc;
             }
+            .print-button {
+                display: none !important;
+            }
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+        .print-button:hover {
+            transform: translateY(-2px);
+            background: var(--secondary-color);
         }
     </style>
 </head>
@@ -397,5 +424,8 @@
             </div>
         </section>
     </div>
+    <button class="print-button" onclick="window.print()">
+        <i class="fas fa-file-pdf"></i> Save as PDF
+    </button>
 </body>
 </html>
