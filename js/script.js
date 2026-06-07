@@ -992,86 +992,44 @@ function populateProjects() {
 
 
     const card = document.createElement('div');
-
-
-    card.className = 'project-card hidden-anim';
-
-
+    card.className = `project-card hidden-anim ${project.isFlagship ? 'flagship-card' : ''}`;
     card.setAttribute('data-category', project.category.join(' '));
-
-
     card.style.transitionDelay = `${index * 0.1}s`;
-
-
     
-
-
     const techBadges = project.technologies.map(tech => 
-
-
       `<span class="tech-badge">${tech}</span>`
-
-
     ).join('');
-
-
     
-
-
     card.innerHTML = `
-
-
       <div class="project-image">
-
-
         <img src="${project.image}" alt="${project.title}" loading="lazy" 
-
-
              onerror="this.src='https://via.placeholder.com/400x300/1e1e2e/00D9FF?text=' + encodeURIComponent('${project.title}')">
-
-
         <div class="project-overlay">
-
-
+          ${project.docLink && project.docLink !== '#' ? `
+          <a href="${project.docLink}" rel="noopener noreferrer" class="project-link" aria-label="View Documentation">
+            <i class="fas fa-file-alt"></i>
+          </a>
+          ` : ''}
+          ${project.github && project.github !== '#' ? `
           <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
-
-
             <i class="fab fa-github"></i>
-
-
           </a>
-
-
+          ` : ''}
+          ${project.live && project.live !== '#' ? `
           <a href="${project.live}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View live demo">
-
-
             <i class="fas fa-external-link-alt"></i>
-
-
           </a>
-
-
+          ` : ''}
         </div>
-
-
       </div>
-
-
       <div class="project-content">
-
-
-        <h3 class="project-title">${project.title}</h3>
-
-
+        <h3 class="project-title">
+          ${project.title}
+          ${project.isFlagship ? '<span class="flagship-badge"><i class="fas fa-star"></i> Flagship</span>' : ''}
+        </h3>
         <p class="project-description">${project.description}</p>
-
-
         <div class="project-technologies">${techBadges}</div>
-
-
       </div>
-
-
     `;
 
 

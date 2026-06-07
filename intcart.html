@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>IntCart | Production-Grade E-commerce Platform by Tazim Hossen</title>
+  <meta name="title" content="IntCart | Production-Grade E-commerce Platform by Tazim Hossen">
+  <meta name="description" content="IntCart is a flagship production-ready e-commerce PWA built with Next.js, TypeScript, PostgreSQL, and Prisma featuring ACID transactions and RBAC.">
+  <meta name="keywords" content="IntCart, e-commerce, PWA, Next.js, React, TypeScript, PostgreSQL, Prisma, Tazim Hossen, Full Stack Developer, Software Engineer">
+  <meta name="author" content="Tazim Hossen">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tazim.dev/intcart.html">
+  <meta property="og:title" content="IntCart | Production-Grade E-commerce Platform by Tazim Hossen">
+  <meta property="og:description" content="IntCart is a flagship production-ready e-commerce PWA built with Next.js, TypeScript, PostgreSQL, and Prisma featuring ACID transactions and RBAC.">
+  <meta property="og:image" content="https://tazim.dev/assets/images/intcart1.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tazim.dev/intcart.html">
+  <meta property="twitter:title" content="IntCart | Production-Grade E-commerce Platform by Tazim Hossen">
+  <meta property="twitter:description" content="IntCart is a flagship production-ready e-commerce PWA built with Next.js, TypeScript, PostgreSQL, and Prisma featuring ACID transactions and RBAC.">
+  <meta property="twitter:image" content="https://tazim.dev/assets/images/intcart1.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Specific styles for IntCart Documentation */
+    .doc-hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      text-align: center;
+    }
+    .doc-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .doc-hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .doc-hero .hero-buttons {
+      justify-content: center;
+    }
+    .doc-image-showcase {
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg), var(--shadow-glow-cyan);
+      border: 1px solid var(--border-color);
+    }
+    .doc-image-showcase img {
+      width: 100%;
+      display: block;
+    }
+    .doc-content {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+    }
+    .doc-section {
+      margin-bottom: 50px;
+    }
+    .doc-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .doc-section h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+    .doc-section h3 {
+      font-size: 1.4rem;
+      color: var(--color-cyan);
+      margin: 25px 0 15px;
+    }
+    .doc-section p {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .doc-section ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+    }
+    .doc-section li {
+      margin-bottom: 10px;
+    }
+    .doc-section li strong {
+      color: var(--text-primary);
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .tech-card {
+      background: var(--bg-tertiary);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease;
+    }
+    .tech-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--color-cyan);
+    }
+    .tech-card h4 {
+      color: var(--color-green);
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .feature-list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-secondary);
+    }
+    .feature-item i {
+      color: var(--color-cyan);
+    }
+    @media (max-width: 768px) {
+      .doc-content { padding: 20px; }
+      .doc-hero h1 { font-size: 2.5rem; }
+      .feature-list-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-bracket"><</span>
+        <span class="logo-text">Tazim</span>
+        <span class="logo-bracket">/></span>
+      </a>
+      
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem;">
+          <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        
+        <!-- Hero Section -->
+        <div class="doc-hero">
+          <h1>IntCart</h1>
+          <p>A flagship production-grade e-commerce progressive web application with role-based access control, two-factor authentication, and ACID transaction-based checkout.</p>
+          <div class="hero-buttons">
+            <a href="https://www.intcart.shop" target="_blank" class="btn btn-primary">
+              <i class="fas fa-external-link-alt"></i> Visit Live Store
+            </a>
+            <a href="https://intcart.tazim.dev" target="_blank" class="btn btn-secondary">
+              <i class="fas fa-link"></i> Alt URL
+            </a>
+          </div>
+        </div>
+
+        <div class="doc-image-showcase">
+          <img src="assets/images/intcart1.png" alt="IntCart Home Page Showcasing Digital Products">
+        </div>
+
+        <!-- Documentation Content -->
+        <div class="doc-content">
+          
+          <!-- Overview -->
+          <div class="doc-section">
+            <h2><i class="fas fa-info-circle"></i> Overview</h2>
+            <p><strong>IntCart</strong> is a robust, full-stack e-commerce platform engineered to handle complex business logic, concurrent order processing, and administrative management at scale. Built to solve real-world problems faced by modern online retailers, the platform guarantees data integrity during checkout and offers a fully featured admin dashboard for operational control.</p>
+            <p>This project was built from the ground up to demonstrate my capability in architecting and deploying large-scale, secure, and highly performant web applications targeting production environments.</p>
+          </div>
+
+          <!-- Technology Stack -->
+          <div class="doc-section">
+            <h2><i class="fas fa-layer-group"></i> Technology Stack</h2>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>Frontend</h4>
+                <ul>
+                  <li>Next.js (App Router)</li>
+                  <li>React & TypeScript</li>
+                  <li>Tailwind CSS</li>
+                  <li>Zustand (State Mgt)</li>
+                </ul>
+              </div>
+              <div class="tech-card">
+                <h4>Backend</h4>
+                <ul>
+                  <li>Next.js Server Actions</li>
+                  <li>Node.js</li>
+                </ul>
+              </div>
+              <div class="tech-card">
+                <h4>Database</h4>
+                <ul>
+                  <li>PostgreSQL</li>
+                  <li>Prisma ORM</li>
+                </ul>
+              </div>
+              <div class="tech-card">
+                <h4>Auth & Infra</h4>
+                <ul>
+                  <li>NextAuth.js & TOTP/2FA</li>
+                  <li>bcrypt</li>
+                  <li>Vercel, Resend, Cloudinary</li>
+                  <li>PWA Configured</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Core Engineering Highlights -->
+          <div class="doc-section">
+            <h2><i class="fas fa-microchip"></i> Core Engineering Highlights</h2>
+            
+            <h3>ACID Transaction Processing</h3>
+            <p>To prevent overselling and data corruption, the checkout flow runs inside a <strong>Prisma interactive transaction</strong>. This ensures that inventory deduction, order record creation, and order status tracking either succeed atomically or roll back completely upon failure.</p>
+
+            <h3>Historical Order Integrity</h3>
+            <p>I designed a snapshot-based order architecture. When a customer places an order, the product's current title, price, and details are copied directly into the `OrderItem` record. This guarantees that future price updates or product deletions will <em>never</em> alter historical invoices.</p>
+
+            <h3>Optimistic Locking & Concurrency Control</h3>
+            <p>Implemented product version control to prevent race conditions when multiple users attempt to purchase the same low-stock item simultaneously, thereby preventing inventory overselling.</p>
+
+            <h3>Role-Based Access Control (RBAC) & 2FA</h3>
+            <p>Strict separation between Customer and Admin roles via NextAuth.js custom callbacks and middleware. Administrative actions require elevated privileges, and accounts can be secured via TOTP-based Two-Factor Authentication (2FA).</p>
+
+            <h3>Incremental Static Regeneration (ISR)</h3>
+            <p>Product catalog pages utilize Next.js ISR. This caches product pages statically on the edge (Vercel) for lightning-fast delivery while automatically revalidating data in the background upon product updates, avoiding stale content without sacrificing performance.</p>
+
+            <h3>Comprehensive Admin Dashboard</h3>
+            <p>Admins have full operational control over order progression, category hierarchies, product catalogs, offer banners, and review moderation. Real-time notifications alert admins of incoming orders instantaneously.</p>
+
+            <h3>Customer Experience & PWA</h3>
+            <p>Shoppers benefit from algorithmic features like "Recently Viewed Products", PDF invoice generation, seamless order tracking, and interactive review systems. The application is configured as a Progressive Web App (PWA), allowing mobile users to install it natively to their home screen.</p>
+          </div>
+
+          <!-- Database Design -->
+          <div class="doc-section">
+            <h2><i class="fas fa-database"></i> Database Design</h2>
+            <p>The schema relies on a highly normalized relational structure in PostgreSQL to ensure integrity. Key entities include:</p>
+            <ul>
+              <li><strong>User & Address</strong>: Handles multi-address management and 2FA secrets per user.</li>
+              <li><strong>Product, Category & ProductImage</strong>: Supports hierarchical categories, rich descriptions, and multi-image galleries.</li>
+              <li><strong>Order, OrderItem & OrderStatusHistory</strong>: Maintains immutable records of purchases, prices at the time of sale, and tracks the lifecycle of an order (Pending &rarr; Processing &rarr; Shipped &rarr; Delivered).</li>
+              <li><strong>Review</strong>: Enforces strict purchase-verification rules before allowing users to rate products.</li>
+            </ul>
+          </div>
+
+          <!-- Performance Optimizations -->
+          <div class="doc-section">
+            <h2><i class="fas fa-tachometer-alt"></i> Performance Optimizations</h2>
+            <ul>
+              <li><strong>ISR & Static Caching:</strong> Next.js App router leverages aggressive edge caching.</li>
+              <li><strong>Server-Side Pagination:</strong> Admin dashboard tables and catalog lists use cursor and offset pagination to ensure <100ms response times regardless of database scale.</li>
+              <li><strong>Optimistic UI:</strong> Client-side state (Zustand) is updated immediately when adding items to the cart, providing a snappy, app-like feel.</li>
+              <li><strong>Efficient Prisma Queries:</strong> Solved N+1 query problems using Prisma's `include` and `select` efficiently across relations.</li>
+            </ul>
+          </div>
+
+          <!-- Security -->
+          <div class="doc-section">
+            <h2><i class="fas fa-shield-alt"></i> Security Measures</h2>
+            <p>Security was a top priority throughout development. Forms are validated server-side using Zod to prevent malicious inputs. Payment and order state transitions strictly enforce <strong>Server-Side Validation</strong>. The RBAC model explicitly verifies user session claims on every protected API route, and the TOTP implementation shields accounts against credential stuffing.</p>
+          </div>
+
+          <!-- Challenges & Solutions -->
+          <div class="doc-section">
+            <h2><i class="fas fa-puzzle-piece"></i> Challenges & Solutions</h2>
+            <p><strong>The Challenge:</strong> Managing inventory race conditions during high-traffic checkout (e.g., flash sales).<br>
+            <strong>The Solution:</strong> Implemented Prisma interactive transactions combined with row-level locking where applicable. By checking inventory strictly within the transaction boundaries and throwing explicit errors if stock is insufficient before finalizing the commit, I eliminated the possibility of negative inventory logic errors.</p>
+          </div>
+
+          <!-- Lessons Learned -->
+          <div class="doc-section">
+            <h2><i class="fas fa-lightbulb"></i> Lessons Learned</h2>
+            <p>Building IntCart taught me the critical differences between a standard web app and a production-grade enterprise system. I learned that data architecture—specifically ensuring immutability for historical financial data (like orders and invoices)—is far more important than just making the UI look good. It also solidified my expertise in Next.js caching strategies, state management, and designing secure authentication flows.</p>
+          </div>
+
+          <!-- Feature List -->
+          <div class="doc-section">
+            <h2><i class="fas fa-list-check"></i> Feature List</h2>
+            <div class="feature-list-grid">
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Secure Authentication & 2FA</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> PWA Support & Installation</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Advanced Product Catalog</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Full Admin Dashboard</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> ACID Checkout Process</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Real-time Order Alerts</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> PDF Invoices Generation</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Reviews & Moderation</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Dynamic Homepage Banners</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Multi-Address Management</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-text" id="footer-name">Tazim</span>
+            <span class="logo-bracket">/&gt;</span>
+          </h3>
+          <p class="footer-description">
+            Building exceptional digital experiences with modern web technologies.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="footer-social" id="footer-social">
+            <!-- Populated by JS -->
+            <a href="https://github.com/cthboss001" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/tazim-hossen-857661216/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Made with <i class="fas fa-heart" style="color: var(--color-cyan);"></i> by <span id="footer-author">Tazim Hossen</span></p>
+        <p>&copy; <span id="current-year"></span> All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Theme toggling functionality
+    const themeToggle = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
+    const icon = themeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      root.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+    
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = root.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      root.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+    
+    function updateThemeIcon(theme) {
+      if (theme === 'light') {
+        icon.className = 'fas fa-sun';
+      } else {
+        icon.className = 'fas fa-moon';
+      }
+    }
+  </script>
+</body>
+</html>

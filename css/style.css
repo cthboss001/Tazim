@@ -468,12 +468,14 @@ h1, h2, h3, h4, h5, h6 {
 .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: var(--radius-xl);
-  border: 4px solid transparent;
+  object-fit: contain;
+  object-position: bottom center; /* Ensure it anchors to the bottom */
+  padding: 15px 15px 0 15px; /* Top: 15px, Right: 15px, Bottom: 0, Left: 15px */
+  box-sizing: border-box;
   background: var(--accent-gradient);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  border-radius: var(--radius-xl);
+  border: 3px solid var(--color-cyan);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
   position: relative;
   z-index: 2;
 }
@@ -923,6 +925,9 @@ h1, h2, h3, h4, h5, h6 {
   transition: all var(--transition-base);
   opacity: 1;
   transform: scale(1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card.hidden {
@@ -930,14 +935,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-lg), var(--shadow-glow-cyan);
   border-color: var(--color-cyan);
 }
 
 .project-image {
   width: 100%;
-  height: 200px;
+  height: 192px;
+  flex-shrink: 0;
   overflow: hidden;
   position: relative;
 }
@@ -992,24 +998,61 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .project-title {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
   color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.flagship-badge {
+  font-size: 0.75rem;
+  background: var(--accent-gradient);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: var(--shadow-glow-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flagship-card {
+  border: 2px solid var(--color-cyan);
+  box-shadow: 0 4px 20px rgba(0, 217, 255, 0.15);
+}
+
+.flagship-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
 }
 
 .project-description {
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
 .tech-badge {
