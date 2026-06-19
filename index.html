@@ -72,6 +72,26 @@ content="https://tazim.dev/og.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+    <!-- Intro Overlay -->
+    <div id="intro-overlay">
+        <canvas id="intro-canvas"></canvas>
+        <div id="intro-hud">
+            <div class="hud-corner tl"></div>
+            <div class="hud-corner tr"></div>
+            <div class="hud-corner bl"></div>
+            <div class="hud-corner br"></div>
+            <div class="hud-stat tl" id="hud-tl">DIU / CSE / 2023–2027</div>
+            <div class="hud-stat tr" id="hud-tr">CODEFORCES · 247 SOLVED</div>
+            <div class="hud-stat bl" id="hud-bl">DHAKA, BANGLADESH</div>
+            <div class="hud-stat br" id="hud-br">NEXT.JS · TYPESCRIPT · PRISMA</div>
+        </div>
+        <div id="intro-terminal">
+            <span id="intro-typed"></span><span class="intro-cursor">▋</span>
+        </div>
+        <div id="intro-name">Tazim Hossen<span class="name-sub">CSE Student · Full-Stack Developer</span></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
@@ -88,6 +108,8 @@ content="https://tazim.dev/og.png">
                 <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#experience" class="nav-link">Activities</a></li>
+                <li><a href="#photos" class="nav-link">Photos</a></li>
+                <li><a href="#videos" class="nav-link">Videos</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             
@@ -216,62 +238,10 @@ content="https://tazim.dev/og.png">
                 Skills & Technologies
                 <span class="title-line"></span>
             </h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-code"></i>
-                        Programming Languages
-                    </h3>
-                    <div class="skills-grid" id="skills-programming">
-                        <!-- Skills will be inserted by JS -->
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-palette"></i>
-                        Frontend Development
-                    </h3>
-                    <div class="skills-grid" id="skills-frontend">
-                        <!-- Skills will be inserted by JS -->
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-server"></i>
-                        Backend Development
-                    </h3>
-                    <div class="skills-grid" id="skills-backend">
-                        <!-- Skills will be inserted by JS -->
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-database"></i>
-                        Databases
-                    </h3>
-                    <div class="skills-grid" id="skills-database">
-                        <!-- Skills will be inserted by JS -->
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-tools"></i>
-                        Tools & Technologies
-                    </h3>
-                    <div class="skills-grid" id="skills-tools">
-                        <!-- Skills will be inserted by JS -->
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3 class="category-title">
-                        <i class="fas fa-users"></i>
-                        Soft Skills
-                    </h3>
-                    <div class="skills-grid" id="skills-soft">
-                        <!-- Skills will be inserted by JS -->
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="container">
+            <div class="skill-legend" id="skill-legend"></div>
+            <div class="skill-wall" id="skill-wall"></div>
         </div>
     </section>
 
@@ -317,11 +287,41 @@ content="https://tazim.dev/og.png">
         </div>
     </section>
 
+    <!-- Photos Section -->
+    <section class="photos section" id="photos">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">08.</span>
+                Photos
+                <span class="title-line"></span>
+            </h2>
+            <div class="photo-carousel">
+                <div class="photo-track" id="photo-track">
+                    <!-- Photos inserted by JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section class="videos section" id="videos">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">09.</span>
+                Videos
+                <span class="title-line"></span>
+            </h2>
+            <div class="videos-grid" id="videos-grid">
+                <!-- Videos inserted by JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact section" id="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-number">07.</span>
+                <span class="title-number">10.</span>
                 Get In Touch
                 <span class="title-line"></span>
             </h2>
@@ -354,39 +354,44 @@ content="https://tazim.dev/og.png">
 
     <!-- Footer -->
     <footer class="footer">
+        <!-- gradient top line handled by CSS ::before -->
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">
+
+            <!-- Motto banner -->
+            <div class="footer-motto">
+                <span class="footer-motto-text">I build things to learn and learn things to build. Each project tells a story of growth, mistakes, and persistence. Still writing the next chapter.</span>
+            </div>
+
+            <!-- Main row -->
+            <div class="footer-main">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
                         <span class="logo-bracket">&lt;</span>
                         <span class="logo-text" id="footer-name">Portfolio</span>
                         <span class="logo-bracket">/&gt;</span>
-                    </h3>
-                    <p class="footer-description">
-                        Building the future, one line of code at a time.
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="footer-social" id="footer-social">
-                        <!-- Social icons will be inserted by JS -->
                     </div>
+                    <div class="footer-social" id="footer-social"></div>
                 </div>
+
+                <!-- Nav -->
+                <nav class="footer-nav">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#photos">Photos</a>
+                    <a href="#videos">Videos</a>
+                    <a href="#contact">Contact</a>
+                </nav>
             </div>
+
+            <!-- Bottom bar -->
             <div class="footer-bottom">
                 <p>Made with <i class="fas fa-heart"></i> by <span id="footer-author">Your Name</span></p>
                 <p>&copy; <span id="current-year"></span> All rights reserved.</p>
             </div>
+
         </div>
     </footer>
 
@@ -394,6 +399,238 @@ content="https://tazim.dev/og.png">
     <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Intro Animation -->
+    <script>
+    (function() {
+      const overlay  = document.getElementById('intro-overlay');
+      const canvas   = document.getElementById('intro-canvas');
+      const typed    = document.getElementById('intro-typed');
+      const terminal = document.getElementById('intro-terminal');
+      const nameEl   = document.getElementById('intro-name');
+      const ctx      = canvas.getContext('2d');
+      const SKIP_KEY = 'introSeen_v4';
+
+      if (sessionStorage.getItem(SKIP_KEY)) { overlay.classList.add('hidden'); return; }
+      overlay.addEventListener('click', () => done(true));
+
+      let W, H, raf;
+      function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const CX = () => W/2, CY = () => H/2;
+      const CYAN='#00D9FF', GREEN='#10B981', PURPLE='#A78BFA', AMBER='#F59E0B', PINK='#F472B6';
+      const COLS = [CYAN,GREEN,PURPLE,AMBER,PINK];
+      const ei = t => t<0.5?2*t*t:-1+(4-2*t)*t;
+
+      /* ── background: wave strands (drawn once, cheap) ── */
+      const STRANDS = Array.from({length:12},(_,i)=>({
+        yBase: (i/11)*H, amp: 55+i*10,
+        freq: 0.003+i*0.0005, phase: i*0.9,
+        speed: 0.006+i*0.001,
+        col: COLS[i%5], lw: 0.5+i%3*0.3, a: 0.05+i%3*0.02
+      }));
+
+      function bg() {
+        /* orbs */
+        [0.15,0.45,0.75].forEach((rx,i)=>{
+          const ox=W*rx, oy=H*(0.25+i*0.25);
+          const g=ctx.createRadialGradient(ox,oy,0,ox,oy,Math.min(W,H)*0.22);
+          g.addColorStop(0,COLS[i]+'22'); g.addColorStop(1,'transparent');
+          ctx.fillStyle=g; ctx.beginPath(); ctx.arc(ox,oy,Math.min(W,H)*0.22,0,Math.PI*2); ctx.fill();
+        });
+        /* strands */
+        STRANDS.forEach(s=>{
+          s.phase+=s.speed;
+          ctx.beginPath();
+          for(let x=0;x<=W;x+=4){
+            const y=s.yBase+Math.sin(x*s.freq+s.phase)*s.amp+Math.sin(x*s.freq*0.4+s.phase*0.7)*s.amp*0.3;
+            x?ctx.lineTo(x,y):ctx.moveTo(x,y);
+          }
+          ctx.strokeStyle=s.col; ctx.lineWidth=s.lw; ctx.globalAlpha=s.a;
+          ctx.stroke(); ctx.globalAlpha=1;
+        });
+        /* 30 static-ish particles (no trails, fast) */
+        pts.forEach(p=>{
+          p.x+=p.vx; p.y+=p.vy;
+          if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+          if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+          ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+          ctx.fillStyle=p.col; ctx.globalAlpha=p.a; ctx.fill(); ctx.globalAlpha=1;
+        });
+      }
+      const pts = Array.from({length:30},()=>({
+        x:Math.random()*window.innerWidth, y:Math.random()*window.innerHeight,
+        r:Math.random()*1.2+0.3, vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+        col:COLS[Math.floor(Math.random()*5)], a:Math.random()*.25+.06
+      }));
+
+      /* ── Phase 1: type 3 words then jump to graph ── */
+      const words = ['Full-Stack Developer','Competitive Programmer','Builder'];
+      let wi=0, ci=0, del=false;
+
+      function baseLoop(){ ctx.clearRect(0,0,W,H); bg(); raf=requestAnimationFrame(baseLoop); }
+      baseLoop();
+      setTimeout(()=>document.querySelectorAll('.hud-corner,.hud-stat').forEach(e=>e.classList.add('show')),100);
+
+      function type(){
+        const w=words[wi];
+        if(!del){ ci++; typed.textContent=w.slice(0,ci);
+          if(ci===w.length){setTimeout(()=>{del=true;type();},400);return;}
+          setTimeout(type,30);
+        } else { ci--; typed.textContent=w.slice(0,ci);
+          if(ci===0){ del=false; wi++;
+            if(wi>=words.length){ terminal.classList.add('fade-out'); setTimeout(graph,200); return; }
+          }
+          setTimeout(type,15);
+        }
+      }
+      setTimeout(type,200);
+
+      /* ── Phase 2: node graph ── */
+      const ND=[
+        {label:'IntCart',    sub:'E-Commerce PWA',    col:CYAN,   a:-80, d:.29},
+        {label:'MovieVault', sub:'Movie Analytics',   col:GREEN,  a:-15, d:.26},
+        {label:'AgroMotion', sub:'1st Runner-up',     col:AMBER,  a: 50, d:.28},
+        {label:'Codeforces', sub:'247 problems',      col:PINK,   a:120, d:.27},
+        {label:'Next.js',    sub:'App Router',        col:GREEN,  a:185, d:.25},
+        {label:'TypeScript', sub:'Comfortable',       col:PURPLE, a:250, d:.27},
+        {label:'PostgreSQL', sub:'+ Prisma',          col:CYAN,   a:310, d:.28},
+      ];
+      let nodes=[], pt=0;
+
+      function graph(){
+        cancelAnimationFrame(raf);
+        terminal.style.display='none';
+        const R=Math.min(W,H)*(W<600?0.8:1);
+        nodes=ND.map((n,i)=>{
+          const rad=n.a*Math.PI/180;
+          return {x:CX()+R*n.d*Math.cos(rad), y:CY()+R*n.d*Math.sin(rad),
+            label:n.label, sub:n.sub, col:n.col,
+            r:0, alpha:0, lt:0, delay:i/ND.length*0.7};
+        });
+        let s=null; const DUR=1100;
+        function f(ts){
+          if(!s)s=ts; const t=Math.min((ts-s)/DUR,1); pt+=0.02;
+          ctx.clearRect(0,0,W,H); bg();
+
+          /* pulse rings from center */
+          [0,.4,.8].forEach(off=>{
+            const p=((pt*0.4+off)%1);
+            ctx.beginPath(); ctx.arc(CX(),CY(),p*70,0,Math.PI*2);
+            ctx.strokeStyle=CYAN; ctx.lineWidth=1; ctx.globalAlpha=(1-p)*0.2; ctx.stroke(); ctx.globalAlpha=1;
+          });
+
+          /* center dot */
+          ctx.beginPath(); ctx.arc(CX(),CY(),5,0,Math.PI*2);
+          ctx.fillStyle=CYAN; ctx.shadowColor=CYAN; ctx.shadowBlur=18; ctx.fill(); ctx.shadowBlur=0;
+
+          /* cross connections */
+          nodes.forEach((a,i)=>nodes.forEach((b,j)=>{
+            if(j<=i||a.alpha<0.7||b.alpha<0.7)return;
+            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+            ctx.strokeStyle=a.col; ctx.lineWidth=0.35; ctx.globalAlpha=0.06; ctx.stroke(); ctx.globalAlpha=1;
+          }));
+
+          const fs=Math.min(W*(W<600?.03:.022),11);
+          nodes.forEach(n=>{
+            n.lt=Math.min(Math.max((t-n.delay)/.25,0),1);
+            if(n.lt<=0)return;
+            /* line */
+            const ex=CX()+(n.x-CX())*n.lt, ey=CY()+(n.y-CY())*n.lt;
+            ctx.save(); ctx.setLineDash([5,4]); ctx.lineDashOffset=-pt*12;
+            ctx.beginPath(); ctx.moveTo(CX(),CY()); ctx.lineTo(ex,ey);
+            ctx.strokeStyle=n.col; ctx.lineWidth=1.4;
+            ctx.shadowColor=n.col; ctx.shadowBlur=8; ctx.globalAlpha=.65; ctx.stroke();
+            ctx.restore(); ctx.shadowBlur=0; ctx.globalAlpha=1;
+            if(n.lt<1)return;
+            n.alpha=Math.min(n.alpha+.06,1); n.r=Math.min(n.r+.5,8);
+            /* node */
+            ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
+            ctx.fillStyle=n.col; ctx.shadowColor=n.col; ctx.shadowBlur=16;
+            ctx.globalAlpha=n.alpha; ctx.fill(); ctx.shadowBlur=0; ctx.globalAlpha=1;
+            /* label */
+            ctx.font=`700 ${fs}px Inter,sans-serif`;
+            const tw=ctx.measureText(n.label).width;
+            ctx.fillStyle='rgba(8,8,20,.85)'; ctx.globalAlpha=n.alpha;
+            ctx.fillRect(n.x-tw/2-5, n.y-n.r-fs-14, tw+10, fs+5);
+            ctx.fillStyle=n.col; ctx.textAlign='center';
+            ctx.shadowColor=n.col; ctx.shadowBlur=6;
+            ctx.fillText(n.label,n.x,n.y-n.r-10);
+            ctx.shadowBlur=0;
+            ctx.font=`400 ${fs*.78}px Inter,sans-serif`;
+            ctx.fillStyle='rgba(255,255,255,.45)';
+            ctx.fillText(n.sub,n.x,n.y-n.r-10+fs*.95);
+            ctx.globalAlpha=1;
+          });
+          t<1?raf=requestAnimationFrame(f):setTimeout(converge,80);
+        }
+        raf=requestAnimationFrame(f);
+      }
+
+      /* ── Phase 3: converge ── */
+      function converge(){
+        const snap=nodes.map(n=>({...n}));
+        const DUR=380; let s=null;
+        function f(ts){
+          if(!s)s=ts; const t=Math.min((ts-s)/DUR,1); const e=ei(t);
+          ctx.clearRect(0,0,W,H); bg();
+          snap.forEach(n=>{
+            const cx=n.x+(CX()-n.x)*e, cy=n.y+(CY()-n.y)*e, a=1-e;
+            if(a<.01)return;
+            ctx.beginPath(); ctx.arc(cx,cy,n.r*(1-e*.8),0,Math.PI*2);
+            ctx.fillStyle=n.col; ctx.shadowColor=n.col; ctx.shadowBlur=14;
+            ctx.globalAlpha=a; ctx.fill(); ctx.shadowBlur=0; ctx.globalAlpha=1;
+          });
+          if(t>.75){
+            const bp=(t-.75)/.25;
+            ctx.beginPath(); ctx.arc(CX(),CY(),bp*90,0,Math.PI*2);
+            ctx.strokeStyle=CYAN; ctx.lineWidth=2; ctx.globalAlpha=(1-bp)*.7;
+            ctx.shadowColor=CYAN; ctx.shadowBlur=24; ctx.stroke();
+            ctx.shadowBlur=0; ctx.globalAlpha=1;
+          }
+          t<1?raf=requestAnimationFrame(f):(ctx.clearRect(0,0,W,H),showName());
+        }
+        raf=requestAnimationFrame(f);
+      }
+
+      /* ── Phase 4: name → hero ── */
+      function showName(){
+        cancelAnimationFrame(raf);
+        nameEl.classList.add('show');
+        setTimeout(()=>done(false),700);
+      }
+
+      function done(instant){
+        if(instant){ overlay.classList.add('hidden'); sessionStorage.setItem(SKIP_KEY,'1'); cancelAnimationFrame(raf); return; }
+        const hn=document.getElementById('hero-name');
+        // fade out subtitle, then fly name to exact hero position
+        nameEl.classList.add('flying');
+        setTimeout(()=>{
+          if(hn){
+            const r=hn.getBoundingClientRect(), nr=nameEl.getBoundingClientRect();
+            const scaleX=r.width/nr.width;
+            const dx=r.left-nr.left+(r.width-nr.width)/2;
+            const dy=r.top-nr.top;
+            nameEl.style.transition='transform .55s cubic-bezier(.4,0,.2,1), opacity .3s ease .3s';
+            nameEl.style.transformOrigin='center center';
+            nameEl.style.transform=`translate(${dx}px,${dy}px) scaleX(${scaleX})`;
+            nameEl.style.opacity='0';
+          }
+          setTimeout(()=>{
+            overlay.classList.add('hidden');
+            sessionStorage.setItem(SKIP_KEY,'1');
+            cancelAnimationFrame(raf);
+          },600);
+        },300);
+      }
+
+    })();
+    </script>
 
     <!-- Scripts -->
     <script src="js/data.js"></script>

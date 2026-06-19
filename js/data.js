@@ -234,5 +234,28 @@ const portfolioData = {
         { label: "ICPC Profile", url: "https://icpc.global/ICPCID/8SKJOAW5IRMQ" }
       ]
     }
+  ],
+
+  // Photos are auto-loaded from photo/manifest.json
+  // Run update-photos.bat before pushing to update the list
+  photos: [],
+
+  // Add your YouTube video IDs here (the part after ?v= in the YouTube URL)
+  videos: [
+    {
+      title: "OOP Project Promo || HuntsMen X BORBAAD | SHAKIB KHAN",
+      youtubeId: "gOAfvj5mvtU",
+      description: ""
+    },
+    {
+      title: "PROMO VIDEO OF AGRO MOTION BY SHAHEE ALPHAS",
+      youtubeId: "R9hftE0bpwo",
+      description: ""
+    },
+    {
+      title: "ENG 101 Course Work 1st Semester | Video Resume | Tazim Hossen | Daffodil International University",
+      youtubeId: "oaeImOiPldw",
+      description: ""
+    }
   ]
 };

@@ -109,7 +109,7 @@ function initializePortfolio() {
   populateEducation();
 
 
-  populateSkills();
+  populateSkillsCarousel();
 
 
   populateProjects();
@@ -119,6 +119,8 @@ function initializePortfolio() {
 
 
   populateCertifications();
+  populatePhotos();
+  populateVideos();
 
 
 
@@ -140,6 +142,7 @@ function initializePortfolio() {
 
 
   initScrollTop();
+  initScrollProgress();
 
 
   
@@ -835,143 +838,55 @@ function populateEducation() {
 // ========================================
 
 
-// Populate Skills
-
-
 // ========================================
+// Skills Wall (galaxy)
+// ========================================
+function populateSkillsCarousel() {
+  const wall   = document.getElementById('skill-wall');
+  const legend = document.getElementById('skill-legend');
+  if (!wall) return;
+  wall.innerHTML   = '';
+  legend.innerHTML = '';
 
-
-function populateSkills() {
-
-
-  const skillCategories = {
-
-
-    programming: 'skills-programming',
-
-
-    frontend: 'skills-frontend',
-
-
-    backend: 'skills-backend',
-
-
-    database: 'skills-database',
-
-
-    tools: 'skills-tools',
-
-
-    soft: 'skills-soft'
-
-
+  const categories = {
+    programming: { label: 'Languages',   icon: 'fa-solid fa-code',     color: '#00D9FF' },
+    frontend:    { label: 'Frontend',    icon: 'fa-brands fa-html5',   color: '#34D399' },
+    backend:     { label: 'Backend',     icon: 'fa-solid fa-server',   color: '#A78BFA' },
+    database:    { label: 'Databases',   icon: 'fa-solid fa-database', color: '#F59E0B' },
+    tools:       { label: 'Tools',       icon: 'fa-solid fa-tools',    color: '#F472B6' },
+    soft:        { label: 'Soft Skills', icon: 'fa-solid fa-users',    color: '#10B981' }
   };
 
-
-  
-
-
-  Object.entries(skillCategories).forEach(([category, containerId]) => {
-
-
-    const container = document.getElementById(containerId);
-
-
-    container.innerHTML = '';
-
-
-    
-
-
-    portfolioData.skills[category].forEach(skill => {
-
-
-      const card = document.createElement('div');
-
-
-      card.className = 'skill-card hidden-anim';
-
-
-      if (skill.level) {
-
-
-        card.innerHTML = `
-
-
-        <div class="skill-header">
-
-
-          <span class="skill-name">
-
-
-            <i class="${skill.icon}"></i>
-
-
-            ${skill.name}
-
-
-          </span>
-
-
-          <span class="skill-level-label ${skill.level.toLowerCase()}">${skill.level}</span>
-
-
-        </div>
-
-
-      `;
-
-
-      } else {
-
-
-        card.innerHTML = `
-
-
-        <div class="skill-header">
-
-
-          <span class="skill-name">
-
-
-            <i class="${skill.icon}"></i>
-
-
-            ${skill.name}
-
-
-          </span>
-
-
-        </div>
-
-
-      `;
-
-
-      }
-
-
-      container.appendChild(card);
-
-
-    });
-
-
+  // Legend
+  Object.entries(categories).forEach(([cat, meta]) => {
+    const dot = document.createElement('div');
+    dot.className = 'skill-legend-item';
+    dot.innerHTML = `<span class="legend-dot" style="background:${meta.color};box-shadow:0 0 6px ${meta.color}"></span><span>${meta.label}</span>`;
+    legend.appendChild(dot);
   });
 
-
+  // All skills flattened into wall
+  let globalIndex = 0;
+  Object.entries(categories).forEach(([cat, meta]) => {
+    const skills = portfolioData.skills[cat];
+    if (!skills || !skills.length) return;
+    skills.forEach(skill => {
+      const tag = document.createElement('div');
+      tag.className = 'skill-tag';
+      tag.style.setProperty('--tag-color', meta.color);
+      tag.style.animationDelay = `${(globalIndex * 0.07) % 3}s`;
+      tag.innerHTML = `
+        <i class="${skill.icon}" style="color:${meta.color}"></i>
+        <span>${skill.name}</span>
+        ${skill.level ? `<em class="tag-level">${skill.level}</em>` : ''}
+      `;
+      // tooltip category on hover
+      tag.title = meta.label;
+      wall.appendChild(tag);
+      globalIndex++;
+    });
+  });
 }
-
-
-
-
-
-// ========================================
-
-
-// Populate Projects
-
 
 // ========================================
 
@@ -1029,6 +944,11 @@ function populateProjects() {
         </h3>
         <p class="project-description">${project.description}</p>
         <div class="project-technologies">${techBadges}</div>
+        <div class="project-actions">
+          ${project.live && project.live !== '#' ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer" class="project-action-btn btn-live"><i class="fas fa-external-link-alt"></i> Live</a>` : ''}
+          ${project.github && project.github !== '#' ? `<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-action-btn btn-gh"><i class="fab fa-github"></i> Code</a>` : ''}
+          ${project.docLink && project.docLink !== '#' ? `<a href="${project.docLink}" rel="noopener noreferrer" class="project-action-btn btn-doc"><i class="fas fa-file-alt"></i> Docs</a>` : ''}
+        </div>
       </div>
     `;
 
@@ -1573,6 +1493,17 @@ function isValidEmail(email) {
 // ========================================
 
 
+function initScrollProgress() {
+  const bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+}
+
+
 function initScrollTop() {
 
 
@@ -1736,3 +1667,91 @@ document.addEventListener('keydown', (e) => {
 
 
 // console.log('%cLike what you see? Let\'s connect!', 'font-size: 14px; color: #10B981;');
+
+
+// ========================================
+// Populate Photos (carousel from manifest)
+// ========================================
+function populatePhotos() {
+  const track = document.getElementById('photo-track');
+  if (!track) return;
+
+  fetch('photo/manifest.json')
+    .then(r => r.json())
+    .then(files => {
+      if (!files.length) return;
+
+      // Build items (duplicated for seamless loop)
+      const buildItems = () => files.map(f => {
+        const div = document.createElement('div');
+        div.className = 'photo-slide';
+        div.innerHTML = `<img src="photo/${encodeURIComponent(f)}" alt="${f}" loading="lazy">`;
+        return div;
+      });
+
+      buildItems().forEach(el => track.appendChild(el));
+      // Duplicate for seamless infinite scroll
+      buildItems().forEach(el => track.appendChild(el));
+
+      initPhotoCarousel(track, files.length);
+    })
+    .catch(() => {
+      // manifest missing — hide section
+      const sec = document.getElementById('photos');
+      if (sec) sec.style.display = 'none';
+    });
+}
+
+function initPhotoCarousel(track, count) {
+  const SLIDE_WIDTH = 280; // px — must match CSS
+  const GAP = 16;
+  const SPEED = 0.5; // px per frame
+  let offset = 0;
+  let paused = false;
+  const totalWidth = count * (SLIDE_WIDTH + GAP);
+
+  track.parentElement.addEventListener('mouseenter', () => paused = true);
+  track.parentElement.addEventListener('mouseleave', () => paused = false);
+
+  function animate() {
+    if (!paused) {
+      offset += SPEED;
+      if (offset >= totalWidth) offset = 0;
+      track.style.transform = `translateX(-${offset}px)`;
+    }
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+}
+
+
+// ========================================
+// Populate Videos
+// ========================================
+function populateVideos() {
+  const grid = document.getElementById('videos-grid');
+  if (!grid || !portfolioData.videos) return;
+  grid.innerHTML = '';
+  portfolioData.videos.forEach((video, index) => {
+    const item = document.createElement('div');
+    item.className = 'video-item hidden-anim';
+    item.style.transitionDelay = `${index * 0.1}s`;
+    item.innerHTML = `
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/${video.youtubeId}"
+          title="${video.title}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+      <div class="video-info">
+        <h3 class="video-title">${video.title}</h3>
+        ${video.description ? `<p class="video-description">${video.description}</p>` : ''}
+      </div>
+    `;
+    grid.appendChild(item);
+  });
+}
