@@ -498,11 +498,12 @@ function populatePersonalInfo() {
 
   document.querySelector('#info-email .info-value').textContent = data.email;
 
+  const telegramUrl = data.social.telegram;
+  const telegramEl = document.querySelector('#info-telegram-link');
+  telegramEl.textContent = '@tazimhossen001';
+  telegramEl.href = telegramUrl;
 
-  document.querySelector('#info-phone .info-value').textContent = data.phone;
 
-
-  
 
 
   // Contact section

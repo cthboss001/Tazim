@@ -7,14 +7,14 @@ const portfolioData = {
     bio: "I'm Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills. Recently, I have also developed a strong passion for full-stack web development, where I architect and build production-ready, scalable web applications (like IntCart) using modern technologies such as Next.js, TypeScript, and Prisma.",
     objective: "Seeking a challenging Junior Software Engineer position where I can apply my technical skills and creativity to develop innovative solutions while contributing to team success and professional growth.",
     email: "contact@tazim.dev",
-    phone: "+880 1744782478",
+    phone: "",
     location: "Dhaka, Bangladesh",
     profileImage: "assets/images/unnamed.png",
     resumeLink: "assets/Tazim_Hossen_Resume.html",
     social: {
       github: "https://github.com/cthboss001",
-      linkedin: "https://www.linkedin.com/in/tazim-hossen-857661216/",
-      facebook: "https://facebook.com/tazim.hossen.001",
+      linkedin: "https://www.linkedin.com/in/tazimhossen/",
+      facebook: "https://fb.tazim.dev",
       twitter: "https://x.com/tazim_hossen",
       telegram: "https://t.me/tazimhossen001",
       codeforces: "https://codeforces.com/profile/unbowed_t"
