@@ -48,17 +48,22 @@ const portfolioData = {
       { name: "React", icon: "fa-brands fa-react", level: "Comfortable" },
       { name: "Next.js", icon: "fa-brands fa-react", level: "Comfortable" },
       { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt", level: "Comfortable" },
+      { name: "Zustand", icon: "fa-solid fa-layer-group", level: "Intermediate" },
+      { name: "Recharts", icon: "fa-solid fa-chart-bar", level: "Intermediate" },
       { name: "PWA", icon: "fa-solid fa-mobile-screen", level: "Intermediate" },
       { name: "Bootstrap", icon: "fa-brands fa-bootstrap", level: "Intermediate" }
     ],
     backend: [
       { name: "Node.js", icon: "fa-brands fa-node-js", level: "Intermediate" },
+      { name: "Electron", icon: "fa-solid fa-desktop", level: "Intermediate" },
       { name: "Express.js", icon: "fa-solid fa-server", level: "Learning" },
       { name: "Prisma ORM", icon: "fa-solid fa-database", level: "Comfortable" },
+      { name: "Supabase", icon: "fa-solid fa-bolt", level: "Intermediate" },
       { name: "NextAuth.js", icon: "fa-solid fa-shield-halved", level: "Intermediate" }
     ],
     database: [
       { name: "PostgreSQL", icon: "fa-solid fa-database", level: "Comfortable" },
+      { name: "SQLite", icon: "fa-solid fa-database", level: "Intermediate" },
       { name: "MySQL", icon: "fa-solid fa-database", level: "Intermediate" },
       { name: "MongoDB", icon: "fa-solid fa-leaf", level: "Learning" }
     ],
@@ -69,6 +74,7 @@ const portfolioData = {
       { name: "Linux", icon: "fa-brands fa-linux", level: "Intermediate" },
       { name: "Postman", icon: "fa-solid fa-paper-plane", level: "Intermediate" },
       { name: "Vercel", icon: "fa-solid fa-rocket", level: "Comfortable" },
+      { name: "electron-builder", icon: "fa-solid fa-box-open", level: "Intermediate" },
       { name: "Cloudinary", icon: "fa-solid fa-cloud-arrow-up", level: "Intermediate" },
       { name: "Resend", icon: "fa-solid fa-envelope-open-text", level: "Intermediate" }
     ],
@@ -96,13 +102,12 @@ const portfolioData = {
     {
       title: "RetinaRest",
       description: "Production-grade Windows desktop application implementing the 20-20-20 eye health rule. Features a finite state machine timer engine with crash recovery, full-screen break overlay, eye health dashboard with weekly analytics, Google OAuth + guest mode, and seamless auto-updating with live progress UI. 11+ releases shipped on GitHub.",
-      image: "assets/images/retinarest.png",
+      image: "assets/images/retinarest-dashboard.png",
       technologies: ["Electron", "React", "TypeScript", "SQLite", "Prisma", "Supabase", "Zustand", "Recharts", "electron-builder"],
-      github: "https://github.com/cthboss001/Retina-Rest-Releases",
-      live: "https://github.com/cthboss001/Retina-Rest-Releases/releases/latest",
+      docLink: "retinarest.html",
       category: ["desktop", "fullstack"],
       isFlagship: false,
-      downloadLabel: "Download for Windows"
+      downloadLabel: "Product Page"
     },
     {
       title: "MovieVault 🎬",
@@ -129,6 +134,21 @@ const portfolioData = {
         "Built as a Progressive Web App (PWA) with a scalable PostgreSQL database architecture"
       ],
       technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"]
+    },
+    {
+      role: "RetinaRest — Windows Desktop Application",
+      company: "Personal Project",
+      duration: "2026",
+      location: "Online",
+      type: "Desktop Development",
+      responsibilities: [
+        "Engineered a production-grade Windows desktop app with Electron and React, shipping 11+ stable releases via GitHub Releases with NSIS installer distribution",
+        "Designed a crash-resilient finite state machine timer engine persisted in SQLite via Prisma ORM — survives restarts and adjusts dynamically when settings change without resetting progress",
+        "Built an eye health analytics dashboard with daily stats, compliance rate, streak tracking, and animated weekly bar charts (Recharts)",
+        "Implemented Google OAuth + guest mode with Supabase PostgreSQL and Row-Level Security for cloud sync alongside fully offline SQLite persistence",
+        "Shipped silent auto-updates with live progress toast using electron-updater; install-on-quit behavior matches professional desktop software standards"
+      ],
+      technologies: ["Electron", "React", "TypeScript", "SQLite", "Prisma", "Supabase", "Zustand", "Recharts", "electron-builder"]
     },
     {
       role: "Project Showcase — AgroMotion",

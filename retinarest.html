@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RetinaRest — Protect Your Eyes with the 20-20-20 Rule</title>
+  <meta name="title" content="RetinaRest — Protect Your Eyes with the 20-20-20 Rule">
+  <meta name="description" content="RetinaRest is a free, open-source Windows desktop app that reminds you to take eye breaks every 20 minutes. Built with Electron, React, and Supabase. Download now.">
+  <meta name="keywords" content="RetinaRest, eye health, 20-20-20 rule, eye break reminder, Windows app, Electron, Tazim Hossen, eye protection software">
+  <meta name="author" content="Tazim Hossen">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tazim.dev/retinarest.html">
+  <meta property="og:title" content="RetinaRest — Protect Your Eyes with the 20-20-20 Rule">
+  <meta property="og:description" content="A production-grade Windows desktop app that keeps your eyes healthy with smart break reminders, analytics, and auto-updates.">
+  <meta property="og:image" content="https://tazim.dev/assets/images/retinarest.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tazim.dev/retinarest.html">
+  <meta property="twitter:title" content="RetinaRest — Protect Your Eyes">
+  <meta property="twitter:description" content="Free Windows desktop app. 20-20-20 rule. Auto-updating. Open source.">
+  <meta property="twitter:image" content="https://tazim.dev/assets/images/retinarest.png">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* =============================================
+       RetinaRest Landing Page — Dedicated Styles
+       ============================================= */
+
+    :root {
+      --rr-blue:   #3b82f6;
+      --rr-cyan:   #06b6d4;
+      --rr-purple: #8b5cf6;
+      --rr-glow:   0 0 40px rgba(59, 130, 246, 0.35);
+      --rr-glow-strong: 0 0 80px rgba(59, 130, 246, 0.55);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #050a14;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+
+    /* ---- ANIMATED BACKGROUND ---- */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridPan 30s linear infinite;
+    }
+    @keyframes gridPan {
+      0%   { background-position: 0 0; }
+      100% { background-position: 60px 60px; }
+    }
+
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.18;
+      z-index: 0;
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+    .bg-orb-1 { width: 600px; height: 600px; top: -200px; left: -200px; background: radial-gradient(circle, #3b82f6, transparent); }
+    .bg-orb-2 { width: 500px; height: 500px; bottom: -200px; right: -150px; background: radial-gradient(circle, #8b5cf6, transparent); animation-delay: -4s; }
+    .bg-orb-3 { width: 400px; height: 400px; top: 40%; left: 50%; background: radial-gradient(circle, #06b6d4, transparent); animation-delay: -2s; opacity: 0.08; }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50%       { transform: translate(30px, -30px) scale(1.05); }
+    }
+
+    /* ---- NAVBAR ---- */
+    .rr-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(5, 10, 20, 0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(59,130,246,0.1);
+    }
+    .rr-nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #e2e8f0;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .rr-nav-logo .eye-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: white;
+    }
+    .rr-nav-back {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: rgba(226,232,240,0.5);
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+    .rr-nav-back:hover { color: #3b82f6; }
+
+    /* ---- WRAPPER ---- */
+    .rr-page { position: relative; z-index: 1; }
+
+    /* ---- HERO ---- */
+    .rr-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 2rem 80px;
+    }
+    .rr-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(59,130,246,0.12);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #3b82f6;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    .rr-hero-badge .dot {
+      width: 7px; height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: blink 2s ease infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .rr-hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #fff 0%, #3b82f6 40%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.6s 0.1s ease both;
+    }
+    .rr-hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.35rem);
+      color: rgba(226,232,240,0.65);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      animation: fadeInUp 0.6s 0.2s ease both;
+    }
+    .rr-hero-sub strong { color: #06b6d4; font-weight: 600; }
+
+    /* ---- THE DOWNLOAD BUTTON ---- */
+    .rr-download-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.6s 0.3s ease both;
+    }
+
+    /* Pulsing rings behind button */
+    .rr-download-wrapper::before,
+    .rr-download-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 60px;
+      border: 1px solid rgba(59,130,246,0.4);
+      animation: ringPulse 2.5s ease-out infinite;
+      pointer-events: none;
+    }
+    .rr-download-wrapper::after {
+      inset: -24px;
+      border-color: rgba(59,130,246,0.2);
+      animation-delay: 0.75s;
+    }
+    @keyframes ringPulse {
+      0%   { transform: scale(1);    opacity: 1; }
+      100% { transform: scale(1.15); opacity: 0; }
+    }
+
+    .rr-download-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 1.1rem 2.8rem;
+      background: linear-gradient(135deg, #1d4ed8, #3b82f6, #2563eb);
+      background-size: 200% 200%;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(59,130,246,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+      animation: gradientShift 3s ease infinite;
+    }
+    @keyframes gradientShift {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* Shimmer sweep */
+    .rr-download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transform: skewX(-20deg);
+      animation: shimmer 2.5s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%   { left: -100%; }
+      60%  { left: 130%; }
+      100% { left: 130%; }
+    }
+
+    .rr-download-btn:hover {
+      transform: translateY(-5px) scale(1.06);
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      box-shadow: 0 15px 45px rgba(59,130,246,0.8), inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+    .rr-download-btn:active { transform: translateY(0) scale(0.98); }
+
+    .rr-download-btn .btn-icon {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .rr-download-btn:hover .btn-icon { transform: translateY(3px); }
+
+    .rr-download-btn .btn-text { line-height: 1.2; text-align: left; }
+    .rr-download-btn .btn-text span { display: block; font-size: 0.7rem; font-weight: 400; opacity: 0.8; }
+
+    /* Download overlay (animation) */
+    .download-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(5,10,20,0.9);
+      backdrop-filter: blur(16px);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .download-overlay.active { display: flex; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    .dl-circle {
+      position: relative;
+      width: 140px;
+      height: 140px;
+    }
+    .dl-circle svg { transform: rotate(-90deg); }
+    .dl-circle-track { fill: none; stroke: rgba(59,130,246,0.15); stroke-width: 8; }
+    .dl-circle-fill  { fill: none; stroke: url(#dlGrad); stroke-width: 8; stroke-linecap: round;
+                       stroke-dasharray: 377; stroke-dashoffset: 377;
+                       transition: stroke-dashoffset 0.2s ease; }
+    .dl-circle-text {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .dl-circle-pct {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem; font-weight: 800; color: #fff;
+      line-height: 1;
+    }
+    .dl-circle-label { font-size: 0.7rem; color: rgba(226,232,240,0.5); margin-top: 2px; }
+    .dl-title { font-family: 'Poppins', sans-serif; font-size: 1.4rem; font-weight: 700; color: #fff; }
+    .dl-sub { color: rgba(226,232,240,0.5); font-size: 0.875rem; }
+    .dl-steps { display: flex; flex-direction: column; gap: 0.5rem; width: 280px; }
+    .dl-step {
+      display: flex; align-items: center; gap: 10px;
+      padding: 0.6rem 1rem;
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.15);
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: rgba(226,232,240,0.5);
+      transition: all 0.4s;
+    }
+    .dl-step.done {
+      border-color: rgba(59,130,246,0.5);
+      color: #fff;
+      background: rgba(59,130,246,0.12);
+    }
+    .dl-step .step-dot {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 2px solid rgba(59,130,246,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem;
+      flex-shrink: 0;
+      transition: all 0.4s;
+    }
+    .dl-step.done .step-dot { background: #3b82f6; border-color: #3b82f6; }
+    .dl-close-btn {
+      display: none;
+      padding: 0.75rem 2rem;
+      background: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      gap: 8px;
+      align-items: center;
+    }
+    .dl-close-btn.show { display: flex; animation: fadeInUp 0.4s ease; }
+    .dl-close-btn:hover { transform: scale(1.05); }
+
+    /* ---- META ROW ---- */
+    .rr-meta {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.8rem;
+      color: rgba(226,232,240,0.4);
+      animation: fadeInUp 0.6s 0.4s ease both;
+    }
+    .rr-meta span { display: flex; align-items: center; gap: 5px; }
+    .rr-meta i { color: #3b82f6; }
+
+    /* ---- SCREENSHOT SECTION ---- */
+    .rr-screenshots {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .rr-section-label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 0.75rem;
+    }
+    .rr-section-title {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 3rem;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .screenshot-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(59,130,246,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .screenshot-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(59,130,246,0.5);
+      box-shadow: 0 30px 80px rgba(59,130,246,0.2);
+    }
+    .screenshot-card img { width: 100%; display: block; }
+    .screenshot-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0.75rem 1rem;
+      background: linear-gradient(transparent, rgba(5,10,20,0.9));
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(226,232,240,0.7);
+    }
+
+    /* ---- VIDEO SECTION ---- */
+    .rr-video-section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .video-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(59,130,246,0.2);
+      box-shadow: 0 20px 60px rgba(59,130,246,0.15);
+      aspect-ratio: 16/9;
+      background: #0a1020;
+    }
+    .video-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, rgba(59,130,246,0.05), rgba(139,92,246,0.05));
+    }
+    .video-play-btn {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      box-shadow: 0 0 40px rgba(59,130,246,0.5);
+      cursor: pointer;
+      border: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-play-btn:hover { transform: scale(1.1); box-shadow: 0 0 60px rgba(59,130,246,0.7); }
+    .video-placeholder p { color: rgba(226,232,240,0.5); font-size: 0.9rem; }
+    .video-embed { width: 100%; height: 100%; border: none; }
+
+    /* ---- FEATURES GRID ---- */
+    .rr-features {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .feature-card {
+      padding: 1.75rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(59,130,246,0.12);
+      border-radius: 16px;
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      background: rgba(59,130,246,0.05);
+      border-color: rgba(59,130,246,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(59,130,246,0.1);
+    }
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .feature-card p { font-size: 0.85rem; line-height: 1.65; color: rgba(226,232,240,0.55); }
+
+    /* ---- RELEASES SECTION ---- */
+    .rr-releases {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .release-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .release-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1.25rem;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(59,130,246,0.1);
+      border-radius: 12px;
+      transition: all 0.2s;
+    }
+    .release-item:hover { border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.04); }
+    .release-item:first-child { border-color: rgba(59,130,246,0.4); background: rgba(59,130,246,0.06); }
+    .release-ver {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #3b82f6;
+      width: 60px;
+      flex-shrink: 0;
+    }
+    .release-item:first-child .release-ver { color: #06b6d4; }
+    .release-desc { flex: 1; font-size: 0.8rem; color: rgba(226,232,240,0.6); }
+    .release-latest {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #22c55e;
+      background: rgba(34,197,94,0.1);
+      border: 1px solid rgba(34,197,94,0.25);
+      padding: 2px 8px;
+      border-radius: 50px;
+    }
+
+    /* ---- TECH STACK ---- */
+    .rr-stack {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .stack-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.65rem;
+      margin-top: 2rem;
+    }
+    .stack-pill {
+      padding: 0.5rem 1.1rem;
+      background: rgba(59,130,246,0.08);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 50px;
+      font-size: 0.825rem;
+      font-weight: 500;
+      color: rgba(226,232,240,0.8);
+      transition: all 0.25s;
+    }
+    .stack-pill:hover {
+      background: rgba(59,130,246,0.18);
+      border-color: rgba(59,130,246,0.45);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ---- FINAL CTA ---- */
+    .rr-cta {
+      padding: 6rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+    .rr-cta-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 3rem;
+      background: rgba(59,130,246,0.05);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 24px;
+      box-shadow: 0 0 80px rgba(59,130,246,0.08);
+    }
+    .rr-cta h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .rr-cta p { color: rgba(226,232,240,0.55); margin-bottom: 2rem; }
+    .rr-cta-meta { margin-top: 1rem; font-size: 0.75rem; color: rgba(226,232,240,0.3); }
+
+    /* ---- FOOTER ---- */
+    .rr-footer {
+      border-top: 1px solid rgba(59,130,246,0.08);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(226,232,240,0.3);
+    }
+    .rr-footer a { color: #3b82f6; text-decoration: none; }
+    .rr-footer a:hover { color: #06b6d4; }
+
+    /* ---- UTILS ---- */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up { opacity: 0; animation: fadeInUp 0.6s ease forwards; }
+
+    .divider {
+      width: 80px; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      border-radius: 4px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ---- MOBILE ---- */
+    @media (max-width: 768px) {
+      .screenshot-grid { grid-template-columns: 1fr; }
+      .rr-hero-title { font-size: 2.8rem; }
+      .rr-meta { flex-wrap: wrap; gap: 1rem; justify-content: center; }
+      .rr-nav { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Download Animation Overlay -->
+<div class="download-overlay" id="dlOverlay">
+  <svg width="0" height="0">
+    <defs>
+      <linearGradient id="dlGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#3b82f6"/>
+        <stop offset="100%" stop-color="#8b5cf6"/>
+      </linearGradient>
+    </defs>
+  </svg>
+  <div class="dl-title">Preparing Your Download</div>
+  <div class="dl-circle">
+    <svg viewBox="0 0 120 120" width="140" height="140">
+      <circle class="dl-circle-track" cx="60" cy="60" r="52"/>
+      <circle class="dl-circle-fill" id="dlArc" cx="60" cy="60" r="52"/>
+    </svg>
+    <div class="dl-circle-text">
+      <span class="dl-circle-pct" id="dlPct">0%</span>
+      <span class="dl-circle-label">FETCHING</span>
+    </div>
+  </div>
+  <div class="dl-steps" id="dlSteps">
+    <div class="dl-step" id="step1"><span class="step-dot"><i class="fas fa-check" style="font-size:0.55rem"></i></span> Connecting to GitHub Releases</div>
+    <div class="dl-step" id="step2"><span class="step-dot"><i class="fas fa-check" style="font-size:0.55rem"></i></span> Fetching latest version info</div>
+    <div class="dl-step" id="step3"><span class="step-dot"><i class="fas fa-check" style="font-size:0.55rem"></i></span> Redirecting to installer</div>
+  </div>
+  <div class="dl-sub" id="dlSub">RetinaRest-Setup.exe · ~75 MB</div>
+  <a class="dl-close-btn" id="dlFallback" href="https://github.com/cthboss001/Retina-Rest-Releases/releases/latest/download/RetinaRest-Setup.exe" style="display:none; text-decoration:none; margin-bottom: 10px; background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4);">
+    <i class="fas fa-download"></i> Direct Download Link
+  </a>
+  <button class="dl-close-btn" id="dlCloseBtn" onclick="closeDlOverlay()">
+    <i class="fas fa-check"></i> Download Started — Close
+  </button>
+</div>
+
+<!-- Background -->
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+
+<!-- Navbar -->
+<nav class="rr-nav">
+  <a class="rr-nav-logo" href="index.html">
+    <div class="eye-icon"><i class="fas fa-eye"></i></div>
+    RetinaRest
+  </a>
+  <a class="rr-nav-back" href="index.html#projects">
+    <i class="fas fa-arrow-left"></i> Back to Portfolio
+  </a>
+</nav>
+
+<div class="rr-page">
+
+  <!-- ===== HERO ===== -->
+  <section class="rr-hero">
+    <div class="rr-hero-badge">
+      <span class="dot"></span>
+      v1.1.1 · Live &amp; Free
+    </div>
+    <h1 class="rr-hero-title">RetinaRest</h1>
+    <p class="rr-hero-sub">
+      A production-grade Windows desktop app that automatically reminds you to rest your eyes using the scientifically-proven
+      <strong>20-20-20 rule</strong>. Smart. Quiet. Always running.
+    </p>
+
+    <div class="rr-download-wrapper">
+      <button class="rr-download-btn" onclick="startDownload()">
+        <span class="btn-icon"><i class="fas fa-download"></i></span>
+        <span class="btn-text">
+          Download for Windows
+          <span>Free · v1.1.1 · Auto-Updates</span>
+        </span>
+      </button>
+    </div>
+
+    <div class="rr-meta">
+      <span><i class="fab fa-windows"></i> Windows 10 / 11</span>
+      <span><i class="fas fa-shield-halved"></i> Open Source</span>
+      <span><i class="fas fa-bolt"></i> 11 Releases</span>
+      <span><i class="fab fa-github"></i> <a href="https://github.com/cthboss001/Retina-Rest-Releases" target="_blank" rel="noopener" style="color:rgba(226,232,240,0.4);text-decoration:none;">GitHub Releases</a></span>
+    </div>
+  </section>
+
+  <!-- ===== SCREENSHOTS ===== -->
+  <section class="rr-screenshots">
+    <p class="rr-section-label">Interface</p>
+    <h2 class="rr-section-title">See it in action</h2>
+    <div class="divider"></div>
+
+    <div class="screenshot-grid">
+      <div class="screenshot-card">
+        <img src="assets/images/retinarest-dashboard.png" alt="RetinaRest Dashboard — Timer, Stats & Streaks" loading="lazy">
+        <div class="screenshot-caption"><i class="fas fa-chart-bar" style="color:#3b82f6;margin-right:6px"></i>Dashboard — Eye Health Overview</div>
+      </div>
+      <div class="screenshot-card">
+        <img src="assets/images/retinarest-settings.png" alt="RetinaRest Settings — Circular Dial Steppers" loading="lazy">
+        <div class="screenshot-caption"><i class="fas fa-sliders" style="color:#8b5cf6;margin-right:6px"></i>Settings — Fully Customizable</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO ===== -->
+  <section class="rr-video-section">
+    <p class="rr-section-label">Demo</p>
+    <h2 class="rr-section-title" style="text-align:center">Watch it in 60 seconds</h2>
+    <div class="divider"></div>
+
+    <div class="video-wrapper" id="videoWrapper">
+      <!-- Replace YOUR_VIDEO_ID with actual YouTube ID when available -->
+      <div class="video-placeholder" id="videoPlaceholder">
+        <button class="video-play-btn" onclick="loadVideo()">
+          <i class="fas fa-play" style="margin-left:4px"></i>
+        </button>
+        <p>Click to watch the demo</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:1rem;font-size:0.8rem;color:rgba(226,232,240,0.35)">
+      Or visit <a href="https://github.com/cthboss001/Retina-Rest-Releases" target="_blank" rel="noopener" style="color:#3b82f6">GitHub Releases</a> for the changelog.
+    </p>
+  </section>
+
+  <!-- ===== FEATURES ===== -->
+  <section class="rr-features">
+    <p class="rr-section-label">What's inside</p>
+    <h2 class="rr-section-title">Built for real users</h2>
+    <div class="divider"></div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(59,130,246,0.12);">
+          <i class="fas fa-circle-notch" style="color:#3b82f6"></i>
+        </div>
+        <h3>Smart Timer Engine</h3>
+        <p>A finite state machine that persists across crashes. Survives restarts, dynamically adjusts when you change settings — never resets your progress.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(139,92,246,0.12);">
+          <i class="fas fa-expand" style="color:#8b5cf6"></i>
+        </div>
+        <h3>Full-Screen Break Overlay</h3>
+        <p>A separate window that appears over everything when a break is due. Optional Strict Mode prevents skipping.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(6,182,212,0.12);">
+          <i class="fas fa-chart-line" style="color:#06b6d4"></i>
+        </div>
+        <h3>Eye Health Dashboard</h3>
+        <p>Daily stats, compliance rate, streak tracking, and beautiful weekly bar charts (Recharts). Know your habits at a glance.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(34,197,94,0.12);">
+          <i class="fab fa-google" style="color:#22c55e"></i>
+        </div>
+        <h3>Google Auth + Guest Mode</h3>
+        <p>Sign in with Google for cloud sync, or use the app entirely offline as a guest. Row-Level Security keeps your data private.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(245,158,11,0.12);">
+          <i class="fas fa-rotate" style="color:#f59e0b"></i>
+        </div>
+        <h3>Silent Auto-Updates</h3>
+        <p>Checks for updates in the background, downloads silently, and shows a live progress toast. Install on quit — just like professional software.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon" style="background:rgba(239,68,68,0.12);">
+          <i class="fas fa-circle-dot" style="color:#ef4444"></i>
+        </div>
+        <h3>System Tray Integration</h3>
+        <p>Lives quietly in your tray. Closing the window hides it — the timer keeps running. Quit only when you truly want to.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECH STACK ===== -->
+  <section class="rr-stack">
+    <p class="rr-section-label">Architecture</p>
+    <h2 class="rr-section-title">Domain-Driven Design · Production Stack</h2>
+    <div class="divider"></div>
+    <div class="stack-pills">
+      <span class="stack-pill">Electron v33</span>
+      <span class="stack-pill">React 18</span>
+      <span class="stack-pill">TypeScript</span>
+      <span class="stack-pill">Vite + electron-vite</span>
+      <span class="stack-pill">TailwindCSS</span>
+      <span class="stack-pill">Recharts</span>
+      <span class="stack-pill">SQLite + Prisma ORM</span>
+      <span class="stack-pill">Supabase PostgreSQL</span>
+      <span class="stack-pill">Google OAuth</span>
+      <span class="stack-pill">Zustand</span>
+      <span class="stack-pill">electron-builder</span>
+      <span class="stack-pill">electron-updater</span>
+      <span class="stack-pill">NSIS Installer</span>
+      <span class="stack-pill">DDD Architecture</span>
+    </div>
+  </section>
+
+  <!-- ===== RELEASES ===== -->
+  <section class="rr-releases">
+    <p class="rr-section-label">Changelog</p>
+    <h2 class="rr-section-title" style="text-align:center">11 Releases Shipped</h2>
+    <div class="divider"></div>
+
+    <div class="release-list">
+      <div class="release-item">
+        <span class="release-ver">v1.1.1</span>
+        <span class="release-desc">App version displayed live in Settings page via IPC</span>
+        <span class="release-latest">Latest</span>
+      </div>
+      <div class="release-item">
+        <span class="release-ver">v1.1.0</span>
+        <span class="release-desc">Smart timer adjustment on settings save — no timer reset ever</span>
+      </div>
+      <div class="release-item">
+        <span class="release-ver">v1.0.9</span>
+        <span class="release-desc">Live update download progress toast with animated progress bar</span>
+      </div>
+      <div class="release-item">
+        <span class="release-ver">v1.0.8</span>
+        <span class="release-desc">Auto-startup enabled by default on fresh installs</span>
+      </div>
+      <div class="release-item">
+        <span class="release-ver">v1.0.7</span>
+        <span class="release-desc">Close button hides to tray; tray "Open Dashboard" shows window</span>
+      </div>
+      <div class="release-item">
+        <span class="release-ver">v1.0.6</span>
+        <span class="release-desc">Tray icon fix</span>
+      </div>
+      <div class="release-item">
+        <span class="release-ver">v1.0.5</span>
+        <span class="release-desc">New professional dark-theme app icon</span>
+      </div>
+      <div class="release-item">
+        <span class="release-ver">v1.0.0</span>
+        <span class="release-desc">Initial public release</span>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.8rem;color:rgba(226,232,240,0.3)">
+      <a href="https://github.com/cthboss001/Retina-Rest-Releases/releases" target="_blank" rel="noopener" style="color:#3b82f6;text-decoration:none">View all releases on GitHub <i class="fas fa-arrow-right" style="font-size:0.7rem"></i></a>
+    </p>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <section class="rr-cta">
+    <div class="rr-cta-inner">
+      <h2>Your eyes deserve a break.</h2>
+      <p>Free. Open source. Auto-updating. No subscriptions, no ads, no tracking. Just healthier eyes.</p>
+
+      <div class="rr-download-wrapper">
+        <button class="rr-download-btn" onclick="startDownload()">
+          <span class="btn-icon"><i class="fas fa-download"></i></span>
+          <span class="btn-text">
+            Download for Windows
+            <span>Free · v1.1.1 · ~75 MB</span>
+          </span>
+        </button>
+      </div>
+
+      <p class="rr-cta-meta">Windows 10 / 11 · 64-bit · NSIS Installer</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="rr-footer">
+    <p>Built by <a href="index.html">Tazim Hossen</a> · RetinaRest is <a href="https://github.com/cthboss001/Retina-Rest-Releases" target="_blank" rel="noopener">open source</a> on GitHub</p>
+  </footer>
+
+</div><!-- /.rr-page -->
+
+<script>
+  // =============================================
+  // DOWNLOAD ANIMATION
+  // =============================================
+  let DOWNLOAD_URL = 'https://github.com/cthboss001/Retina-Rest-Releases/releases/latest/download/RetinaRest-Setup.exe';
+
+  // Automatically fetch the latest Windows .exe release from GitHub API
+  fetch('https://api.github.com/repos/cthboss001/Retina-Rest-Releases/releases/latest')
+    .then(res => res.json())
+    .then(data => {
+      if (!data || !data.assets) {
+        console.warn('GitHub API returned no assets or rate limited:', data);
+        return;
+      }
+      const exeAsset = data.assets.find(a => a.name.endsWith('.exe'));
+      if (exeAsset) {
+        DOWNLOAD_URL = exeAsset.browser_download_url;
+        
+        // Update fallback link immediately
+        const fallback = document.getElementById('dlFallback');
+        if (fallback) fallback.href = DOWNLOAD_URL;
+        
+        // Update file size and name display
+        const mb = (exeAsset.size / (1024 * 1024)).toFixed(1);
+        const sub = document.getElementById('dlSub');
+        if (sub) sub.textContent = `${exeAsset.name} · ~${mb} MB`;
+      } else {
+        console.warn('No .exe asset found in the latest release.');
+      }
+    })
+    .catch(err => console.error("Could not fetch latest release:", err));
+
+  function startDownload() {
+    console.log('startDownload called! URL:', DOWNLOAD_URL);
+    const overlay = document.getElementById('dlOverlay');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    const arc   = document.getElementById('dlArc');
+    const pct   = document.getElementById('dlPct');
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const step3 = document.getElementById('step3');
+    const sub   = document.getElementById('dlSub');
+    const closeBtn = document.getElementById('dlCloseBtn');
+    const circumference = 2 * Math.PI * 52; // 326.7
+
+    let progress = 0;
+
+    function setProgress(p) {
+      progress = p;
+      arc.style.strokeDashoffset = circumference - (circumference * p / 100);
+      pct.textContent = Math.round(p) + '%';
+    }
+
+    // Stage 1: 0 → 35% (connecting)
+    const t1 = setTimeout(() => { step1.classList.add('done'); }, 600);
+
+    // Animate progress smoothly in stages
+    let rafId;
+    let start = null;
+    function animateTo(target, duration, cb) {
+      const from = progress;
+      if (start) cancelAnimationFrame(rafId);
+      function step(ts) {
+        if (!start) start = ts;
+        const elapsed = ts - start;
+        const t = Math.min(elapsed / duration, 1);
+        // ease-out
+        const eased = 1 - Math.pow(1 - t, 3);
+        setProgress(from + (target - from) * eased);
+        if (t < 1) { rafId = requestAnimationFrame(step); }
+        else { start = null; cb && cb(); }
+      }
+      rafId = requestAnimationFrame(step);
+    }
+
+    // Step 1: 0→35 in 700ms
+    animateTo(35, 700, () => {
+      step1.classList.add('done');
+      // Step 2: 35→70 in 600ms
+      setTimeout(() => {
+        animateTo(70, 600, () => {
+          step2.classList.add('done');
+          sub.textContent = 'Preparing installer link…';
+          // Step 3: 70→100 in 500ms
+          setTimeout(() => {
+            animateTo(100, 500, () => {
+              step3.classList.add('done');
+              pct.textContent = '✓';
+              sub.textContent = 'Opening download…';
+
+              // Trigger the actual download
+              setTimeout(() => {
+                // Use location.href instead of a.click() to avoid popup blockers
+                window.location.href = DOWNLOAD_URL;
+
+                sub.textContent = 'If download didn\'t start automatically, click below ↓';
+                document.getElementById('dlFallback').style.display = 'inline-block';
+                closeBtn.classList.add('show');
+              }, 300);
+            });
+          }, 400);
+        });
+      }, 200);
+    });
+  }
+
+  function closeDlOverlay() {
+    document.getElementById('dlOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDlOverlay();
+  });
+
+  // =============================================
+  // VIDEO EMBED
+  // — Replace 'YOUR_VIDEO_ID' with YouTube video ID
+  // =============================================
+  const YOUTUBE_ID = 'YOUR_VIDEO_ID';
+
+  function loadVideo() {
+    if (YOUTUBE_ID === 'YOUR_VIDEO_ID') {
+      window.open('https://www.youtube.com/@tazimhossen', '_blank');
+      return;
+    }
+    const wrapper = document.getElementById('videoWrapper');
+    const iframe = document.createElement('iframe');
+    iframe.className = 'video-embed';
+    iframe.src = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`;
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    wrapper.innerHTML = '';
+    wrapper.appendChild(iframe);
+  }
+
+  // =============================================
+  // SCROLL FADE-IN
+  // =============================================
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature-card, .screenshot-card, .release-item, .stack-pill').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity 0.5s ${i * 0.05}s ease, transform 0.5s ${i * 0.05}s ease`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
