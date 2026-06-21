@@ -932,8 +932,8 @@ function populateProjects() {
           </a>
           ` : ''}
           ${project.live && project.live !== '#' ? `
-          <a href="${project.live}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View live demo">
-            <i class="fas fa-external-link-alt"></i>
+          <a href="${project.live}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="${project.downloadLabel ? 'Download' : 'View live demo'}">
+            <i class="fas ${project.downloadLabel ? 'fa-download' : 'fa-external-link-alt'}"></i>
           </a>
           ` : ''}
         </div>
@@ -946,7 +946,7 @@ function populateProjects() {
         <p class="project-description">${project.description}</p>
         <div class="project-technologies">${techBadges}</div>
         <div class="project-actions">
-          ${project.live && project.live !== '#' ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer" class="project-action-btn btn-live"><i class="fas fa-external-link-alt"></i> Live</a>` : ''}
+          ${project.live && project.live !== '#' ? `<a href="${project.live}" target="_blank" rel="noopener noreferrer" class="project-action-btn btn-live"><i class="fas ${project.downloadLabel ? 'fa-download' : 'fa-external-link-alt'}"></i> ${project.downloadLabel || 'Live'}</a>` : ''}
           ${project.github && project.github !== '#' ? `<a href="${project.github}" target="_blank" rel="noopener noreferrer" class="project-action-btn btn-gh"><i class="fab fa-github"></i> Code</a>` : ''}
           ${project.docLink && project.docLink !== '#' ? `<a href="${project.docLink}" rel="noopener noreferrer" class="project-action-btn btn-doc"><i class="fas fa-file-alt"></i> Docs</a>` : ''}
         </div>

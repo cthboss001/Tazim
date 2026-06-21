@@ -94,6 +94,17 @@ const portfolioData = {
       isFlagship: true
     },
     {
+      title: "RetinaRest",
+      description: "Production-grade Windows desktop application implementing the 20-20-20 eye health rule. Features a finite state machine timer engine with crash recovery, full-screen break overlay, eye health dashboard with weekly analytics, Google OAuth + guest mode, and seamless auto-updating with live progress UI. 11+ releases shipped on GitHub.",
+      image: "assets/images/retinarest.png",
+      technologies: ["Electron", "React", "TypeScript", "SQLite", "Prisma", "Supabase", "Zustand", "Recharts", "electron-builder"],
+      github: "https://github.com/cthboss001/Retina-Rest-Releases",
+      live: "https://github.com/cthboss001/Retina-Rest-Releases/releases/latest",
+      category: ["desktop", "fullstack"],
+      isFlagship: false,
+      downloadLabel: "Download for Windows"
+    },
+    {
       title: "MovieVault 🎬",
       description: "A high-performance personal movie database and analytics dashboard. Features multi-source data ingestion from Letterboxd & IMDb, smart deduplication, search optimization (Fuse.js), and automated analytics via a stunning glassmorphism UI.",
       image: "assets/images/movievault.png",
@@ -101,26 +112,9 @@ const portfolioData = {
       github: "https://github.com/cthboss001/MovieVault",
       live: "https://movies.tazim.dev",
       category: ["fullstack"]
-    },
-    {
-      title: "Portfolio Website",
-      description: "Modern, responsive portfolio website with dark mode, smooth animations, and customizable content structure.",
-      image: "assets/images/project4.jpg",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Font Awesome"],
-      github: "https://github.com/cthboss001/Tazim",
-      live: "https://tazim.dev",
-      category: ["frontend"]
-    },
-    {
-      title: "AgroMotion",
-      description: "Agriculture-focused project developed around data structure concepts. Designed to help farmers manage activities and modernize agricultural workflow. Achieved 1st Runner-up at Project Showcase.",
-      image: "assets/images/project1.jpg",
-      technologies: ["C++", "Data Structures"],
-      github: "#",
-      live: "#",
-      category: ["fullstack"]
     }
   ],
+
 
   experience: [
     {
