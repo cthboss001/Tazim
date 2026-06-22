@@ -703,7 +703,7 @@
   <section class="rr-hero">
     <div class="rr-hero-badge">
       <span class="dot"></span>
-      v1.1.1 · Live &amp; Free
+      <span id="heroBadgeVer">Loading...</span> · Live &amp; Free
     </div>
     <h1 class="rr-hero-title">RetinaRest</h1>
     <p class="rr-hero-sub">
@@ -716,7 +716,7 @@
         <span class="btn-icon"><i class="fas fa-download"></i></span>
         <span class="btn-text">
           Download for Windows
-          <span>Free · v1.1.1 · Auto-Updates</span>
+          <span id="heroBtnSub">Free · Loading... · Auto-Updates</span>
         </span>
       </button>
     </div>
@@ -724,7 +724,7 @@
     <div class="rr-meta">
       <span><i class="fab fa-windows"></i> Windows 10 / 11</span>
       <span><i class="fas fa-shield-halved"></i> Open Source</span>
-      <span><i class="fas fa-bolt"></i> 11 Releases</span>
+      <span><i class="fas fa-bolt"></i> <span id="heroReleaseCount">...</span> Releases</span>
       <span><i class="fab fa-github"></i> <a href="https://github.com/cthboss001/Retina-Rest-Releases" target="_blank" rel="noopener" style="color:rgba(226,232,240,0.4);text-decoration:none;">GitHub Releases</a></span>
     </div>
   </section>
@@ -853,43 +853,12 @@
   <!-- ===== RELEASES ===== -->
   <section class="rr-releases">
     <p class="rr-section-label">Changelog</p>
-    <h2 class="rr-section-title" style="text-align:center">11 Releases Shipped</h2>
+    <h2 class="rr-section-title" style="text-align:center"><span id="changelogTitle">...</span> Releases Shipped</h2>
     <div class="divider"></div>
 
-    <div class="release-list">
-      <div class="release-item">
-        <span class="release-ver">v1.1.1</span>
-        <span class="release-desc">App version displayed live in Settings page via IPC</span>
-        <span class="release-latest">Latest</span>
-      </div>
-      <div class="release-item">
-        <span class="release-ver">v1.1.0</span>
-        <span class="release-desc">Smart timer adjustment on settings save — no timer reset ever</span>
-      </div>
-      <div class="release-item">
-        <span class="release-ver">v1.0.9</span>
-        <span class="release-desc">Live update download progress toast with animated progress bar</span>
-      </div>
-      <div class="release-item">
-        <span class="release-ver">v1.0.8</span>
-        <span class="release-desc">Auto-startup enabled by default on fresh installs</span>
-      </div>
-      <div class="release-item">
-        <span class="release-ver">v1.0.7</span>
-        <span class="release-desc">Close button hides to tray; tray "Open Dashboard" shows window</span>
-      </div>
-      <div class="release-item">
-        <span class="release-ver">v1.0.6</span>
-        <span class="release-desc">Tray icon fix</span>
-      </div>
-      <div class="release-item">
-        <span class="release-ver">v1.0.5</span>
-        <span class="release-desc">New professional dark-theme app icon</span>
-      </div>
-      <div class="release-item">
-        <span class="release-ver">v1.0.0</span>
-        <span class="release-desc">Initial public release</span>
-      </div>
+    <div class="release-list" id="releaseList">
+      <!-- Populated dynamically from GitHub API -->
+      <div style="text-align:center;padding:2rem;opacity:0.4;font-size:0.9rem">Loading releases from GitHub...</div>
     </div>
 
     <p style="text-align:center;margin-top:1.5rem;font-size:0.8rem;color:rgba(226,232,240,0.3)">
@@ -907,9 +876,9 @@
         <button class="rr-download-btn" onclick="startDownload()">
           <span class="btn-icon"><i class="fas fa-download"></i></span>
           <span class="btn-text">
-            Download for Windows
-            <span>Free · v1.1.1 · ~75 MB</span>
-          </span>
+          Download for Windows
+          <span id="ctaBtnSub">Free · Loading... · Auto-Updates</span>
+        </span>
         </button>
       </div>
 
@@ -928,33 +897,117 @@
   // =============================================
   // DOWNLOAD ANIMATION
   // =============================================
-  let DOWNLOAD_URL = 'https://github.com/cthboss001/Retina-Rest-Releases/releases/latest/download/RetinaRest-Setup.exe';
+  let DOWNLOAD_URL = 'https://github.com/cthboss001/Retina-Rest-Releases/releases/latest';
 
-  // Automatically fetch the latest Windows .exe release from GitHub API
-  fetch('https://api.github.com/repos/cthboss001/Retina-Rest-Releases/releases/latest')
-    .then(res => res.json())
-    .then(data => {
-      if (!data || !data.assets) {
-        console.warn('GitHub API returned no assets or rate limited:', data);
-        return;
-      }
-      const exeAsset = data.assets.find(a => a.name.endsWith('.exe'));
+  // =============================================
+  // FETCH ALL RELEASES — update every dynamic element
+  // =============================================
+  Promise.all([
+    fetch('https://api.github.com/repos/cthboss001/Retina-Rest-Releases/releases/latest').then(r => r.json()),
+    fetch('https://api.github.com/repos/cthboss001/Retina-Rest-Releases/releases?per_page=50').then(r => r.json())
+  ]).then(([latest, allReleases]) => {
+
+    // ---- Latest version info ----
+    if (latest && latest.tag_name) {
+      const ver = latest.tag_name; // e.g. "v1.2.0"
+
+      // Hero badge
+      const heroBadge = document.getElementById('heroBadgeVer');
+      if (heroBadge) heroBadge.textContent = ver;
+
+      // Hero download button sub-text
+      const heroBtnSub = document.getElementById('heroBtnSub');
+      if (heroBtnSub) heroBtnSub.textContent = `Free · ${ver} · Auto-Updates`;
+
+      // CTA download button sub-text
+      const ctaBtnSub = document.getElementById('ctaBtnSub');
+      if (ctaBtnSub) ctaBtnSub.textContent = `Free · ${ver} · Auto-Updates`;
+    }
+
+    // ---- Exe asset for direct download ----
+    if (latest && latest.assets) {
+      const exeAsset = latest.assets.find(a => a.name.endsWith('.exe'));
       if (exeAsset) {
         DOWNLOAD_URL = exeAsset.browser_download_url;
-        
-        // Update fallback link immediately
         const fallback = document.getElementById('dlFallback');
         if (fallback) fallback.href = DOWNLOAD_URL;
-        
-        // Update file size and name display
         const mb = (exeAsset.size / (1024 * 1024)).toFixed(1);
-        const sub = document.getElementById('dlSub');
-        if (sub) sub.textContent = `${exeAsset.name} · ~${mb} MB`;
-      } else {
-        console.warn('No .exe asset found in the latest release.');
+        const ver = latest.tag_name;
+
+        // Overlay animation file name
+        const dlSub = document.getElementById('dlSub');
+        if (dlSub) dlSub.textContent = `${exeAsset.name} · ~${mb} MB`;
+
+        // CTA button sub-text with size
+        const ctaBtnSub = document.getElementById('ctaBtnSub');
+        if (ctaBtnSub) ctaBtnSub.textContent = `Free · ${ver} · ~${mb} MB`;
+
+        const heroBtnSub = document.getElementById('heroBtnSub');
+        if (heroBtnSub) heroBtnSub.textContent = `Free · ${ver} · Auto-Updates`;
       }
-    })
-    .catch(err => console.error("Could not fetch latest release:", err));
+    }
+
+    // ---- All releases: count + changelog list ----
+    if (Array.isArray(allReleases) && allReleases.length > 0) {
+      const count = allReleases.length;
+
+      // Update release count badge in hero
+      const heroCount = document.getElementById('heroReleaseCount');
+      if (heroCount) heroCount.textContent = count;
+
+      // Update changelog title
+      const changelogTitle = document.getElementById('changelogTitle');
+      if (changelogTitle) changelogTitle.textContent = count;
+
+      // Build the changelog list dynamically
+      const releaseList = document.getElementById('releaseList');
+      if (releaseList) {
+
+        // Strip markdown formatting from release notes
+        function stripMarkdown(text) {
+          if (!text) return '';
+          return text
+            .replace(/\*\*(.*?)\*\*/g, '$1')   // **bold**
+            .replace(/\*(.*?)\*/g, '$1')        // *italic*
+            .replace(/__(.*?)__/g, '$1')        // __bold__
+            .replace(/_(.*?)_/g, '$1')          // _italic_
+            .replace(/`(.*?)`/g, '$1')          // `code`
+            .replace(/^#{1,6}\s+/gm, '')        // # headings
+            .replace(/^\s*[-*+]\s+/gm, '')      // bullet points
+            .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // [links](url)
+            .trim();
+        }
+
+        releaseList.innerHTML = allReleases.map((rel, i) => {
+          // Get first meaningful line from body
+          let desc = rel.name || rel.tag_name;
+          if (rel.body) {
+            const lines = rel.body.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            const firstLine = lines[0] || '';
+            const cleaned = stripMarkdown(firstLine);
+            if (cleaned.length > 5) desc = cleaned;
+          }
+          // Truncate if too long
+          if (desc.length > 100) desc = desc.slice(0, 97) + '…';
+
+          return `
+            <div class="release-item">
+              <span class="release-ver">${rel.tag_name}</span>
+              <span class="release-desc">${desc}</span>
+              ${i === 0 ? '<span class="release-latest">Latest</span>' : ''}
+            </div>`;
+        }).join('');
+      }
+    }
+
+  }).catch(err => {
+    console.warn('GitHub API unavailable, showing fallback:', err);
+    // Fallback static values if API fails
+    ['heroBadgeVer'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = 'v1.1.1'; });
+    ['heroBtnSub'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = 'Free · v1.1.1 · Auto-Updates'; });
+    ['ctaBtnSub'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = 'Free · v1.1.1 · Auto-Updates'; });
+    ['heroReleaseCount','changelogTitle'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = '11'; });
+  });
 
   function startDownload() {
     console.log('startDownload called! URL:', DOWNLOAD_URL);
