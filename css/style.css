@@ -2704,6 +2704,10 @@ textarea:focus {
   border: none;
 }
 
+body.is-scrolling iframe {
+  pointer-events: none;
+}
+
 .video-info {
   padding: 1rem;
 }

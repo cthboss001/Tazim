@@ -145,8 +145,16 @@ function initializePortfolio() {
   initScrollProgress();
 
 
+  // Prevent iframe ghost clicks during scroll
+  let isScrollingTimeout;
+  window.addEventListener('scroll', () => {
+    document.body.classList.add('is-scrolling');
+    clearTimeout(isScrollingTimeout);
+    isScrollingTimeout = setTimeout(() => {
+      document.body.classList.remove('is-scrolling');
+    }, 200);
+  }, { passive: true });
   
-
 
   // Set current year
 
