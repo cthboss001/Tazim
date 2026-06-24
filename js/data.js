@@ -102,7 +102,7 @@ const portfolioData = {
     {
       title: "RetinaRest",
       description: "Production-grade Windows desktop application implementing the 20-20-20 eye health rule. Features a finite state machine timer engine with crash recovery, full-screen break overlay, eye health dashboard with weekly analytics, Google OAuth + guest mode, and seamless auto-updating with live progress UI. 11+ releases shipped on GitHub.",
-      image: "assets/images/retinarest-dashboard.png",
+      image: "assets/images/retinarest-timer.png",
       technologies: ["Electron", "React", "TypeScript", "SQLite", "Prisma", "Supabase", "Zustand", "Recharts", "electron-builder"],
       docLink: "retinarest.html",
       category: ["desktop", "fullstack"],
@@ -256,6 +256,11 @@ const portfolioData = {
 
   // Add your YouTube video IDs here (the part after ?v= in the YouTube URL)
   videos: [
+    {
+      title: "RetinaRest | Eye Health & Productivity App for Windows",
+      youtubeId: "_a3vKjfV2VY",
+      description: ""
+    },
     {
       title: "OOP Project Promo || HuntsMen X BORBAAD | SHAKIB KHAN",
       youtubeId: "gOAfvj5mvtU",
