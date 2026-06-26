@@ -976,6 +976,23 @@
   <!-- ===== FOOTER ===== -->
   <footer class="rr-footer">
     <p>Built by <a href="index.html">Tazim Hossen</a> · RetinaRest is <a href="https://github.com/cthboss001/Retina-Rest-Releases" target="_blank" rel="noopener">open source</a> on GitHub</p>
+    <div class="visitor-stats" id="visitor-widget" aria-label="Site visitor statistics">
+      <div class="visitor-stat">
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <div class="visitor-stat-content">
+          <span class="visitor-label">Today</span>
+          <span class="visitor-count" id="stat-daily">—</span>
+        </div>
+      </div>
+      <div class="visitor-divider" aria-hidden="true"></div>
+      <div class="visitor-stat">
+        <i class="fas fa-users" aria-hidden="true"></i>
+        <div class="visitor-stat-content">
+          <span class="visitor-label">All-time</span>
+          <span class="visitor-count" id="stat-alltime">—</span>
+        </div>
+      </div>
+    </div>
   </footer>
 
 </div><!-- /.rr-page -->
@@ -1227,5 +1244,6 @@
     observer.observe(el);
   });
 </script>
+<script src="js/visitors.js"></script>
 </body>
 </html>
