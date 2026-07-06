@@ -103,8 +103,7 @@ const portfolioData = {
       docLink: "thunder.html",
       live: "https://www.thunderchat.tech/",
       category: ["fullstack"],
-      isFlagship: true,
-      downloadLabel: "Project Page"
+      isFlagship: true
     },
     {
       title: "IntCart",
