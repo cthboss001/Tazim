@@ -3,9 +3,9 @@ const portfolioData = {
   personal: {
     name: "Tazim Hossen",
     title: "Undergraduate Student, Department of Computer Science and Engineering, Daffodil International University",
-    tagline: ["Software Engineer", "Full-Stack Developer", "Problem Solver", "Next.js Enthusiast", "Backend Developer", "Progressive Web App Developer", "Database Architect", "Tech Innovator", "UI/UX Enthusiast"],
-    bio: "I'm Tazim Hossen, a CSE student currently doing my BSc. I spend my time actively working on problem solving to improve my skills. Recently, I have also developed a strong passion for full-stack web development, where I architect and build production-ready, scalable web applications (like IntCart) using modern technologies such as Next.js, TypeScript, and Prisma.",
-    objective: "Seeking a challenging Junior Software Engineer position where I can apply my technical skills and creativity to develop innovative solutions while contributing to team success and professional growth.",
+    tagline: ["Software Engineer", "Full-Stack Developer", "Backend Developer", "Real-Time Systems", "WebRTC & WebSocket", "Next.js Developer", "Database Architect", "Problem Solver", "Tech Innovator"],
+    bio: "I'm Tazim Hossen, a CSE student at Daffodil International University. I build production-grade full-stack systems — from real-time messaging platforms (NestJS, Socket.IO, WebRTC) to e-commerce PWAs (Next.js, Prisma) and desktop applications (Electron). I'm driven by engineering correctness: race-free concurrency, data integrity, and shipping software that actually works at scale.",
+    objective: "Seeking a challenging Junior Software Engineer position where I can apply my backend and full-stack expertise to build scalable, production-ready systems while contributing to team success.",
     email: "contact@tazim.dev",
     phone: "",
     location: "Dhaka, Bangladesh",
@@ -54,12 +54,16 @@ const portfolioData = {
       { name: "Bootstrap", icon: "fa-brands fa-bootstrap", level: "Intermediate" }
     ],
     backend: [
+      { name: "NestJS", icon: "fa-solid fa-server", level: "Intermediate" },
+      { name: "Socket.IO", icon: "fa-solid fa-plug", level: "Intermediate" },
+      { name: "WebRTC", icon: "fa-solid fa-video", level: "Intermediate" },
       { name: "Node.js", icon: "fa-brands fa-node-js", level: "Intermediate" },
       { name: "Electron", icon: "fa-solid fa-desktop", level: "Intermediate" },
       { name: "Express.js", icon: "fa-solid fa-server", level: "Learning" },
       { name: "Prisma ORM", icon: "fa-solid fa-database", level: "Comfortable" },
       { name: "Supabase", icon: "fa-solid fa-bolt", level: "Intermediate" },
-      { name: "NextAuth.js", icon: "fa-solid fa-shield-halved", level: "Intermediate" }
+      { name: "NextAuth.js", icon: "fa-solid fa-shield-halved", level: "Intermediate" },
+      { name: "JWT Auth", icon: "fa-solid fa-key", level: "Intermediate" }
     ],
     database: [
       { name: "PostgreSQL", icon: "fa-solid fa-database", level: "Comfortable" },
@@ -74,6 +78,9 @@ const portfolioData = {
       { name: "Linux", icon: "fa-brands fa-linux", level: "Intermediate" },
       { name: "Postman", icon: "fa-solid fa-paper-plane", level: "Intermediate" },
       { name: "Vercel", icon: "fa-solid fa-rocket", level: "Comfortable" },
+      { name: "Fly.io", icon: "fa-solid fa-plane", level: "Intermediate" },
+      { name: "Cloudflare R2", icon: "fa-solid fa-cloud", level: "Intermediate" },
+      { name: "ffmpeg", icon: "fa-solid fa-film", level: "Intermediate" },
       { name: "electron-builder", icon: "fa-solid fa-box-open", level: "Intermediate" },
       { name: "Cloudinary", icon: "fa-solid fa-cloud-arrow-up", level: "Intermediate" },
       { name: "Resend", icon: "fa-solid fa-envelope-open-text", level: "Intermediate" }
@@ -89,6 +96,17 @@ const portfolioData = {
 
   projects: [
     {
+      title: "Thunder ⚡",
+      description: "A private, invite-only real-time messaging platform built end-to-end — NestJS REST + Socket.IO API, Next.js web client, WebRTC 1-on-1 calls with Cloudflare TURN, Neon Postgres, and Cloudflare R2 file storage. Features DMs, group chats, voice notes (ffmpeg-transcoded for iOS), typing indicators, read receipts, reactions, self-destructing messages, and push notifications — all at zero hosting cost.",
+      image: "assets/images/thunder-ss1.png",
+      technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "WebRTC", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io", "JWT"],
+      docLink: "thunder.html",
+      live: "https://www.thunderchat.tech/",
+      category: ["fullstack"],
+      isFlagship: true,
+      downloadLabel: "Project Page"
+    },
+    {
       title: "IntCart",
       description: "Production-grade e-commerce platform featuring authentication, role-based administration, product management, order processing, reviews & ratings, invoice generation, PWA support, and real-time operational features.",
       image: "assets/images/intcart1.png",
@@ -97,18 +115,7 @@ const portfolioData = {
       docLink: "intcart.html",
       live: "https://www.intcart.shop",
       category: ["fullstack"],
-      isFlagship: true
-    },
-    {
-      title: "Thunder ⚡",
-      description: "A private, invite-only real-time messaging platform built end-to-end — NestJS REST + Socket.IO API, Next.js web client, WebRTC 1-on-1 calls with Cloudflare TURN, Neon Postgres, and Cloudflare R2 file storage. Features DMs, group chats, voice notes (ffmpeg-transcoded for iOS), typing indicators, read receipts, reactions, self-destructing messages, and push notifications — all at zero hosting cost.",
-      image: "assets/images/thunder-ss1.png",
-      technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "WebRTC", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io", "JWT"],
-      docLink: "thunder.html",
-      live: "https://www.thunderchat.tech/",
-      category: ["fullstack"],
-      isFlagship: false,
-      downloadLabel: "Project Page"
+      isFlagship: false
     },
     {
       title: "RetinaRest",
@@ -134,8 +141,24 @@ const portfolioData = {
 
   experience: [
     {
-      role: "IntCart - Production E-commerce Platform",
+      role: "Thunder — Invite-Only Real-Time Messaging Platform",
       company: "Personal Flagship Project",
+      duration: "2026",
+      location: "Dhaka, Bangladesh",
+      type: "Full-Stack Development",
+      responsibilities: [
+        "Architected and built a full-stack real-time messaging platform end-to-end in a production-grade TypeScript monorepo — NestJS REST API, Socket.IO WebSocket gateway, and Next.js App Router web client",
+        "Engineered a custom Socket.IO gateway with server-assigned sequence numbers for race-free message ordering; built automatic gap-fill sync on reconnect so no message is ever lost",
+        "Implemented WebRTC peer-to-peer voice and video calls with Cloudflare TURN relay for reliable connectivity on mobile and CGNAT networks",
+        "Built a server-side voice note transcoding pipeline using ffmpeg (WebM to AAC/MP4) for universal playback on Safari and iOS",
+        "Designed JWT access/refresh token rotation with Argon2id hashing and single-use invite-code gated registration",
+        "Shipped: DMs, group chats with admin roles, file/image sharing, voice notes, typing indicators, read receipts, reactions, replies, pinned messages, self-destructing messages, push notifications, PWA, admin panel — zero hosting cost"
+      ],
+      technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "WebRTC", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io", "JWT", "Argon2", "ffmpeg"]
+    },
+    {
+      role: "IntCart - Production E-commerce Platform",
+      company: "Personal Project",
       duration: "2026",
       location: "Dhaka, Bangladesh",
       type: "Full-Stack Development",
