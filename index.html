@@ -295,22 +295,13 @@ content="https://tazim.dev/og.png">
                 Photos
                 <span class="title-line"></span>
             </h2>
-            <div class="photo-masonry" id="photo-masonry">
-                <!-- Photos inserted by JS -->
+            <div class="photo-carousel">
+                <div class="photo-track" id="photo-track">
+                    <!-- Photos inserted by JS -->
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Photo Lightbox -->
-    <div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true">
-        <button class="lightbox-close" id="lightbox-close" aria-label="Close"><i class="fas fa-times"></i></button>
-        <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-        <button class="lightbox-next" id="lightbox-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
-        <div class="lightbox-img-wrap">
-            <img id="lightbox-img" src="" alt="">
-        </div>
-        <div class="lightbox-counter" id="lightbox-counter"></div>
-    </div>
 
     <!-- Videos Section -->
     <section class="videos section" id="videos">

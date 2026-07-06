@@ -1679,90 +1679,59 @@ document.addEventListener('keydown', (e) => {
 
 
 // ========================================
-// Populate Photos (masonry grid + lightbox)
+// Populate Photos (carousel from manifest)
 // ========================================
 function populatePhotos() {
-  const grid = document.getElementById('photo-masonry');
-  if (!grid) return;
+  const track = document.getElementById('photo-track');
+  if (!track) return;
 
   fetch('photo/manifest.json')
     .then(r => r.json())
     .then(files => {
       if (!files.length) return;
 
-      let photos = [];
-
-      files.forEach((f, i) => {
-        const item = document.createElement('div');
-        item.className = 'photo-item hidden-anim';
-        item.style.transitionDelay = `${i * 0.08}s`;
-        item.innerHTML = `
-          <div class="photo-item-inner">
-            <img src="photo/${encodeURIComponent(f)}" alt="Photo ${i + 1}" loading="lazy">
-            <div class="photo-item-overlay">
-              <i class="fas fa-expand"></i> View
-            </div>
-          </div>
-        `;
-        item.addEventListener('click', () => openLightbox(i));
-        grid.appendChild(item);
-        photos.push({ src: `photo/${encodeURIComponent(f)}`, alt: `Photo ${i + 1}` });
+      // Build items (duplicated for seamless loop)
+      const buildItems = () => files.map(f => {
+        const div = document.createElement('div');
+        div.className = 'photo-slide';
+        div.innerHTML = `<img src="photo/${encodeURIComponent(f)}" alt="${f}" loading="lazy">`;
+        return div;
       });
 
-      initLightbox(photos);
+      buildItems().forEach(el => track.appendChild(el));
+      // Duplicate for seamless infinite scroll
+      buildItems().forEach(el => track.appendChild(el));
+
+      initPhotoCarousel(track, files.length);
     })
     .catch(() => {
+      // manifest missing — hide section
       const sec = document.getElementById('photos');
       if (sec) sec.style.display = 'none';
     });
 }
 
-function initLightbox(photos) {
-  const lb      = document.getElementById('photo-lightbox');
-  const img     = document.getElementById('lightbox-img');
-  const counter = document.getElementById('lightbox-counter');
-  const btnClose = document.getElementById('lightbox-close');
-  const btnPrev  = document.getElementById('lightbox-prev');
-  const btnNext  = document.getElementById('lightbox-next');
-  if (!lb) return;
+function initPhotoCarousel(track, count) {
+  const SLIDE_WIDTH = 280; // px — must match CSS
+  const GAP = 16;
+  const SPEED = 0.5; // px per frame
+  let offset = 0;
+  let paused = false;
+  const totalWidth = count * (SLIDE_WIDTH + GAP);
 
-  let current = 0;
+  track.parentElement.addEventListener('mouseenter', () => paused = true);
+  track.parentElement.addEventListener('mouseleave', () => paused = false);
 
-  function show(idx) {
-    current = (idx + photos.length) % photos.length;
-    img.style.opacity = '0';
-    setTimeout(() => {
-      img.src = photos[current].src;
-      img.alt = photos[current].alt;
-      img.style.opacity = '1';
-    }, 150);
-    counter.textContent = `${current + 1} / ${photos.length}`;
+  function animate() {
+    if (!paused) {
+      offset += SPEED;
+      if (offset >= totalWidth) offset = 0;
+      track.style.transform = `translateX(-${offset}px)`;
+    }
+    requestAnimationFrame(animate);
   }
-
-  window.openLightbox = function(idx) {
-    lb.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    show(idx);
-  };
-
-  function close() {
-    lb.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  btnClose.addEventListener('click', close);
-  btnPrev.addEventListener('click', () => show(current - 1));
-  btnNext.addEventListener('click', () => show(current + 1));
-  lb.addEventListener('click', e => { if (e.target === lb) close(); });
-
-  document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('active')) return;
-    if (e.key === 'Escape')      close();
-    if (e.key === 'ArrowLeft')   show(current - 1);
-    if (e.key === 'ArrowRight')  show(current + 1);
-  });
+  requestAnimationFrame(animate);
 }
-
 
 
 // ========================================
