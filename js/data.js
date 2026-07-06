@@ -100,6 +100,17 @@ const portfolioData = {
       isFlagship: true
     },
     {
+      title: "Thunder ⚡",
+      description: "A private, invite-only real-time messaging platform built end-to-end — NestJS REST + Socket.IO API, Next.js web client, WebRTC 1-on-1 calls with Cloudflare TURN, Neon Postgres, and Cloudflare R2 file storage. Features DMs, group chats, voice notes (ffmpeg-transcoded for iOS), typing indicators, read receipts, reactions, self-destructing messages, and push notifications — all at zero hosting cost.",
+      image: "assets/images/thunder-ss1.png",
+      technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "WebRTC", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io", "JWT"],
+      docLink: "thunder.html",
+      live: "https://www.thunderchat.tech/",
+      category: ["fullstack"],
+      isFlagship: false,
+      downloadLabel: "Project Page"
+    },
+    {
       title: "RetinaRest",
       description: "Production-grade Windows desktop application implementing the 20-20-20 eye health rule. Features a finite state machine timer engine with crash recovery, full-screen break overlay, eye health dashboard with weekly analytics, Google OAuth + guest mode, and seamless auto-updating with live progress UI. 11+ releases shipped on GitHub.",
       image: "assets/images/retinarest-timer.png",

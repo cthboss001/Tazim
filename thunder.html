@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary Meta Tags -->
+  <title>Thunder ⚡ | Private Real-Time Messaging Platform by Tazim Hossen</title>
+  <meta name="title" content="Thunder ⚡ | Private Real-Time Messaging Platform by Tazim Hossen">
+  <meta name="description" content="Thunder is a private, invite-only real-time messaging platform built end-to-end with NestJS, Socket.IO, Next.js, WebRTC, and Cloudflare — featuring DMs, group chats, voice/video calls, and zero hosting cost.">
+  <meta name="keywords" content="Thunder, real-time messaging, WebRTC, Socket.IO, NestJS, Next.js, TypeScript, Tazim Hossen, Full Stack Developer, Software Engineer">
+  <meta name="author" content="Tazim Hossen">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tazim.dev/thunder.html">
+  <meta property="og:title" content="Thunder ⚡ | Private Real-Time Messaging Platform by Tazim Hossen">
+  <meta property="og:description" content="Thunder is a private, invite-only real-time messaging platform built end-to-end with NestJS, Socket.IO, Next.js, WebRTC, and Cloudflare.">
+  <meta property="og:image" content="https://tazim.dev/assets/images/thunder-ss2.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://tazim.dev/thunder.html">
+  <meta property="twitter:title" content="Thunder ⚡ | Private Real-Time Messaging Platform by Tazim Hossen">
+  <meta property="twitter:description" content="Thunder is a private, invite-only real-time messaging platform built end-to-end with NestJS, Socket.IO, Next.js, WebRTC, and Cloudflare.">
+  <meta property="twitter:image" content="https://tazim.dev/assets/images/thunder-ss2.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Thunder brand colors */
+    :root {
+      --thunder-gold: #f5a623;
+      --thunder-yellow: #ffd60a;
+      --thunder-dark: #1a1a2e;
+    }
+
+    .doc-hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      text-align: center;
+    }
+    .doc-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--thunder-yellow) 0%, var(--thunder-gold) 60%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .doc-hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    .doc-hero .hero-buttons {
+      justify-content: center;
+    }
+
+    /* Screenshot showcase */
+    .screenshot-showcase {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .screenshot-showcase img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .screenshot-showcase img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(245, 166, 35, 0.25);
+    }
+    .screenshot-showcase .ss-wide {
+      grid-column: span 2;
+    }
+
+    /* Invite CTA banner */
+    .invite-cta {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      background: linear-gradient(135deg, rgba(245,166,35,0.08) 0%, rgba(26,26,46,0.6) 100%);
+      border: 1px solid rgba(245,166,35,0.3);
+      border-radius: var(--radius-lg);
+      padding: 28px 36px;
+      text-align: center;
+    }
+    .invite-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+    .invite-cta p strong {
+      color: var(--thunder-gold);
+    }
+    .btn-thunder {
+      background: linear-gradient(135deg, var(--thunder-gold), var(--thunder-yellow));
+      color: #111;
+      font-weight: 700;
+      border: none;
+      padding: 0.7rem 1.6rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .btn-thunder:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(245,166,35,0.35);
+    }
+
+    /* Doc content */
+    .doc-content {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+    }
+    .doc-section {
+      margin-bottom: 50px;
+    }
+    .doc-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .doc-section h2 i {
+      color: var(--thunder-gold);
+    }
+    .doc-section h2::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+    .doc-section h3 {
+      font-size: 1.4rem;
+      color: var(--thunder-gold);
+      margin: 25px 0 15px;
+    }
+    .doc-section p {
+      margin-bottom: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .doc-section ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+      color: var(--text-secondary);
+    }
+    .doc-section li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .doc-section li strong {
+      color: var(--text-primary);
+    }
+
+    /* Tech grid */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .tech-card {
+      background: var(--bg-tertiary);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .tech-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--thunder-gold);
+    }
+    .tech-card h4 {
+      color: var(--thunder-gold);
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+    .tech-card ul {
+      padding-left: 16px;
+      margin-bottom: 0;
+    }
+    .tech-card li {
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    /* Feature grid */
+    .feature-list-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+    .feature-item i {
+      color: var(--thunder-gold);
+      flex-shrink: 0;
+    }
+
+    /* Zero cost badge */
+    .zero-cost-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245,166,35,0.12);
+      border: 1px solid rgba(245,166,35,0.4);
+      color: var(--thunder-gold);
+      border-radius: 9999px;
+      padding: 6px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .doc-content { padding: 20px; }
+      .doc-hero h1 { font-size: 2.5rem; }
+      .feature-list-grid { grid-template-columns: 1fr; }
+      .screenshot-showcase { grid-template-columns: 1fr; }
+      .screenshot-showcase .ss-wide { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-bracket"><</span>
+        <span class="logo-text">Tazim</span>
+        <span class="logo-bracket">/></span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-secondary" style="padding: 0.5rem 1rem;">
+          <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <button class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <!-- Hero -->
+        <div class="doc-hero">
+          <div class="zero-cost-badge"><i class="fas fa-server"></i> Running in Production · Zero Hosting Cost</div>
+          <h1>Thunder ⚡</h1>
+          <p>A private, invite-only real-time messaging platform built end-to-end — from database schema to deployed web app — using a production-grade full-stack TypeScript monorepo.</p>
+          <div class="hero-buttons">
+            <a href="https://www.thunderchat.tech/" target="_blank" rel="noopener noreferrer" class="btn-thunder">
+              <i class="fas fa-bolt"></i> Visit Live App
+            </a>
+            <a href="https://t.me/tazimhossen001" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="margin-left:12px;">
+              <i class="fa-brands fa-telegram"></i> Request Invite
+            </a>
+          </div>
+        </div>
+
+        <!-- Screenshots -->
+        <div class="screenshot-showcase">
+          <img src="assets/images/thunder-ss2.png" alt="Thunder login page — Fast. Private. Ours." class="ss-wide">
+          <img src="assets/images/thunder-ss1.png" alt="Thunder main chat interface">
+          <img src="assets/images/thunder-ss3.png" alt="Thunder DM chat with file and image sharing" class="ss-wide">
+        </div>
+
+        <!-- Invite CTA -->
+        <div class="invite-cta">
+          <p>Thunder is <strong>invite-only</strong>. To get access, message me on Telegram with your email and I'll send you an invite code.</p>
+          <a href="https://t.me/tazimhossen001" target="_blank" rel="noopener noreferrer" class="btn-thunder">
+            <i class="fa-brands fa-telegram"></i> Text me on Telegram for an invite
+          </a>
+        </div>
+
+        <!-- Documentation Content -->
+        <div class="doc-content">
+
+          <!-- Overview -->
+          <div class="doc-section">
+            <h2><i class="fas fa-info-circle"></i> Overview</h2>
+            <p><strong>Thunder</strong> is a full-stack, production-grade real-time messaging platform I built completely from scratch — including the database schema, REST API, WebSocket gateway, file storage pipeline, and the Next.js web client. It is intentionally invite-only and private.</p>
+            <p>The platform supports direct messages and group chats in real time, image/file/voice note sharing, peer-to-peer voice and video calls, server-side message search, live presence and typing indicators, and an admin panel — all running at zero hosting cost.</p>
+          </div>
+
+          <!-- Tech Stack -->
+          <div class="doc-section">
+            <h2><i class="fas fa-layer-group"></i> Technology Stack</h2>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <h4>Frontend</h4>
+                <ul>
+                  <li>Next.js (App Router)</li>
+                  <li>React & TypeScript</li>
+                  <li>Discord-style two-panel UI</li>
+                  <li>PWA support</li>
+                  <li>Vercel</li>
+                </ul>
+              </div>
+              <div class="tech-card">
+                <h4>Backend API</h4>
+                <ul>
+                  <li>NestJS (REST)</li>
+                  <li>Socket.IO (WebSocket)</li>
+                  <li>Fly.io deployment</li>
+                  <li>ffmpeg (voice transcoding)</li>
+                </ul>
+              </div>
+              <div class="tech-card">
+                <h4>Database & Storage</h4>
+                <ul>
+                  <li>Neon Postgres</li>
+                  <li>Prisma ORM</li>
+                  <li>Cloudflare R2</li>
+                  <li>Provider-agnostic storageKey abstraction</li>
+                </ul>
+              </div>
+              <div class="tech-card">
+                <h4>Auth & Realtime</h4>
+                <ul>
+                  <li>Argon2 password hashing</li>
+                  <li>JWT access / refresh token rotation</li>
+                  <li>WebRTC (1-on-1 calls)</li>
+                  <li>Cloudflare TURN relay</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Core Engineering -->
+          <div class="doc-section">
+            <h2><i class="fas fa-microchip"></i> Core Engineering Highlights</h2>
+
+            <h3>Race-Free Realtime Engine</h3>
+            <p>The realtime layer uses a custom Socket.IO gateway with <strong>server-assigned sequence numbers</strong>, eliminating the race conditions common in naïve WebSocket implementations. Messages are ordered definitively server-side. On reconnect, the client automatically detects gaps in its local sequence and requests a fill-sync, ensuring no message is ever lost due to a dropped connection.</p>
+
+            <h3>Invite-Gated Auth with JWT Rotation</h3>
+            <p>New users can only join via <strong>single-use invite codes</strong>. Passwords are hashed with Argon2 (the Argon2id variant, PHC winner). Sessions are managed with short-lived JWT access tokens paired with rolling refresh tokens — revoking a refresh token immediately invalidates the session.</p>
+
+            <h3>Voice Notes with Safari/iOS Compatibility</h3>
+            <p>Voice notes recorded in the browser (WebM/Opus) are server-transcoded via <strong>ffmpeg to AAC/MP4</strong> before storage. This is a known pain point: Safari does not support WebM, so without server-side transcoding, voice messages would be unplayable on iOS. All transcoded files are stored on Cloudflare R2 behind a provider-agnostic <code>storageKey</code> abstraction so the storage provider can be swapped without touching application code.</p>
+
+            <h3>Peer-to-Peer Voice & Video Calls</h3>
+            <p>1-on-1 voice and video calls use <strong>WebRTC</strong> with a Cloudflare TURN relay for mobile and CGNAT reliability. Direct browser-to-browser media streams are established via the Socket.IO signalling channel. The TURN server ensures calls succeed even when both peers are behind strict NATs or mobile carrier networks.</p>
+
+            <h3>Optimistic Message Sending</h3>
+            <p>The frontend uses an <strong>optimistic UI pattern</strong> — messages appear instantly in the chat UI with a "Sending…" state before the server confirms receipt. On success, the temporary optimistic message is replaced by the server-confirmed message (with its permanent ID and sequence number). On failure, it displays a retry option.</p>
+          </div>
+
+          <!-- Features Shipped -->
+          <div class="doc-section">
+            <h2><i class="fas fa-list-check"></i> Features Shipped</h2>
+            <div class="feature-list-grid">
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Invite-gated authentication</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Direct Messages (DMs)</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Group chats with admin roles</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Real-time typing indicators</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Read receipts (Sent / Read ticks)</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Image & file sharing</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Voice notes (AAC/MP4 transcoded)</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Voice & video calls (WebRTC)</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Message reactions</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Message replies</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Pinned messages</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Self-destructing messages</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Server-side message search</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Live presence indicators</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Push notifications</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> PWA support</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Admin panel</div>
+              <div class="feature-item"><i class="fas fa-check-circle"></i> Auto gap-fill sync on reconnect</div>
+            </div>
+          </div>
+
+          <!-- Infrastructure -->
+          <div class="doc-section">
+            <h2><i class="fas fa-server"></i> Infrastructure & Cost</h2>
+            <p>The entire platform runs at <strong>zero hosting cost</strong> by combining free tiers across providers:</p>
+            <ul>
+              <li><strong>NestJS API on Fly.io</strong> — free tier with always-on machines in the nearest region.</li>
+              <li><strong>Neon Postgres</strong> — serverless Postgres with a generous free tier and automatic scale-to-zero.</li>
+              <li><strong>Cloudflare R2</strong> — S3-compatible object storage with no egress fees and a free tier for file/voice/image storage.</li>
+              <li><strong>Next.js on Vercel</strong> — frontend deployed on Vercel's hobby plan.</li>
+              <li><strong>Cloudflare TURN</strong> — TURN relay for WebRTC NAT traversal via Cloudflare Calls free tier.</li>
+            </ul>
+          </div>
+
+          <!-- Challenges -->
+          <div class="doc-section">
+            <h2><i class="fas fa-puzzle-piece"></i> Challenges & Solutions</h2>
+
+            <h3>Message Ordering Under Concurrent Load</h3>
+            <p><strong>The challenge:</strong> In a high-concurrency chat, two clients sending messages simultaneously could arrive at the server in a different order than the users sent them, causing visual reordering in the UI.<br>
+            <strong>The solution:</strong> The server assigns a monotonically increasing sequence number to each message per conversation <em>inside a database transaction</em>. The client sorts its local message list by sequence number, not by arrival time — making the displayed order authoritative and deterministic.</p>
+
+            <h3>Voice Notes on iOS/Safari</h3>
+            <p><strong>The challenge:</strong> Browsers record audio in WebM/Opus format, which Safari and iOS cannot play.<br>
+            <strong>The solution:</strong> The API server pipes the uploaded audio blob through <strong>ffmpeg</strong>, transcodes it to AAC in an MP4 container, and stores only the transcoded file. All clients — including Safari — receive a universally-playable MP4 file.</p>
+
+            <h3>Reliable Calls on Mobile Networks</h3>
+            <p><strong>The challenge:</strong> Mobile carriers and many home routers use CGNAT, which blocks direct WebRTC peer-to-peer connections.<br>
+            <strong>The solution:</strong> Cloudflare's TURN relay is used as a fallback. The ICE negotiation automatically upgrades from host → STUN → TURN, so calls work even in the worst-case network environment.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-text">Tazim</span>
+            <span class="logo-bracket">/&gt;</span>
+          </h3>
+          <p class="footer-description">
+            Building exceptional digital experiences with modern web technologies.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="footer-social">
+            <a href="https://github.com/cthboss001" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/tazimhossen/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://t.me/tazimhossen001" target="_blank" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Made with <i class="fas fa-heart" style="color: var(--thunder-gold);"></i> by <span>Tazim Hossen</span></p>
+        <p>&copy; <span id="current-year"></span> All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
+    const icon = themeToggle.querySelector('i');
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      root.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = root.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      icon.className = theme === 'light' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  </script>
+</body>
+</html>
