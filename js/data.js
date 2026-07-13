@@ -4,7 +4,7 @@ const portfolioData = {
     name: "Tazim Hossen",
     title: "Undergraduate Student, Department of Computer Science and Engineering, Daffodil International University",
     tagline: ["Software Engineer", "Full-Stack Developer", "Backend Developer", "Real-Time Systems", "WebRTC & WebSocket", "Next.js Developer", "Database Architect", "Problem Solver", "Tech Innovator"],
-    bio: "I'm Tazim Hossen, a CSE student at Daffodil International University. I build production-grade full-stack systems — from real-time messaging platforms (NestJS, Socket.IO, WebRTC) to e-commerce PWAs (Next.js, Prisma) and desktop applications (Electron). I'm driven by engineering correctness: race-free concurrency, data integrity, and shipping software that actually works at scale.",
+    bio: "I'm Tazim Hossen, a CSE student at Daffodil International University. I build production-grade full-stack systems — from real-time messaging platforms (NestJS, Socket.IO, WebRTC) with native Android clients (Kotlin, Jetpack Compose) to e-commerce PWAs (Next.js, Prisma) and desktop applications (Electron). I'm driven by engineering correctness: race-free concurrency, data integrity, and shipping software that actually works at scale.",
     objective: "Seeking a challenging Junior Software Engineer position where I can apply my backend and full-stack expertise to build scalable, production-ready systems while contributing to team success.",
     email: "contact@tazim.dev",
     phone: "",
@@ -38,6 +38,7 @@ const portfolioData = {
     programming: [
       { name: "C", icon: "fa-solid fa-code", level: "Comfortable" },
       { name: "C++", icon: "fa-solid fa-code", level: "Comfortable" },
+      { name: "Kotlin", icon: "fa-solid fa-code", level: "Intermediate" },
       { name: "Python", icon: "fa-brands fa-python", level: "Learning" },
       { name: "JavaScript", icon: "fa-brands fa-js", level: "Comfortable" },
       { name: "TypeScript", icon: "fa-solid fa-code", level: "Comfortable" }
@@ -52,6 +53,15 @@ const portfolioData = {
       { name: "Recharts", icon: "fa-solid fa-chart-bar", level: "Intermediate" },
       { name: "PWA", icon: "fa-solid fa-mobile-screen", level: "Intermediate" },
       { name: "Bootstrap", icon: "fa-brands fa-bootstrap", level: "Intermediate" }
+    ],
+    mobile: [
+      { name: "Android SDK", icon: "fa-brands fa-android", level: "Intermediate" },
+      { name: "Jetpack Compose", icon: "fa-brands fa-android", level: "Intermediate" },
+      { name: "Hilt (DI)", icon: "fa-solid fa-diagram-project", level: "Intermediate" },
+      { name: "Coroutines & Flow", icon: "fa-solid fa-arrows-spin", level: "Intermediate" },
+      { name: "Retrofit", icon: "fa-solid fa-plug", level: "Intermediate" },
+      { name: "WebRTC (Native)", icon: "fa-solid fa-video", level: "Intermediate" },
+      { name: "Firebase Cloud Messaging", icon: "fa-solid fa-fire", level: "Intermediate" }
     ],
     backend: [
       { name: "NestJS", icon: "fa-solid fa-server", level: "Intermediate" },
@@ -97,12 +107,12 @@ const portfolioData = {
   projects: [
     {
       title: "Thunder ⚡",
-      description: "A private, invite-only real-time messaging platform built end-to-end — NestJS REST + Socket.IO API, Next.js web client, WebRTC 1-on-1 calls with Cloudflare TURN, Neon Postgres, and Cloudflare R2 file storage. Features DMs, group chats, voice notes (ffmpeg-transcoded for iOS), typing indicators, read receipts, reactions, self-destructing messages, and push notifications — all at zero hosting cost.",
+      description: "A private, invite-only real-time messaging platform built end-to-end — NestJS REST + Socket.IO API, a Next.js web client, and a native Kotlin/Jetpack Compose Android app sharing the same backend contract. Includes WebRTC 1-on-1 calls with Cloudflare TURN, SFU-powered group calls, FCM push, Neon Postgres, and Cloudflare R2 storage. Features DMs, group chats, voice notes (ffmpeg-transcoded for iOS), read receipts, reactions, and self-destructing messages — all at zero hosting cost.",
       image: "assets/images/thunder-ss1.png",
-      technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "WebRTC", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io", "JWT"],
+      technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "Kotlin", "Jetpack Compose", "WebRTC", "FCM", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io"],
       docLink: "thunder.html",
       live: "https://www.thunderchat.tech/",
-      category: ["fullstack"],
+      category: ["fullstack", "mobile"],
       isFlagship: true
     },
     {
@@ -154,6 +164,22 @@ const portfolioData = {
         "Shipped: DMs, group chats with admin roles, file/image sharing, voice notes, typing indicators, read receipts, reactions, replies, pinned messages, self-destructing messages, push notifications, PWA, admin panel — zero hosting cost"
       ],
       technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "WebRTC", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io", "JWT", "Argon2", "ffmpeg"]
+    },
+    {
+      role: "Thunder Android — Native Kotlin Client",
+      company: "Personal Flagship Project",
+      duration: "2026",
+      location: "Dhaka, Bangladesh",
+      type: "Android Development",
+      responsibilities: [
+        "Built a native Android client (~14,800 lines of Kotlin across ~73 files) in Jetpack Compose with Hilt DI and an MVVM architecture, reaching feature parity with the web app against the same NestJS REST + Socket.IO backend",
+        "Ported the shared TypeScript contract (DTOs, enums, Socket.IO events) to Kotlin and kept it in lockstep with the backend for type-safe realtime messaging",
+        "Engineered WhatsApp/Telegram-grade calling: 1-on-1 peer-to-peer WebRTC plus group calls over a Cloudflare Realtime SFU, with a foreground service, full-screen incoming-call UI over the lock screen, and Android Telecom integration",
+        "Added a config-gated FCM push path to the NestJS API (high-priority data-only sender with dead-token pruning) driving instant message and incoming-call notifications with a 30s TTL and retry",
+        "Built resilient networking with Retrofit, an encrypted token store, and single-flight 401 → refresh → retry; the Socket.IO client refreshes its token before every handshake and gap-fills missed messages on reconnect",
+        "Delivered WhatsApp-style notifications with cold-process-safe inline reply and mark-read actions, boot re-registration, and a battery-optimization exemption prompt"
+      ],
+      technologies: ["Kotlin", "Jetpack Compose", "Hilt", "Coroutines & Flow", "Retrofit", "WebRTC", "Cloudflare SFU", "Socket.IO", "FCM", "Android Telecom"]
     },
     {
       role: "IntCart - Production E-commerce Platform",

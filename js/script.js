@@ -860,6 +860,7 @@ function populateSkillsCarousel() {
   const categories = {
     programming: { label: 'Languages',   icon: 'fa-solid fa-code',     color: '#00D9FF' },
     frontend:    { label: 'Frontend',    icon: 'fa-brands fa-html5',   color: '#34D399' },
+    mobile:      { label: 'Mobile',      icon: 'fa-brands fa-android', color: '#FF6B35' },
     backend:     { label: 'Backend',     icon: 'fa-solid fa-server',   color: '#A78BFA' },
     database:    { label: 'Databases',   icon: 'fa-solid fa-database', color: '#F59E0B' },
     tools:       { label: 'Tools',       icon: 'fa-solid fa-tools',    color: '#F472B6' },
