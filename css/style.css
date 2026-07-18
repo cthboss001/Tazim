@@ -469,73 +469,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-image {
-  animation: fadeInRight 1s ease-out;
   display: flex;
   justify-content: center;
 }
 
 .image-wrapper {
   position: relative;
-  width: 260px;
-  height: 260px;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .image-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 50%;
-  padding: 6px;
-  box-sizing: border-box;
-  background: var(--bg-primary);
+  object-fit: contain;
+  object-position: bottom center;
   position: relative;
   z-index: 3;
-}
-
-/* Spinning gradient ring */
-.image-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--color-cyan), var(--color-green), var(--color-cyan));
-  animation: spinRing 4s linear infinite;
-  z-index: 1;
-}
-
-/* Inner bg to mask the conic gap */
-.image-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  border-radius: 50%;
-  background: var(--bg-primary);
-  z-index: 1;
+  /* Fade the bottom so the cutout blends into the page instead of a hard edge */
+  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
 }
 
 @keyframes spinRing {
   to { transform: rotate(360deg); }
-}
-
-.image-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: var(--accent-gradient);
-  border-radius: 50%;
-  opacity: 0.2;
-  filter: blur(28px);
-  z-index: 0;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.05); }
 }
 
 .scroll-indicator {
@@ -2014,8 +1975,10 @@ h1, h2, h3, h4, h5, h6 {
   .hero-description { font-size: 0.95rem; margin-bottom: 1.5rem; }
 
   .image-wrapper {
-    width: 170px;
-    height: 170px;
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    margin: 0 auto;
   }
 
   .hero {
@@ -2133,7 +2096,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 400px) {
   .hero-name { font-size: 2rem; }
   .hero-title { font-size: 1rem; }
-  .image-wrapper { width: 170px; height: 170px; }
+  .image-wrapper { width: 100%; max-width: 260px; height: auto; }
   .section-title { font-size: 1.4rem; }
   .photo-slide { flex: 0 0 170px; height: 130px; }
 }
