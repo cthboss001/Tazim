@@ -2,10 +2,11 @@
 const portfolioData = {
   personal: {
     name: "Tazim Hossen",
-    title: "Undergraduate Student, Department of Computer Science and Engineering, Daffodil International University",
-    tagline: ["Software Engineer", "Full-Stack Developer", "Backend Developer", "Real-Time Systems", "WebRTC & WebSocket", "Next.js Developer", "Database Architect", "Problem Solver", "Tech Innovator"],
-    bio: "I'm Tazim Hossen, a CSE student at Daffodil International University. I build production-grade full-stack systems — from real-time messaging platforms (NestJS, Socket.IO, WebRTC) with native Android clients (Kotlin, Jetpack Compose) to e-commerce PWAs (Next.js, Prisma) and desktop applications (Electron). I'm driven by engineering correctness: race-free concurrency, data integrity, and shipping software that actually works at scale.",
-    objective: "Seeking a challenging Junior Software Engineer position where I can apply my backend and full-stack expertise to build scalable, production-ready systems while contributing to team success.",
+    title: "Computer Science Undergraduate, Daffodil International University",
+    tagline: ["Problem Solver", "Full-Stack Development"],
+    heroDescription: "I build full-stack, backend, and real-time systems.",
+    bio: "I'm Tazim Hossen, a computer science undergraduate at Daffodil International University. I build full-stack and real-time systems: a private messaging platform with web and native Android clients that my friends and I use every day, an e-commerce platform running my own business, and a Windows desktop application with 15 releases shipped.",
+    objective: "Most of what I know I learned by building things and then having to keep them working — ordering messages correctly when a client reconnects, getting WebRTC calls to connect on mobile carrier networks, and keeping a checkout from overselling under concurrent orders.",
     email: "contact@tazim.dev",
     phone: "",
     location: "Dhaka, Bangladesh",
@@ -34,73 +35,54 @@ const portfolioData = {
     },
   ],
 
+  // Only technologies actually used in the projects below. No self-rated levels:
+  // "Comfortable" and "Learning" are unverifiable and invite doubt about the rest.
   skills: {
     programming: [
-      { name: "C", icon: "fa-solid fa-code", level: "Comfortable" },
-      { name: "C++", icon: "fa-solid fa-code", level: "Comfortable" },
-      { name: "Kotlin", icon: "fa-solid fa-code", level: "Intermediate" },
-      { name: "Python", icon: "fa-brands fa-python", level: "Learning" },
-      { name: "JavaScript", icon: "fa-brands fa-js", level: "Comfortable" },
-      { name: "TypeScript", icon: "fa-solid fa-code", level: "Comfortable" }
+      { name: "TypeScript", icon: "fa-solid fa-code" },
+      { name: "JavaScript", icon: "fa-brands fa-js" },
+      { name: "Kotlin", icon: "fa-solid fa-code" },
+      { name: "C++", icon: "fa-solid fa-code" },
+      { name: "C", icon: "fa-solid fa-code" },
+      { name: "Python", icon: "fa-brands fa-python" }
     ],
     frontend: [
-      { name: "HTML5", icon: "fa-brands fa-html5", level: "Comfortable" },
-      { name: "CSS3", icon: "fa-brands fa-css3-alt", level: "Comfortable" },
-      { name: "React", icon: "fa-brands fa-react", level: "Comfortable" },
-      { name: "Next.js", icon: "fa-brands fa-react", level: "Comfortable" },
-      { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt", level: "Comfortable" },
-      { name: "Zustand", icon: "fa-solid fa-layer-group", level: "Intermediate" },
-      { name: "Recharts", icon: "fa-solid fa-chart-bar", level: "Intermediate" },
-      { name: "PWA", icon: "fa-solid fa-mobile-screen", level: "Intermediate" },
-      { name: "Bootstrap", icon: "fa-brands fa-bootstrap", level: "Intermediate" }
+      { name: "Next.js", icon: "fa-brands fa-react" },
+      { name: "React", icon: "fa-brands fa-react" },
+      { name: "Tailwind CSS", icon: "fa-brands fa-css3-alt" },
+      { name: "Zustand", icon: "fa-solid fa-layer-group" },
+      { name: "PWA", icon: "fa-solid fa-mobile-screen" }
     ],
     mobile: [
-      { name: "Android SDK", icon: "fa-brands fa-android", level: "Intermediate" },
-      { name: "Jetpack Compose", icon: "fa-brands fa-android", level: "Intermediate" },
-      { name: "Hilt (DI)", icon: "fa-solid fa-diagram-project", level: "Intermediate" },
-      { name: "Coroutines & Flow", icon: "fa-solid fa-arrows-spin", level: "Intermediate" },
-      { name: "Retrofit", icon: "fa-solid fa-plug", level: "Intermediate" },
-      { name: "WebRTC (Native)", icon: "fa-solid fa-video", level: "Intermediate" },
-      { name: "Firebase Cloud Messaging", icon: "fa-solid fa-fire", level: "Intermediate" }
+      { name: "Jetpack Compose", icon: "fa-brands fa-android" },
+      { name: "Hilt", icon: "fa-solid fa-diagram-project" },
+      { name: "Coroutines & Flow", icon: "fa-solid fa-arrows-spin" },
+      { name: "Retrofit", icon: "fa-solid fa-plug" },
+      { name: "FCM", icon: "fa-solid fa-fire" }
     ],
     backend: [
-      { name: "NestJS", icon: "fa-solid fa-server", level: "Intermediate" },
-      { name: "Socket.IO", icon: "fa-solid fa-plug", level: "Intermediate" },
-      { name: "WebRTC", icon: "fa-solid fa-video", level: "Intermediate" },
-      { name: "Node.js", icon: "fa-brands fa-node-js", level: "Intermediate" },
-      { name: "Electron", icon: "fa-solid fa-desktop", level: "Intermediate" },
-      { name: "Express.js", icon: "fa-solid fa-server", level: "Learning" },
-      { name: "Prisma ORM", icon: "fa-solid fa-database", level: "Comfortable" },
-      { name: "Supabase", icon: "fa-solid fa-bolt", level: "Intermediate" },
-      { name: "NextAuth.js", icon: "fa-solid fa-shield-halved", level: "Intermediate" },
-      { name: "JWT Auth", icon: "fa-solid fa-key", level: "Intermediate" }
+      { name: "NestJS", icon: "fa-solid fa-server" },
+      { name: "Node.js", icon: "fa-brands fa-node-js" },
+      { name: "Socket.IO", icon: "fa-solid fa-plug" },
+      { name: "WebRTC", icon: "fa-solid fa-video" },
+      { name: "Prisma", icon: "fa-solid fa-database" },
+      { name: "JWT", icon: "fa-solid fa-key" },
+      { name: "Electron", icon: "fa-solid fa-desktop" }
     ],
     database: [
-      { name: "PostgreSQL", icon: "fa-solid fa-database", level: "Comfortable" },
-      { name: "SQLite", icon: "fa-solid fa-database", level: "Intermediate" },
-      { name: "MySQL", icon: "fa-solid fa-database", level: "Intermediate" },
-      { name: "MongoDB", icon: "fa-solid fa-leaf", level: "Learning" }
+      { name: "PostgreSQL", icon: "fa-solid fa-database" },
+      { name: "SQLite", icon: "fa-solid fa-database" },
+      { name: "MySQL", icon: "fa-solid fa-database" },
+      { name: "Supabase", icon: "fa-solid fa-bolt" }
     ],
     tools: [
-      { name: "Git", icon: "fa-brands fa-git-alt", level: "Comfortable" },
-      { name: "GitHub", icon: "fa-brands fa-github", level: "Comfortable" },
-      { name: "VS Code", icon: "fa-solid fa-code", level: "Comfortable" },
-      { name: "Linux", icon: "fa-brands fa-linux", level: "Intermediate" },
-      { name: "Postman", icon: "fa-solid fa-paper-plane", level: "Intermediate" },
-      { name: "Vercel", icon: "fa-solid fa-rocket", level: "Comfortable" },
-      { name: "Fly.io", icon: "fa-solid fa-plane", level: "Intermediate" },
-      { name: "Cloudflare R2", icon: "fa-solid fa-cloud", level: "Intermediate" },
-      { name: "ffmpeg", icon: "fa-solid fa-film", level: "Intermediate" },
-      { name: "electron-builder", icon: "fa-solid fa-box-open", level: "Intermediate" },
-      { name: "Cloudinary", icon: "fa-solid fa-cloud-arrow-up", level: "Intermediate" },
-      { name: "Resend", icon: "fa-solid fa-envelope-open-text", level: "Intermediate" }
-    ],
-    soft: [
-      { name: "Communication", icon: "fa-solid fa-comments" },
-      { name: "Teamwork", icon: "fa-solid fa-users" },
-      { name: "Problem Solving", icon: "fa-solid fa-brain" },
-      { name: "Time Management", icon: "fa-solid fa-clock" },
-      { name: "Adaptability", icon: "fa-solid fa-sync" }
+      { name: "Vercel", icon: "fa-solid fa-rocket" },
+      { name: "Fly.io", icon: "fa-solid fa-plane" },
+      { name: "Cloudflare R2", icon: "fa-solid fa-cloud" },
+      { name: "ffmpeg", icon: "fa-solid fa-film" },
+      { name: "electron-builder", icon: "fa-solid fa-box-open" },
+      { name: "Git", icon: "fa-brands fa-git-alt" },
+      { name: "Linux", icon: "fa-brands fa-linux" }
     ]
   },
 
@@ -117,10 +99,9 @@ const portfolioData = {
     },
     {
       title: "IntCart",
-      description: "Production-grade e-commerce platform featuring authentication, role-based administration, product management, order processing, reviews & ratings, invoice generation, PWA support, and real-time operational features.",
+      description: "E-commerce platform featuring authentication, role-based administration, product management, order processing, reviews & ratings, invoice generation, PWA support, and real-time operational features.",
       image: "assets/images/intcart1.png",
       technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "NextAuth", "Cloudinary", "Resend", "PWA", "RBAC", "Vercel"],
-      github: "#",
       docLink: "intcart.html",
       live: "https://www.intcart.shop",
       category: ["fullstack"],
@@ -128,7 +109,7 @@ const portfolioData = {
     },
     {
       title: "RetinaRest",
-      description: "Production-grade Windows desktop application implementing the 20-20-20 eye health rule. Features a finite state machine timer engine with crash recovery, full-screen break overlay, eye health dashboard with weekly analytics, Google OAuth + guest mode, and seamless auto-updating with live progress UI. 11+ releases shipped on GitHub.",
+      description: "Windows desktop application implementing the 20-20-20 eye health rule. Features a finite state machine timer engine with crash recovery, full-screen break overlay, eye health dashboard with weekly analytics, Google OAuth + guest mode, and seamless auto-updating with live progress UI. 15 releases shipped on GitHub.",
       image: "assets/images/retinarest-timer.png",
       technologies: ["Electron", "React", "TypeScript", "SQLite", "Prisma", "Supabase", "Zustand", "Recharts", "electron-builder"],
       docLink: "retinarest.html",
@@ -148,80 +129,9 @@ const portfolioData = {
   ],
 
 
+  // Activities only — Thunder, IntCart, RetinaRest and MovieVault each have a
+  // project card above, so repeating them here was the same content twice.
   experience: [
-    {
-      role: "Thunder — Invite-Only Real-Time Messaging Platform",
-      company: "Personal Flagship Project",
-      duration: "2026",
-      location: "Dhaka, Bangladesh",
-      type: "Full-Stack Development",
-      responsibilities: [
-        "Architected and built a full-stack real-time messaging platform end-to-end in a production-grade TypeScript monorepo — NestJS REST API, Socket.IO WebSocket gateway, and Next.js App Router web client",
-        "Engineered a custom Socket.IO gateway with server-assigned sequence numbers for race-free message ordering; built automatic gap-fill sync on reconnect so no message is ever lost",
-        "Implemented WebRTC peer-to-peer voice and video calls with Cloudflare TURN relay for reliable connectivity on mobile and CGNAT networks",
-        "Built a server-side voice note transcoding pipeline using ffmpeg (WebM to AAC/MP4) for universal playback on Safari and iOS",
-        "Designed JWT access/refresh token rotation with Argon2id hashing and single-use invite-code gated registration",
-        "Shipped: DMs, group chats with admin roles, file/image sharing, voice notes, typing indicators, read receipts, reactions, replies, pinned messages, self-destructing messages, push notifications, PWA, admin panel — zero hosting cost"
-      ],
-      technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "WebRTC", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io", "JWT", "Argon2", "ffmpeg"]
-    },
-    {
-      role: "Thunder Android — Native Kotlin Client",
-      company: "Personal Flagship Project",
-      duration: "2026",
-      location: "Dhaka, Bangladesh",
-      type: "Android Development",
-      responsibilities: [
-        "Built a native Android client (~14,800 lines of Kotlin across ~73 files) in Jetpack Compose with Hilt DI and an MVVM architecture, reaching feature parity with the web app against the same NestJS REST + Socket.IO backend",
-        "Ported the shared TypeScript contract (DTOs, enums, Socket.IO events) to Kotlin and kept it in lockstep with the backend for type-safe realtime messaging",
-        "Engineered WhatsApp/Telegram-grade calling: 1-on-1 peer-to-peer WebRTC plus group calls over a Cloudflare Realtime SFU, with a foreground service, full-screen incoming-call UI over the lock screen, and Android Telecom integration",
-        "Added a config-gated FCM push path to the NestJS API (high-priority data-only sender with dead-token pruning) driving instant message and incoming-call notifications with a 30s TTL and retry",
-        "Built resilient networking with Retrofit, an encrypted token store, and single-flight 401 → refresh → retry; the Socket.IO client refreshes its token before every handshake and gap-fills missed messages on reconnect",
-        "Delivered WhatsApp-style notifications with cold-process-safe inline reply and mark-read actions, boot re-registration, and a battery-optimization exemption prompt"
-      ],
-      technologies: ["Kotlin", "Jetpack Compose", "Hilt", "Coroutines & Flow", "Retrofit", "WebRTC", "Cloudflare SFU", "Socket.IO", "FCM", "Android Telecom"]
-    },
-    {
-      role: "IntCart - Production E-commerce Platform",
-      company: "Personal Project",
-      duration: "2026",
-      location: "Dhaka, Bangladesh",
-      type: "Full-Stack Development",
-      responsibilities: [
-        "Architected and developed a production-ready e-commerce platform using Next.js and Prisma",
-        "Implemented secure authentication, Role-Based Access Control (RBAC), and operational features",
-        "Built as a Progressive Web App (PWA) with a scalable PostgreSQL database architecture"
-      ],
-      technologies: ["Next.js", "TypeScript", "PostgreSQL", "Prisma"]
-    },
-    {
-      role: "RetinaRest — Windows Desktop Application",
-      company: "Personal Project",
-      duration: "2026",
-      location: "Online",
-      type: "Desktop Development",
-      responsibilities: [
-        "Engineered a production-grade Windows desktop app with Electron and React, shipping 11+ stable releases via GitHub Releases with NSIS installer distribution",
-        "Designed a crash-resilient finite state machine timer engine persisted in SQLite via Prisma ORM — survives restarts and adjusts dynamically when settings change without resetting progress",
-        "Built an eye health analytics dashboard with daily stats, compliance rate, streak tracking, and animated weekly bar charts (Recharts)",
-        "Implemented Google OAuth + guest mode with Supabase PostgreSQL and Row-Level Security for cloud sync alongside fully offline SQLite persistence",
-        "Shipped silent auto-updates with live progress toast using electron-updater; install-on-quit behavior matches professional desktop software standards"
-      ],
-      technologies: ["Electron", "React", "TypeScript", "SQLite", "Prisma", "Supabase", "Zustand", "Recharts", "electron-builder"]
-    },
-    {
-      role: "Project Showcase — AgroMotion",
-      company: "Daffodil International University",
-      duration: "2024",
-      location: "Dhaka, Bangladesh",
-      type: "Participation",
-      responsibilities: [
-        "Developed AgroMotion — an agriculture-focused project built around data structure concepts",
-        "Aimed to help farmers manage activities and modernize agricultural workflow",
-        "Achieved 1st Runner-up in Project Showcase"
-      ],
-      technologies: ["C++", "Data Structures"]
-    },
     {
       role: "Competitive Programming",
       company: "Codeforces / Online Judges",
@@ -229,39 +139,23 @@ const portfolioData = {
       location: "Online",
       type: "Competitive Programming",
       responsibilities: [
-        "Active on Codeforces with 247 problems solved across 16 contests",
-        "Participated as Finalist in TAKE OFF — Fall 2023",
-        "Participated as Finalist in UNLOCK THE ALGORITHM — Fall 2024"
+        "247 problems solved across 16 rated contests on Codeforces",
+        "Finalist, TAKE OFF (Fall 2023)",
+        "Finalist, UNLOCK THE ALGORITHM (Fall 2024)"
       ],
-      technologies: ["C++", "Algorithms", "Problem Solving"]
+      technologies: ["C++", "Algorithms", "Data Structures"]
     },
     {
-      role: "MovieVault — Full-Stack Development",
-      company: "Personal Project",
-      duration: "2025",
-      location: "Online",
-      type: "Personal Project",
+      role: "Project Showcase - AgroMotion",
+      company: "Daffodil International University",
+      duration: "2024",
+      location: "Dhaka, Bangladesh",
+      type: "Participation",
       responsibilities: [
-        "Engineered a custom-built movie database and analytics dashboard with Next.js 15 (App Router) and TypeScript",
-        "Built custom scraper providers that bypass bot-detection to sync data from Letterboxd and IMDb into a unified PostgreSQL database",
-        "Implemented a robust data normalization pipeline with smart deduplication for multi-source imports",
-        "Designed a dual-role authentication system with cookie-based security for admin routes while keeping the vault public",
-        "Created a stunning glassmorphism UI with backdrop blurs, animated cyan glows, and a dedicated stats engine"
+        "Built AgroMotion, an agriculture-focused project centred on data structure concepts",
+        "1st Runner-up in the departmental Project Showcase"
       ],
-      technologies: ["Next.js 15", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Vercel"]
-    },
-    {
-      role: "Portfolio Development",
-      company: "Personal Project",
-      duration: "2024 - Present",
-      location: "Online",
-      type: "Personal Project",
-      responsibilities: [
-        "Designed and developed a personal portfolio website from scratch",
-        "Deployed on GitHub Pages with custom domain tazim.dev",
-        "Built with vanilla HTML, CSS, and JavaScript"
-      ],
-      technologies: ["HTML", "CSS", "JavaScript", "GitHub Pages"]
+      technologies: ["C++", "Data Structures"]
     }
   ],
 
@@ -272,7 +166,7 @@ const portfolioData = {
       date: "2024",
       icon: "fa-solid fa-trophy",
       credentialUrl: "#",
-      description: "AgroMotion earned 1st Runner-up for an agriculture-focused project built around data structure concepts"
+      description: "1st Runner-up for AgroMotion, an agriculture project built around data structure concepts"
     },
     {
       name: "Competitive Programming",
@@ -280,7 +174,7 @@ const portfolioData = {
       date: "Active",
       icon: "fa-solid fa-code",
       credentialUrl: "https://codeforces.com/profile/unbowed_t",
-      description: "Current Rating: 758 · Max Rating: 913 · Solved: 247 · Contests: 16"
+      description: "247 problems solved across 16 rated contests"
     },
     {
       name: "Programming Contests",
@@ -309,31 +203,5 @@ const portfolioData = {
     }
   ],
 
-  // Photos are auto-loaded from photo/manifest.json
-  // Run update-photos.bat before pushing to update the list
-  photos: [],
 
-  // Add your YouTube video IDs here (the part after ?v= in the YouTube URL)
-  videos: [
-    {
-      title: "RetinaRest | Eye Health & Productivity App for Windows",
-      youtubeId: "_a3vKjfV2VY",
-      description: ""
-    },
-    {
-      title: "OOP Project Promo || HuntsMen X BORBAAD | SHAKIB KHAN",
-      youtubeId: "gOAfvj5mvtU",
-      description: ""
-    },
-    {
-      title: "PROMO VIDEO OF AGRO MOTION BY SHAHEE ALPHAS",
-      youtubeId: "R9hftE0bpwo",
-      description: ""
-    },
-    {
-      title: "ENG 101 Course Work 1st Semester | Video Resume | Tazim Hossen | Daffodil International University",
-      youtubeId: "oaeImOiPldw",
-      description: ""
-    }
-  ]
 };
