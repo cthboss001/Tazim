@@ -1,5 +1,5 @@
 /* =====================================================
-   Visitor Tracking — Supabase backend (per-page stats)
+   Visitor Tracking Supabase backend (per-page stats)
    ===================================================== */
 
 const SUPABASE_URL  = 'https://mzokcopocvmmdipmaxpz.supabase.co';

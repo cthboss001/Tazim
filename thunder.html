@@ -7,7 +7,7 @@
   <!-- Primary Meta Tags -->
   <title>Thunder ⚡ | Private Real-Time Messaging Platform by Tazim Hossen</title>
   <meta name="title" content="Thunder ⚡ | Private Real-Time Messaging Platform by Tazim Hossen">
-  <meta name="description" content="Thunder is a private, invite-only real-time messaging platform built end-to-end with NestJS, Socket.IO, Next.js, WebRTC, and Cloudflare — with a Next.js web client and a native Kotlin/Jetpack Compose Android app, featuring DMs, group chats, voice/video calls, and zero hosting cost.">
+  <meta name="description" content="Thunder is a private, invite-only real-time messaging platform built end-to-end with NestJS, Socket.IO, Next.js, WebRTC, and Cloudflare: with a Next.js web client and a native Kotlin/Jetpack Compose Android app, featuring DMs, group chats, voice/video calls, and zero hosting cost.">
   <meta name="keywords" content="Thunder, real-time messaging, WebRTC, Socket.IO, NestJS, Next.js, TypeScript, Kotlin, Android, Jetpack Compose, FCM, Tazim Hossen, Full Stack Developer, Android Developer, Software Engineer">
   <meta name="author" content="Tazim Hossen">
   <meta name="robots" content="index, follow">
@@ -343,7 +343,7 @@
         <div class="doc-hero">
           <div class="zero-cost-badge"><i class="fas fa-server"></i> Running in Production · Zero Hosting Cost</div>
           <h1>Thunder ⚡</h1>
-          <p>A private, invite-only real-time messaging platform built end-to-end — from database schema to a deployed web app <em>and</em> a native Android client — on a production-grade full-stack TypeScript + Kotlin codebase.</p>
+          <p>A private, invite-only real-time messaging platform built end-to-end, from database schema to a deployed web app <em>and</em> a native Android client, on a production-grade full-stack TypeScript + Kotlin codebase.</p>
           <div class="hero-buttons">
             <a href="https://www.thunderchat.tech/" target="_blank" rel="noopener noreferrer" class="btn-thunder">
               <i class="fas fa-bolt"></i> Visit Live App
@@ -356,7 +356,7 @@
 
         <!-- Screenshots -->
         <div class="screenshot-showcase">
-          <img src="assets/images/thunder-ss2.png" alt="Thunder login page — Fast. Private. Ours." class="ss-featured">
+          <img src="assets/images/thunder-ss2.png" alt="Thunder login page: Fast. Private. Ours." class="ss-featured">
           <img src="assets/images/thunder-ss1.png" alt="Thunder main chat interface">
           <img src="assets/images/thunder-ss3.png" alt="Thunder DM chat with file and image sharing">
         </div>
@@ -375,8 +375,8 @@
           <!-- Overview -->
           <div class="doc-section">
             <h2><i class="fas fa-info-circle"></i> Overview</h2>
-            <p><strong>Thunder</strong> is a full-stack, production-grade real-time messaging platform I built completely from scratch — including the database schema, REST API, WebSocket gateway, file storage pipeline, and the Next.js web client. It is intentionally invite-only and private.</p>
-            <p>The platform supports direct messages and group chats in real time, image/file/voice note sharing, peer-to-peer voice and video calls, server-side message search, live presence and typing indicators, and an admin panel — all running at zero hosting cost.</p>
+            <p><strong>Thunder</strong> is a full-stack, production-grade real-time messaging platform I built completely from scratch, including the database schema, REST API, WebSocket gateway, file storage pipeline, and the Next.js web client. It is intentionally invite-only and private.</p>
+            <p>The platform supports direct messages and group chats in real time, image/file/voice note sharing, peer-to-peer voice and video calls, server-side message search, live presence and typing indicators, and an admin panel, all running at zero hosting cost.</p>
           </div>
 
           <!-- Tech Stack -->
@@ -440,7 +440,7 @@
             <p>The realtime layer uses a custom Socket.IO gateway with <strong>server-assigned sequence numbers</strong>, eliminating the race conditions common in naïve WebSocket implementations. Messages are ordered definitively server-side. On reconnect, the client automatically detects gaps in its local sequence and requests a fill-sync, ensuring no message is ever lost due to a dropped connection.</p>
 
             <h3>Invite-Gated Auth with JWT Rotation</h3>
-            <p>New users can only join via <strong>single-use invite codes</strong>. Passwords are hashed with Argon2 (the Argon2id variant, PHC winner). Sessions are managed with short-lived JWT access tokens paired with rolling refresh tokens — revoking a refresh token immediately invalidates the session.</p>
+            <p>New users can only join via <strong>single-use invite codes</strong>. Passwords are hashed with Argon2 (the Argon2id variant, PHC winner). Sessions are managed with short-lived JWT access tokens paired with rolling refresh tokens, revoking a refresh token immediately invalidates the session.</p>
 
             <h3>Voice Notes with Safari/iOS Compatibility</h3>
             <p>Voice notes recorded in the browser (WebM/Opus) are server-transcoded via <strong>ffmpeg to AAC/MP4</strong> before storage. This is a known pain point: Safari does not support WebM, so without server-side transcoding, voice messages would be unplayable on iOS. All transcoded files are stored on Cloudflare R2 behind a provider-agnostic <code>storageKey</code> abstraction so the storage provider can be swapped without touching application code.</p>
@@ -449,16 +449,16 @@
             <p>1-on-1 voice and video calls use <strong>WebRTC</strong> with a Cloudflare TURN relay for mobile and CGNAT reliability. Direct browser-to-browser media streams are established via the Socket.IO signalling channel. The TURN server ensures calls succeed even when both peers are behind strict NATs or mobile carrier networks.</p>
 
             <h3>Optimistic Message Sending</h3>
-            <p>The frontend uses an <strong>optimistic UI pattern</strong> — messages appear instantly in the chat UI with a "Sending…" state before the server confirms receipt. On success, the temporary optimistic message is replaced by the server-confirmed message (with its permanent ID and sequence number). On failure, it displays a retry option.</p>
+            <p>The frontend uses an <strong>optimistic UI pattern</strong>: messages appear instantly in the chat UI with a "Sending…" state before the server confirms receipt. On success, the temporary optimistic message is replaced by the server-confirmed message (with its permanent ID and sequence number). On failure, it displays a retry option.</p>
           </div>
 
           <!-- Native Android Client -->
           <div class="doc-section">
             <h2><i class="fab fa-android"></i> Native Android Client</h2>
-            <p>Beyond the web app, Thunder has a <strong>fully native Android client</strong> — roughly <strong>14,800 lines of Kotlin across ~73 files</strong>, built in Jetpack Compose with Hilt dependency injection and an MVVM architecture. It deliberately hits the <em>same</em> NestJS REST API and Socket.IO contract as the web client, so both platforms stay in lockstep with a single backend.</p>
+            <p>Beyond the web app, Thunder has a <strong>fully native Android client</strong>: roughly <strong>14,800 lines of Kotlin across ~73 files</strong>, built in Jetpack Compose with Hilt dependency injection and an MVVM architecture. It deliberately hits the <em>same</em> NestJS REST API and Socket.IO contract as the web client, so both platforms stay in lockstep with a single backend.</p>
 
             <h3>Why Native (not a WebView)</h3>
-            <p>The Android app was built native specifically for <strong>WhatsApp/Telegram-grade calling and notifications</strong> — things a wrapped web view can't do well: high-priority FCM data messages, a foreground service, a full-screen incoming-call UI over the lock screen, and Android Telecom integration.</p>
+            <p>The Android app was built native specifically for <strong>WhatsApp/Telegram-grade calling and notifications</strong>: things a wrapped web view can't do well: high-priority FCM data messages, a foreground service, a full-screen incoming-call UI over the lock screen, and Android Telecom integration.</p>
 
             <h3>Shared Contract, Type-Safe End to End</h3>
             <p>The web app's shared TypeScript contract (DTOs, enums, Socket.IO events) is <strong>ported to Kotlin and kept in sync</strong> with the backend, giving the same type-safe realtime messaging model on the phone that the web client enjoys in the browser.</p>
@@ -467,31 +467,31 @@
             <p>1-on-1 calls use <strong>peer-to-peer WebRTC</strong> with glare-free offer-after-accept signalling; group calls run through a <strong>Cloudflare Realtime SFU</strong> (publish/pull tracks). The incoming-call experience surfaces a full-screen UI over the lock screen backed by a foreground service and Telecom.</p>
 
             <h3>Resilient Networking &amp; Push</h3>
-            <p>Networking is built on Retrofit with an <strong>encrypted token store</strong> and single-flight <code>401 → refresh → retry</code>. The Socket.IO client refreshes its token before every handshake and <strong>gap-fills missed messages on reconnect</strong>. Push is delivered via a config-gated <strong>FCM</strong> path added to the NestJS API — a high-priority, data-only sender that prunes dead tokens and drives message and incoming-call notifications with inline reply and mark-read actions.</p>
+            <p>Networking is built on Retrofit with an <strong>encrypted token store</strong> and single-flight <code>401 → refresh → retry</code>. The Socket.IO client refreshes its token before every handshake and <strong>gap-fills missed messages on reconnect</strong>. Push is delivered via a config-gated <strong>FCM</strong> path added to the NestJS API, a high-priority, data-only sender that prunes dead tokens and drives message and incoming-call notifications with inline reply and mark-read actions.</p>
 
             <p style="color: var(--text-secondary); font-size: 0.95rem;"><i class="fas fa-circle-info" style="color: var(--thunder-gold);"></i> The Android client is feature-complete to web parity and compiles clean; live on-device call verification is the next milestone.</p>
           </div>
 
           <!-- Android Screenshots -->
           <div class="doc-section">
-            <h2><i class="fas fa-mobile-screen-button"></i> Android App — Screenshots</h2>
-            <p>The native Android client in action — same Thunder, on your phone. Tap any shot to view full size.</p>
+            <h2><i class="fas fa-mobile-screen-button"></i> Android App, Screenshots</h2>
+            <p>The native Android client in action, same Thunder, on your phone. Tap any shot to view full size.</p>
             <div class="android-showcase">
               <figure class="phone-shot">
                 <a href="assets/images/thunder-android-signin.png" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/thunder-android-signin.png" alt="Thunder Android sign-in screen — Fast. Private. Ours." loading="lazy">
+                  <img src="assets/images/thunder-android-signin.png" alt="Thunder Android sign-in screen: Fast. Private. Ours." loading="lazy">
                 </a>
-                <figcaption>Sign in — "Fast. Private. Ours."</figcaption>
+                <figcaption>Sign in: "Fast. Private. Ours."</figcaption>
               </figure>
               <figure class="phone-shot">
                 <a href="assets/images/thunder-android-new-chat.png" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/thunder-android-new-chat.png" alt="Thunder Android new direct chat — find by email, username, or name" loading="lazy">
+                  <img src="assets/images/thunder-android-new-chat.png" alt="Thunder Android new direct chat: find by email, username, or name" loading="lazy">
                 </a>
                 <figcaption>Start a direct chat by email, @username, or name</figcaption>
               </figure>
               <figure class="phone-shot">
                 <a href="assets/images/thunder-android-new-channel.png" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/thunder-android-new-channel.png" alt="Thunder Android new broadcast channel — create new or join by code" loading="lazy">
+                  <img src="assets/images/thunder-android-new-channel.png" alt="Thunder Android new broadcast channel: create new or join by code" loading="lazy">
                 </a>
                 <figcaption>Create a broadcast channel or join by code</figcaption>
               </figure>
@@ -509,7 +509,7 @@
               </figure>
               <figure class="phone-shot">
                 <a href="assets/images/thunder-android-group-settings.png" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/thunder-android-group-settings.png" alt="Thunder Android group settings — roles, members, and sub-channels" loading="lazy">
+                  <img src="assets/images/thunder-android-group-settings.png" alt="Thunder Android group settings: roles, members, and sub-channels" loading="lazy">
                 </a>
                 <figcaption>Group settings: admin roles, members &amp; sub-channels</figcaption>
               </figure>
@@ -527,15 +527,15 @@
               </figure>
               <figure class="phone-shot">
                 <a href="assets/images/thunder-android-update.png" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/thunder-android-update.png" alt="Thunder Android in-app update dialog — version 0.2.6 ready to install" loading="lazy">
+                  <img src="assets/images/thunder-android-update.png" alt="Thunder Android in-app update dialog: version 0.2.6 ready to install" loading="lazy">
                 </a>
-                <figcaption>In-app updates — new versions ready to install</figcaption>
+                <figcaption>In-app updates: new versions ready to install</figcaption>
               </figure>
               <figure class="phone-shot">
                 <a href="assets/images/thunder-android-play-protect.png" target="_blank" rel="noopener noreferrer">
-                  <img src="assets/images/thunder-android-play-protect.png" alt="Thunder Android install — Google Play Protect verifies the app looks safe" loading="lazy">
+                  <img src="assets/images/thunder-android-play-protect.png" alt="Thunder Android install: Google Play Protect verifies the app looks safe" loading="lazy">
                 </a>
-                <figcaption>Google Play Protect — verified safe to install</figcaption>
+                <figcaption>Google Play Protect: verified safe to install</figcaption>
               </figure>
             </div>
           </div>
@@ -570,11 +570,11 @@
             <h2><i class="fas fa-server"></i> Infrastructure & Cost</h2>
             <p>The entire platform runs at <strong>zero hosting cost</strong> by combining free tiers across providers:</p>
             <ul>
-              <li><strong>NestJS API on Fly.io</strong> — free tier with always-on machines in the nearest region.</li>
-              <li><strong>Neon Postgres</strong> — serverless Postgres with a generous free tier and automatic scale-to-zero.</li>
-              <li><strong>Cloudflare R2</strong> — S3-compatible object storage with no egress fees and a free tier for file/voice/image storage.</li>
-              <li><strong>Next.js on Vercel</strong> — frontend deployed on Vercel's hobby plan.</li>
-              <li><strong>Cloudflare TURN</strong> — TURN relay for WebRTC NAT traversal via Cloudflare Calls free tier.</li>
+              <li><strong>NestJS API on Fly.io</strong>: free tier with always-on machines in the nearest region.</li>
+              <li><strong>Neon Postgres</strong>: serverless Postgres with a generous free tier and automatic scale-to-zero.</li>
+              <li><strong>Cloudflare R2</strong>: S3-compatible object storage with no egress fees and a free tier for file/voice/image storage.</li>
+              <li><strong>Next.js on Vercel</strong>: frontend deployed on Vercel's hobby plan.</li>
+              <li><strong>Cloudflare TURN</strong>: TURN relay for WebRTC NAT traversal via Cloudflare Calls free tier.</li>
             </ul>
           </div>
 
@@ -584,11 +584,11 @@
 
             <h3>Message Ordering Under Concurrent Load</h3>
             <p><strong>The challenge:</strong> In a high-concurrency chat, two clients sending messages simultaneously could arrive at the server in a different order than the users sent them, causing visual reordering in the UI.<br>
-            <strong>The solution:</strong> The server assigns a monotonically increasing sequence number to each message per conversation <em>inside a database transaction</em>. The client sorts its local message list by sequence number, not by arrival time — making the displayed order authoritative and deterministic.</p>
+            <strong>The solution:</strong> The server assigns a monotonically increasing sequence number to each message per conversation <em>inside a database transaction</em>. The client sorts its local message list by sequence number, not by arrival time, making the displayed order authoritative and deterministic.</p>
 
             <h3>Voice Notes on iOS/Safari</h3>
             <p><strong>The challenge:</strong> Browsers record audio in WebM/Opus format, which Safari and iOS cannot play.<br>
-            <strong>The solution:</strong> The API server pipes the uploaded audio blob through <strong>ffmpeg</strong>, transcodes it to AAC in an MP4 container, and stores only the transcoded file. All clients — including Safari — receive a universally-playable MP4 file.</p>
+            <strong>The solution:</strong> The API server pipes the uploaded audio blob through <strong>ffmpeg</strong>, transcodes it to AAC in an MP4 container, and stores only the transcoded file. All clients, including Safari, receive a universally-playable MP4 file.</p>
 
             <h3>Reliable Calls on Mobile Networks</h3>
             <p><strong>The challenge:</strong> Mobile carriers and many home routers use CGNAT, which blocks direct WebRTC peer-to-peer connections.<br>

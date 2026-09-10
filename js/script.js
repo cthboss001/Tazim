@@ -552,7 +552,7 @@ function populateSkillsCarousel() {
     tools:       { label: 'Tools',       icon: 'fa-solid fa-tools',    color: '#F472B6' }
   };
 
-  // Legend — only categories that actually have skills behind them
+  // Legend, only categories that actually have skills behind them
   Object.entries(categories).forEach(([cat, meta]) => {
     if (!portfolioData.skills[cat] || !portfolioData.skills[cat].length) return;
     const dot = document.createElement('div');

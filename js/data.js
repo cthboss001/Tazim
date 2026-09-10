@@ -6,7 +6,7 @@ const portfolioData = {
     tagline: ["Problem Solver", "Full-Stack Development"],
     heroDescription: "I build full-stack, backend, and real-time systems.",
     bio: "I'm Tazim Hossen, a computer science undergraduate at Daffodil International University. I build full-stack and real-time systems: a private messaging platform with web and native Android clients that my friends and I use every day, an e-commerce platform running my own business, and a Windows desktop application with 15 releases shipped.",
-    objective: "Most of what I know I learned by building things and then having to keep them working — ordering messages correctly when a client reconnects, getting WebRTC calls to connect on mobile carrier networks, and keeping a checkout from overselling under concurrent orders.",
+    objective: "Most of what I know I learned by building things and then having to keep them working: ordering messages correctly when a client reconnects, getting WebRTC calls to connect on mobile carrier networks, and keeping a checkout from overselling under concurrent orders.",
     email: "contact@tazim.dev",
     phone: "",
     location: "Dhaka, Bangladesh",
@@ -89,7 +89,7 @@ const portfolioData = {
   projects: [
     {
       title: "Thunder ⚡",
-      description: "A private, invite-only real-time messaging platform built end-to-end — NestJS REST + Socket.IO API, a Next.js web client, and a native Kotlin/Jetpack Compose Android app sharing the same backend contract. Includes WebRTC 1-on-1 calls with Cloudflare TURN, SFU-powered group calls, FCM push, Neon Postgres, and Cloudflare R2 storage. Features DMs, group chats, voice notes (ffmpeg-transcoded for iOS), read receipts, reactions, and self-destructing messages — all at zero hosting cost.",
+      description: "A private, invite-only real-time messaging platform built end-to-end, NestJS REST + Socket.IO API, a Next.js web client, and a native Kotlin/Jetpack Compose Android app sharing the same backend contract. Includes WebRTC 1-on-1 calls with Cloudflare TURN, SFU-powered group calls, FCM push, Neon Postgres, and Cloudflare R2 storage. Features DMs, group chats, voice notes (ffmpeg-transcoded for iOS), read receipts, reactions, and self-destructing messages, all at zero hosting cost.",
       image: "assets/images/thunder-ss1.png",
       technologies: ["NestJS", "Socket.IO", "Next.js", "TypeScript", "Kotlin", "Jetpack Compose", "WebRTC", "FCM", "PostgreSQL", "Prisma", "Cloudflare R2", "Fly.io"],
       docLink: "thunder.html",
@@ -129,7 +129,7 @@ const portfolioData = {
   ],
 
 
-  // Activities only — Thunder, IntCart, RetinaRest and MovieVault each have a
+  // Activities only, Thunder, IntCart, RetinaRest and MovieVault each have a
   // project card above, so repeating them here was the same content twice.
   experience: [
     {
@@ -179,13 +179,13 @@ const portfolioData = {
     {
       name: "Programming Contests",
       issuer: "University Contests",
-      date: "2023 — 2024",
+      date: "2023 to 2024",
       icon: "fa-solid fa-medal",
       credentialUrl: "#",
       description: "Finalist in TAKE OFF (Fall 2023) and UNLOCK THE ALGORITHM (Fall 2024)",
       links: [
-        { label: "TAKE OFF — Fall 2023 Standings", url: "https://toph.co/c/take-off-fall-23-final/standings" },
-        { label: "UNLOCK THE ALGORITHM — Fall 2024 Standings", url: "https://toph.co/c/diu-unlock-the-algorithm-fall-24-final/standings" }
+        { label: "TAKE OFF, Fall 2023 Standings", url: "https://toph.co/c/take-off-fall-23-final/standings" },
+        { label: "UNLOCK THE ALGORITHM, Fall 2024 Standings", url: "https://toph.co/c/diu-unlock-the-algorithm-fall-24-final/standings" }
       ]
     },
     {
