@@ -98,6 +98,26 @@ const portfolioData = {
       isFlagship: true
     },
     {
+      title: "Forum BD",
+      description: "A general-purpose community forum for Bangladesh, with discussion across jobs, education, technology, business, travel, health, sports and more. I detached it from its no-code starting point and rebuilt it on my own infrastructure, with database-enforced access control, member approval, voting, accepted answers, private conversations and live chat.",
+      image: "assets/images/forumbd-discussions.png",
+      technologies: ["React 19", "TanStack Start", "TypeScript", "Supabase", "PostgreSQL 17", "Tailwind CSS 4", "Vercel"],
+      docLink: "forumbd.html",
+      live: "https://forumbd.online",
+      category: ["fullstack"],
+      isFlagship: true
+    },
+    {
+      title: "texAi",
+      description: "A Windows tray app that rewrites selected text in place with a local Ollama model. Four rebindable hotkeys handle grammar, translation to English, rewriting and tone. Text stays on the machine; model choice is documented with latency and Bangla-language comparisons.",
+      image: "assets/images/texai-models.png",
+      technologies: ["C#", ".NET 8", "WPF", "Win32", "Ollama", "Inno Setup"],
+      docLink: "texai.html",
+      github: "https://github.com/cthboss001/texai",
+      category: ["desktop", "fullstack"],
+      isFlagship: true
+    },
+    {
       title: "IntCart",
       description: "E-commerce platform featuring authentication, role-based administration, product management, order processing, reviews & ratings, invoice generation, PWA support, and real-time operational features.",
       image: "assets/images/intcart1.png",
