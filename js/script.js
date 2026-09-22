@@ -110,7 +110,7 @@ function initializePortfolio() {
 
 function loadTheme() {
 
-  const theme = localStorage.getItem('theme') || 'dark';
+  const theme = localStorage.getItem('theme') || 'light';
 
   document.documentElement.setAttribute('data-theme', theme);
 
@@ -544,12 +544,12 @@ function populateSkillsCarousel() {
   legend.innerHTML = '';
 
   const categories = {
-    programming: { label: 'Languages',   icon: 'fa-solid fa-code',     color: '#00D9FF' },
-    frontend:    { label: 'Frontend',    icon: 'fa-brands fa-html5',   color: '#34D399' },
-    mobile:      { label: 'Mobile',      icon: 'fa-brands fa-android', color: '#FF6B35' },
-    backend:     { label: 'Backend',     icon: 'fa-solid fa-server',   color: '#A78BFA' },
-    database:    { label: 'Databases',   icon: 'fa-solid fa-database', color: '#F59E0B' },
-    tools:       { label: 'Tools',       icon: 'fa-solid fa-tools',    color: '#F472B6' }
+    programming: { label: 'Languages',   icon: 'fa-solid fa-code',     color: '#8a6d1f' },
+    frontend:    { label: 'Frontend',    icon: 'fa-brands fa-html5',   color: '#5b6e58' },
+    mobile:      { label: 'Mobile',      icon: 'fa-brands fa-android', color: '#8a6a3f' },
+    backend:     { label: 'Backend',     icon: 'fa-solid fa-server',   color: '#4f5d75' },
+    database:    { label: 'Databases',   icon: 'fa-solid fa-database', color: '#6b5b3e' },
+    tools:       { label: 'Tools',       icon: 'fa-solid fa-tools',    color: '#71685f' }
   };
 
   // Legend, only categories that actually have skills behind them
@@ -557,7 +557,7 @@ function populateSkillsCarousel() {
     if (!portfolioData.skills[cat] || !portfolioData.skills[cat].length) return;
     const dot = document.createElement('div');
     dot.className = 'skill-legend-item';
-    dot.innerHTML = `<span class="legend-dot" style="background:${meta.color};box-shadow:0 0 6px ${meta.color}"></span><span>${meta.label}</span>`;
+    dot.innerHTML = `<span class="legend-dot" style="background:${meta.color}"></span><span>${meta.label}</span>`;
     legend.appendChild(dot);
   });
 
