@@ -48,6 +48,8 @@
     .feature-list-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
     .feature-item { color:var(--text-secondary); display:flex; align-items:flex-start; gap:10px; }
     .feature-item i { color:var(--accent); margin-top:4px; }
+    .video-frame { position:relative; aspect-ratio:16/9; margin-top:20px; overflow:hidden; border-radius:var(--radius-md); border:1px solid var(--border-color); background:var(--bg-tertiary); }
+    .video-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
     @media(max-width:768px) { .doc-hero h1{font-size:2.5rem}.doc-content{padding:22px}.gallery,.feature-list-grid{grid-template-columns:1fr} }
   </style>
 </head>
@@ -78,6 +80,11 @@
           <div class="metric-card"><strong>29</strong><span>Database triggers</span></div>
         </div>
         <p style="margin-top:16px">The database schema is 4,357 lines. Its 26 tables are protected by row-level security policies.</p>
+      </section>
+      <section class="doc-section">
+        <h2><i class="fas fa-circle-play"></i> Video</h2>
+        <p>A short tour of Forum BD as a member sees it.</p>
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/LepAkFR0S-0" title="Forum BD: Bangladesh&#39;s all-in-one community forum" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
       </section>
       <section class="doc-section">
         <h2><i class="fas fa-layer-group"></i> Technology Stack</h2>
