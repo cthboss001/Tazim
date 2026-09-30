@@ -301,6 +301,23 @@
       line-height: 1.45;
     }
 
+    .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      margin-top: 20px;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(245, 166, 35, 0.2);
+      background: var(--bg-tertiary);
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     @media (max-width: 768px) {
       .doc-content { padding: 20px; }
       .doc-hero h1 { font-size: 2.5rem; }
@@ -377,6 +394,15 @@
             <h2><i class="fas fa-info-circle"></i> Overview</h2>
             <p><strong>Thunder</strong> is a full-stack, production-grade real-time messaging platform I built completely from scratch, including the database schema, REST API, WebSocket gateway, file storage pipeline, and the Next.js web client. It is intentionally invite-only and private.</p>
             <p>The platform supports direct messages and group chats in real time, image/file/voice note sharing, peer-to-peer voice and video calls, server-side message search, live presence and typing indicators, and an admin panel, all running at zero hosting cost.</p>
+          </div>
+
+          <!-- Video -->
+          <div class="doc-section">
+            <h2><i class="fas fa-circle-play"></i> Video</h2>
+            <p>A short tour of Thunder as a member sees it.</p>
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/gDqihhq_lBs" title="Thunder: Fast. Private. Ours." loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
           </div>
 
           <!-- Tech Stack -->
