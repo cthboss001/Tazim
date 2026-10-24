@@ -1,7 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
+    <script>
+        // Apply an explicit saved preference before styles load.
+        try {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light' || savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        } catch (_) { /* Keep the dark default when storage is unavailable. */ }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tazim Hossen | Software Engineer &amp; CSE Student</title>
 
@@ -113,7 +122,7 @@ content="https://tazim.dev/og.png">
             
             <div class="nav-actions">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
                 </button>
                 <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                     <span></span>

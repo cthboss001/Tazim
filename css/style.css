@@ -1,19 +1,20 @@
 /* ========================================
    Portfolio - CSS
    Theme: classic white and gray, one accent (terracotta)
-   Light is the default; dark is an optional toggle.
+   Dark is the default; light is an optional toggle.
    ======================================== */
 
 /* ========================================
    CSS Custom Properties
    ======================================== */
 :root {
+  color-scheme: light;
   /* Accent - used sparingly: links, buttons, active states, key numbers */
   --accent: #8a6d1f;
   --accent-hover: #6f5718;
   --accent-soft: rgba(138, 109, 31, 0.12);
 
-  /* Backgrounds - light theme (default) */
+  /* Backgrounds - light theme */
   --bg-primary: #ffffff;
   --bg-secondary: #f6f5f3;
   --bg-tertiary: #ececE8;
@@ -54,8 +55,9 @@
   --font-headings: 'Archivo', sans-serif;
 }
 
-/* Dark theme, opt-in via the toggle */
+/* Dark theme, selected by default in the page markup */
 [data-theme="dark"] {
+  color-scheme: dark;
   --accent: #d4a83f;
   --accent-hover: #e0b856;
   --accent-soft: rgba(212, 168, 63, 0.18);

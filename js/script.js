@@ -110,7 +110,7 @@ function initializePortfolio() {
 
 function loadTheme() {
 
-  const theme = localStorage.getItem('theme') || 'light';
+  const theme = document.documentElement.getAttribute('data-theme') || 'dark';
 
   document.documentElement.setAttribute('data-theme', theme);
 
