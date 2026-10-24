@@ -354,8 +354,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 430px);
+  gap: clamp(2.5rem, 6vw, 6rem);
   align-items: center;
 }
 
@@ -457,28 +457,132 @@ h1, h2, h3, h4, h5, h6 {
 .hero-image {
   display: flex;
   justify-content: center;
+  min-width: 0;
+}
+
+.portrait {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  margin: 0;
+  padding: 0 12px 20px 0;
+  isolation: isolate;
+  animation: fadeInRight 0.8s ease-out;
+}
+
+.portrait::before {
+  content: '';
+  position: absolute;
+  inset: 12% -15% 0;
+  z-index: -1;
+  background: radial-gradient(ellipse, var(--accent-soft), transparent 68%);
+  pointer-events: none;
+}
+
+.portrait-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.portrait-kicker > span {
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.portrait-card {
+  position: relative;
+  border: 1px solid var(--border-color);
+  border-radius: 88px 14px 14px 14px;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-lg);
+}
+
+.portrait-card::before {
+  content: '';
+  position: absolute;
+  inset: 13px -13px -13px 13px;
+  z-index: -1;
+  border: 1px solid var(--accent);
+  border-radius: inherit;
+  opacity: 0.45;
+  transition: transform var(--transition-base);
 }
 
 .image-wrapper {
-  position: relative;
   width: 100%;
-  max-width: 480px;
-  aspect-ratio: 1 / 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 87px 13px 0 0;
+  background: var(--bg-tertiary);
 }
 
 .image-wrapper img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: bottom center;
-  position: relative;
-  z-index: 3;
-  /* Fade the bottom so the cutout blends into the page instead of a hard edge */
-  -webkit-mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 76%, transparent 100%);
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.portrait-card:hover .image-wrapper img {
+  transform: scale(1.035);
+}
+
+.portrait-card:hover::before {
+  transform: translate(3px, 3px);
+}
+
+.portrait-caption {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  text-align: left;
+}
+
+.portrait-caption p {
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.portrait-caption p > span {
+  color: var(--accent);
+}
+
+.portrait-location {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-bottom: 0.15rem;
+  color: var(--text-secondary);
+  font-size: 0.63rem;
+  white-space: nowrap;
+}
+
+.portrait-location i {
+  color: var(--accent);
+}
+
+.portrait-coordinate {
+  position: absolute;
+  right: 26px;
+  bottom: -0.6rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
 }
 
 .scroll-indicator {
@@ -1714,6 +1818,8 @@ h1, h2, h3, h4, h5, h6 {
 
   .hero-text { order: 2; }
   .hero-image { order: 1; }
+  .hero-description { margin-inline: auto; }
+  .portrait { max-width: 350px; }
 
   .hero-buttons,
   .hero-social { justify-content: center; }
@@ -1786,12 +1892,11 @@ h1, h2, h3, h4, h5, h6 {
   .hero-title { font-size: 1.2rem; min-height: 2rem; justify-content: center; }
   .hero-description { font-size: 0.95rem; margin-bottom: 1.5rem; }
 
-  .image-wrapper {
-    width: 100%;
-    max-width: 340px;
-    height: auto;
-    margin: 0 auto;
-  }
+  .portrait { max-width: 310px; }
+  .portrait-kicker { font-size: 0.58rem; margin-bottom: 0.75rem; }
+  .portrait-caption { padding: 0.9rem 1rem; gap: 0.5rem; }
+  .portrait-caption p { font-size: 0.95rem; }
+  .portrait-location { font-size: 0.58rem; }
 
   .hero {
     padding: 75px 0 2rem;
@@ -1894,7 +1999,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 400px) {
   .hero-name { font-size: 2rem; }
   .hero-title { font-size: 1rem; }
-  .image-wrapper { width: 100%; max-width: 260px; height: auto; }
+  .portrait { max-width: 280px; }
   .section-title { font-size: 1.4rem; }
 }
 

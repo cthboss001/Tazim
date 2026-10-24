@@ -59,7 +59,7 @@ content="https://tazim.dev/og.png">
     "@id":"https://tazim.dev/#person",
     "name":"Tazim Hossen",
     "url":"https://tazim.dev/",
-    "image":"https://tazim.dev/assets/images/unnamed.png",
+    "image":"https://tazim.dev/assets/images/tazim-lounge-portrait.webp",
     "jobTitle":"Computer Science Student",
     "affiliation":{"@type":"CollegeOrUniversity","name":"Daffodil International University"},
     "sameAs":[
@@ -97,7 +97,7 @@ content="https://tazim.dev/og.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=portrait-20261024">
 </head>
 <body>
 
@@ -163,9 +163,19 @@ content="https://tazim.dev/og.png">
                     </div>
                 </div>
                 <div class="hero-image">
-                    <div class="image-wrapper" id="image-wrapper">
-                        <img src="assets/images/unnamed.png" alt="Profile" id="profile-image" loading="lazy">
-                    </div>
+                    <figure class="portrait">
+                        <div class="portrait-kicker"><span aria-hidden="true"></span> A face behind the code</div>
+                        <div class="portrait-card">
+                            <div class="image-wrapper" id="image-wrapper">
+                                <img src="assets/images/tazim-lounge-portrait.webp" alt="Tazim Hossen seated in a sunlit study lounge" id="profile-image" width="908" height="908" fetchpriority="high">
+                            </div>
+                            <figcaption class="portrait-caption">
+                                <p>Always curious.<br><span>Always building.</span></p>
+                                <span class="portrait-location"><i class="fas fa-location-dot" aria-hidden="true"></i> Dhaka, Bangladesh</span>
+                            </figcaption>
+                        </div>
+                        <span class="portrait-coordinate" aria-hidden="true">&lt; hello, world /&gt;</span>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -397,7 +407,7 @@ content="https://tazim.dev/og.png">
     <div class="scroll-progress" id="scroll-progress"></div>
 
     <!-- Scripts -->
-    <script src="js/data.js"></script>
+    <script src="js/data.js?v=portrait-20261024"></script>
     <script src="js/script.js"></script>
     <script src="js/visitors.js"></script>
 

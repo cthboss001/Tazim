@@ -10,7 +10,7 @@ const portfolioData = {
     email: "contact@tazim.dev",
     phone: "",
     location: "Dhaka, Bangladesh",
-    profileImage: "assets/images/unnamed.png",
+    profileImage: "assets/images/tazim-lounge-portrait.webp",
     resumeLink: "assets/Tazim_Hossen_Resume.html",
     social: {
       github: "https://github.com/cthboss001",
